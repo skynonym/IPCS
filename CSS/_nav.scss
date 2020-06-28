@@ -1,0 +1,276 @@
+nav {
+  @include flex(row, space-between, center);
+  background: white;
+  font-family: $font-normal;
+  font-weight: 300;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 70px;
+  background: white;
+  padding: 0 1%;
+  z-index: 5;
+  transition: top .8s;
+
+  .logo {
+    flex: 1 1 300px;
+    @include flex(row, flex-start, center);
+
+    img {
+      height: 40px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+      transition: width .5s, height .5s;
+    }
+
+    h3 {
+      color: $main-blue;
+      font-size: $h3;
+      font-weight: 400;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      transition: font-size .5s;
+    }
+  }
+
+  .menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  ul.big-list {
+    flex: 1 1 600px;
+
+    @include flex(row, stretch, center);
+
+    a {
+      color: $main-lightgray;
+      font-size: $normal;
+      display: inline-block;
+      text-align: center;
+      height: 70px;
+      transition: all .2s;
+
+      &:hover {
+        background: $main-green;
+        color: white;
+      }
+    }
+  }
+
+  li.list-item {
+    height: 30px;
+    display: inline-block;
+    padding: 20px;
+    margin-top: 17px;
+    line-height: 0px
+  }
+
+  .border-right {
+    border-right: solid 0.5px $sec-lightgray;
+  }
+
+  .border-left {
+    border-left: solid 0.5px $sec-lightgray;
+  }
+
+  .border-right.green {
+    border-right: solid 0.5px $main-green;
+  }
+
+  .border-left.green {
+    border-left: solid 0.5px $main-green;
+  }
+
+  .border-right.whiteRight {
+    border-right: solid 0.5px white;
+  }
+
+  .border-left.whiteLeft {
+    border-left: solid 0.5px white;
+  }
+}
+
+// #MOBILE
+.mobile-nav__container {
+  transition: opacity .5s;
+
+}
+
+.burger__container {
+  position: fixed;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(73, 73, 73, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  transition: all 1s;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+  transition: top .8s;
+}
+
+.burger {
+  @include flex(column, stretch, center);
+  pointer-events: none;
+
+
+  .line {
+    background: $main-green;
+    width: 40px;
+    height: 4px;
+    border-radius: 3px;
+    transition: transform 1s, opacity 1s;
+
+
+    &:nth-child(2) {
+      margin: 6px 0;
+      opacity: 1;
+    }
+  }
+}
+
+.burger .line:nth-child(2).bye {
+  opacity: 0;
+}
+
+.burger .line:nth-child(1).tilt-right {
+  transform: rotateZ(50deg) translateY(170%) translateX(7px);
+}
+
+.burger .line:nth-child(3).tilt-left {
+  transform: rotateZ(-50deg) translateY(-170%) translateX(7px);
+}
+
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  background: $main-light;
+  right: 10px;
+  top: 70px;
+  transform: translateY(-100%);
+  transition: transform .8s ease-in-out, top .8s;
+  z-index: 1;
+  border-radius: 0 0 5px 5px;
+
+  ul {
+    @include flex(column, center, flex-start);
+  }
+
+  a {
+    color: $main-dark;
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+    font-family: $font-normal;
+    font-weight: 300;
+
+    &:hover {
+      @include theme(green);
+    }
+
+    &:nth-child(6):hover {
+      border-radius: 0 0 5px 5px;
+    }
+  }
+
+  li {
+    margin: 7px;
+  }
+}
+
+
+// #MEDIA QUERIES
+
+@media (max-width: 1360px) {
+  nav .logo h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  nav .menu {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .burger__container {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  .mobile-nav.open {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1155px) {
+  nav .logo {
+    margin-top: 8px;
+    transform: margin-top .5s;
+  }
+}
+
+@media (max-width: 800px) {
+  nav .logo {
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    img {
+      height: 30px;
+    }
+  }
+
+  .burger__container {
+    margin-right: 5px;
+  }
+
+  .burger .line {
+    // width: 30px;
+    // height: 3px;
+    // transition: width .5s, height .5s;
+
+    &:nth-child(2) {
+      margin: 5px 0;
+    }
+  }
+
+  .burger .line {
+    transition: transform 1s, opacity 1s;
+  }
+
+  .burger .line:nth-child(1).tilt-right {
+    transform: rotateZ(50deg) translateY(100%) translateX(7px);
+
+  }
+}
+
+@media (max-width: 450px) {
+  nav .logo a {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+
+    img {
+      margin: auto;
+    }
+
+    h3 {
+      grid-column: 2/3;
+    }
+  }
+}

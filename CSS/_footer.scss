@@ -1,0 +1,42 @@
+footer {
+  grid-area: foot;
+  @include flex(row, flex-end, center);
+  background-color: $main-dark;
+  color: $sec-lightgray;
+  font-size: $small;
+  font-family: $font-normal;
+  font-weight: 300;
+  padding: 10px 3%;
+
+  .left {
+    margin-right: 30px;
+    position: relative;
+    width: 350px;
+    text-align: right;
+  }
+
+  .left::after {
+    content: "";
+    width: 1px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    right: -15px;
+    background: $sec-lightgray;
+  }
+}
+
+// #MEDIA QUERIES
+@media (max-width: 746px) {
+  footer {
+    @include flex (column, center, flex-end);
+
+    .left {
+      margin: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+$main-green: #0f979b;
+$main-yellow: #ffc302;
+$sec-yellow: #EDB500;
+$main-pink: #ff5975;
+$main-dark: #323235;
+$main-lightgray: #7b7b7b;
+$sec-lightgray: #ababab;
+$main-light: #DBDBDB;
+$sec-green: #009240;
+$main-blue: #03539B;
+
+$font-logo: "Niramit",
+sans-serif;
+// $font-normal: "Kanit",
+// sans-serif;
+$font-normal: "Mitr",
+sans-serif;
+
+$logo: 3rem;
+$xl: 6rem;
+$h1: 3rem;
+$h2: 3rem;
+$h3: 1.3rem;
+$normal: 1rem;
+$small: 0.8rem;
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin head-text($color) {
+  font-size: $h1;
+  font-family: $normal;
+  color: $color;
+}
+
+@mixin theme($color) {
+  font-family: $font-normal;
+  font-weight: 300;
+
+  @if($color==green) {
+    background: $main-green;
+    color: white;
+  }
+
+  @else if($color==white) {
+    background: white;
+    color: $main-dark;
+  }
+
+  @else if($color==gray) {
+    background: $main-light;
+    color: $main-dark;
+  }
+}
+
+//#GLOBAL STYLE
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  outline: 0;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+_ html {
+  font-size: 62.5%;
+}
