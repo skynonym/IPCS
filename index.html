@@ -26,11 +26,19 @@
       href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    <!-- Charts -->
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/style.css" />
     <!--JS-->
     <script src="./JS/nav.js" defer></script>
+    <script src="./JS/overall.js" defer></script>
+    <script src="./JS/chem.js" defer></script>
+    <script src="./JS/select.js" defer></script>
   </head>
 
   <body>
@@ -67,7 +75,7 @@
         </ul>
       </div>
     </nav>
-    <!-- @burger -->
+    <!-- *burger -->
     <div class="mobile-nav__container">
       <div class="burger__container">
         <ul class="burger">
@@ -107,15 +115,16 @@
 
     <!-- #MAIN -->
     <main>
+      <!-- @OVERALL SECTION -->
       <section id="overall">
-        <!-- @left -->
+        <!-- *left -->
         <div class="left__container">
           <div class="title__container">
             <h1>ศูนย์เฝ้าระวัง</h1>
             <h1>ด้านสารเคมีแห่งชาติ</h1>
 
             <p>เขตสุขภาพที่ 1</p>
-            <p>(เชียงใหม่ เชียงราย ลำพูน ลำปาง แพร่ น่าน พะเยา แม่ฮ่องสอน)</p>
+            <p>(เชียงใหม่ เชียงราย ลำพูน ลำปาง น่าน แพร่ พะเยา แม่ฮ่องสอน)</p>
           </div>
           <div class="logo__container">
             <ul>
@@ -151,7 +160,7 @@
             </ul>
           </div>
         </div>
-        <!-- @right -->
+        <!-- @*right -->
         <div class="right__container">
           <div class="box">
             <!-- *users -->
@@ -166,7 +175,7 @@
             </div>
             <!-- *chem -->
             <div class="quantity__box">
-              <p>ปริมาณสารเคมีอันตราย (ตัน)</p>
+              <p>ปริมาณสารเคมีอันตราย* (ตัน)</p>
               <h1>3,829</h1>
             </div>
             <div class="patient__box">
@@ -174,10 +183,52 @@
               <h1>1,306</h1>
             </div>
           </div>
+          <p class="note">
+            *ได้แก่สารพาราควอต ไกลโฟเซต และคลอร์ไพริฟอส
+          </p>
         </div>
         <img src="./images/world(1).png" alt="" class="bg-img" />
       </section>
-      <section id="chem"></section>
+
+      <!-- @CHEM SECTION -->
+      <section id="chem">
+        <!-- *groups -->
+        <div class="chem-group__container">
+          <h1>การใช้สารเคมีทางการเกษตร</h1>
+          <div id="prov-options"></div>
+          <!-- <div id="dd1"></div> -->
+          <!-- <div class="pro-opt__container">
+            <div class="pro-opt__box">
+              <div class="pro-opt__first">
+                <span class="pro-opt__title">เลือกจังหวัด</span>
+                <span class="pro-opt__arrow">
+                  <img src="./images/arrow.svg" alt="" />
+                </span>
+              </div>
+              <div class="pro-opts-1">
+                <span class="pro-opt">เชียงใหม่</span>
+                <span class="pro-opt">เชียงราย</span>
+                <span class="pro-opt">ลำพูน</span>
+                <span class="pro-opt">ลำปาง</span>
+                <span class="pro-opt">น่าน</span>
+                <span class="pro-opt">แพร่</span>
+                <span class="pro-opt">พะเยา</span>
+                <span class="pro-opt">แม่ฮ่องสอน</span>
+              </div>
+            </div>
+          </div> -->
+          <div class="pie__container">
+            <div id="piechart" style="width: 900px; height: 500px;"></div>
+          </div>
+        </div>
+        <!-- *types -->
+        <div class="chem-type__container">
+          <h2>การครอบครองสารอันตรายทางการเกษตร</h2>
+          <div class="column__container">
+            <div id="top_x_div" style="width: 800px; height: 600px;"></div>
+          </div>
+        </div>
+      </section>
       <section id="users"></section>
       <section id="stores"></section>
       <section id="gap"></section>

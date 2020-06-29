@@ -31,7 +31,7 @@ nav {
   height: 70px;
   background: white;
   padding: 0 1%;
-  z-index: 5;
+  z-index: 100;
   transition: top .8s; }
   nav .logo {
     flex: 1 1 300px;
@@ -226,9 +226,10 @@ main {
 
 #overall {
   background: #323235;
-  min-height: 60vh;
+  min-height: 50vh;
   position: relative;
-  padding: 20px 30px 40px 20px;
+  overflow: hidden;
+  padding: 20px 3% 50px 3%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -239,7 +240,7 @@ main {
     user-select: none;
     position: absolute;
     top: -50px;
-    left: -250px;
+    left: -350px;
     bottom: 0;
     pointer-events: none; }
   #overall .left__container {
@@ -277,8 +278,10 @@ main {
       padding: 5px;
       width: 90px;
       height: 90px;
-      text-align: center; }
-    #overall .logo__container ul a:not(:nth-child(1)) li {
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.5s; }
+    #overall .logo__container ul a:not(:nth-child(1)) {
       margin-left: 15px; }
     #overall .logo__container ul a:nth-child(1) img,
     #overall .logo__container ul a:nth-child(4) img {
@@ -288,36 +291,316 @@ main {
     #overall .logo__container ul a:nth-child(3) img {
       width: 90%; }
   #overall .right__container {
-    flex: 1.3 1 50px; }
+    flex: 1.3 1 50px;
+    font-family: "Mitr", sans-serif; }
   #overall .box {
     color: white;
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-gap: 20px 20px; }
+    grid-template-rows: repeat(2, 130px);
+    grid-template-columns: 300px repeat(2, 200px);
+    grid-gap: 20px 20px;
+    font-weight: 300; }
+    #overall .box > div {
+      border-radius: 10px;
+      text-align: center;
+      padding: 1rem; }
+      #overall .box > div h1 {
+        font-weight: 400;
+        display: block; }
   #overall .user__box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     grid-row: 1 / 3;
     grid-column: 1 / 2;
     background: #0f979b; }
+    #overall .user__box:hover {
+      background: linear-gradient(135deg, #16cfb0, #0f979b, #06627e);
+      background-size: 50rem;
+      animation: btn-bg 2s ease-in-out infinite alternate; }
+    #overall .user__box p {
+      font-size: 1.8rem; }
+    #overall .user__box h1 {
+      font-size: 4rem; }
   #overall .store__box {
     grid-row: 1 / 2;
     grid-column: 2 / 4;
     background: #EDB500; }
+    #overall .store__box:hover {
+      background: linear-gradient(135deg, #ffd000, #EDB500, #da8312);
+      background-size: 50rem;
+      animation: btn-bg 2s ease-in-out infinite alternate; }
+    #overall .store__box p {
+      font-size: 1.3rem; }
+    #overall .store__box h1 {
+      font-size: 3rem; }
   #overall .quantity__box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     background: #009240; }
+    #overall .quantity__box:hover {
+      background: linear-gradient(135deg, #476b04, #009240, #046b31);
+      background-size: 50rem;
+      animation: btn-bg 2s ease-in-out infinite alternate; }
   #overall .patient__box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     grid-row: 2 / 3;
     grid-column: 3 / 4;
     background: #ff5975; }
+    #overall .patient__box:hover {
+      background: linear-gradient(135deg, #df5399, #ff5975, #e44b4b);
+      background-size: 50rem;
+      animation: btn-bg 2s ease-in-out infinite alternate; }
+  #overall .quantity__box p,
+  #overall .patient__box p {
+    font-size: "Mitr", sans-serif; }
+  #overall .quantity__box h1,
+  #overall .patient__box h1 {
+    font-size: 1.8rem; }
+  #overall p.note {
+    color: #7b7b7b;
+    font-weight: 300;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 20px; }
 
+@keyframes btn-bg {
+  from {
+    background-position: left; }
+  to {
+    background-position: right; } }
+@media (max-width: 1295px) {
+  #overall .title__container h1 {
+    font-size: calc(2.2rem + 1vw); }
+    #overall .title__container h1:nth-child(2) {
+      text-indent: 2rem;
+      margin-bottom: 1rem; }
+  #overall .box {
+    grid-template-rows: repeat(auto-fit, 150px);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 15px 15px; }
+  #overall .user__box {
+    grid-row: auto;
+    grid-column: auto; }
+    #overall .user__box p {
+      font-size: calc(0.5rem + 1vw); }
+    #overall .user__box h1 {
+      font-size: calc(1.5rem + 1.5vw); }
+  #overall .store__box {
+    grid-row: auto;
+    grid-column: auto; }
+    #overall .store__box p {
+      font-size: calc(0.5rem + 1vw); }
+    #overall .store__box h1 {
+      font-size: calc(1.5rem + 1.5vw); }
+  #overall .quantity__box,
+  #overall .patient__box {
+    grid-row: auto;
+    grid-column: auto; }
+    #overall .quantity__box p,
+    #overall .patient__box p {
+      font-size: calc(0.5rem + 1vw); }
+    #overall .quantity__box h1,
+    #overall .patient__box h1 {
+      font-size: calc(1.5rem + 1.5vw); } }
+@media (max-width: 1190px) {
+  #overall .left__container {
+    flex: 1.5 1 50px; }
+  #overall .right__container .box {
+    grid-template-rows: repeat(auto-fit, 120px);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    grid-gap: 10px 10px; }
+    #overall .right__container .box > div {
+      padding: 5px; } }
+@media (max-width: 950px) {
+  #overall .left__container {
+    flex: 2 1 50px; }
+  #overall .logo__container ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center; }
+    #overall .logo__container ul li {
+      width: calc(70px + 1.5vw);
+      height: calc(70px + 1.5vw); }
+    #overall .logo__container ul a:not(:nth-child(1)) {
+      margin-left: 10px; } }
+@media (max-width: 845px) {
+  #overall {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px; }
+    #overall .title__container p:nth-child(4) {
+      margin-bottom: 0.5rem; }
+    #overall .logo__container ul {
+      margin-left: 0rem;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; }
+    #overall .right__container {
+      margin-top: 20px; }
+      #overall .right__container .box {
+        grid-template-rows: repeat(2, 100px);
+        grid-template-columns: repeat(2, minmax(200px, 300px));
+        grid-gap: 15px 15px;
+        margin-bottom: 1rem; }
+        #overall .right__container .box > div {
+          padding: 5px; }
+    #overall .store__box {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; } }
+@media (max-width: 480px) {
+  #overall .title__container {
+    margin: 1rem 0; }
+    #overall .title__container h1 {
+      line-height: 4rem; }
+      #overall .title__container h1:nth-child(2) {
+        text-indent: 0rem;
+        margin-bottom: 0.5rem; }
+    #overall .title__container p {
+      text-indent: 0rem; }
+      #overall .title__container p:nth-child(4) {
+        margin-bottom: 1rem; }
+  #overall .right__container {
+    margin-top: 20px; }
+    #overall .right__container .box {
+      grid-template-rows: repeat(3, 110px);
+      grid-template-columns: repeat(2, minmax(80px, 400px));
+      grid-gap: 10px 10px; }
+  #overall .user__box {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3; }
+    #overall .user__box p {
+      font-size: calc(1rem); }
+  #overall .store__box {
+    grid-row: 2 / 3;
+    grid-column: 1 /2; }
+    #overall .store__box p {
+      font-size: calc(1rem); }
+  #overall .quantity__box {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3; }
+    #overall .quantity__box p {
+      font-size: calc(1rem); }
+  #overall .patient__box {
+    grid-row: 3 / 4;
+    grid-column: 1 / 3; }
+    #overall .patient__box p {
+      font-size: calc(1rem); } }
 #chem {
   font-family: "Mitr", sans-serif;
   font-weight: 300;
   background: white;
   color: #323235;
-  min-height: 60vh; }
+  min-height: 60vh;
+  padding: 4%; }
+  #chem .chem-group__container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    #chem .chem-group__container h1 {
+      font-size: 1.8rem;
+      font-family: "Mitr", sans-serif;
+      color: #0f979b;
+      font-weight: 400; }
+
+#prov-options {
+  margin: 1.5rem 0;
+  position: relative;
+  border-radius: 3px;
+  color: #7b7b7b;
+  width: 150px; }
+
+.prov-first {
+  text-align: center;
+  position: relative;
+  border: solid 1px #ababab;
+  border-radius: 3px;
+  padding: 0.5em 1rem;
+  background: white;
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+
+.prov-first.radius {
+  border-radius: 3px 3px 0px 0px; }
+
+.dropdown-value {
+  display: inline-block;
+  width: 85%;
+  text-align: center; }
+
+.dropdown__panel {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 300px;
+  overflow: hidden;
+  pointer-events: none; }
+
+.dropdown__items {
+  background: white;
+  border: solid 1px #ababab;
+  border-top: none;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  height: 180px;
+  cursor: pointer;
+  transform: translate(0px, -200px);
+  transition: transform 0.5s ease-out;
+  pointer-events: all;
+  border-radius: 0px 0px 3px 3px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  pointer-events: all; }
+  .dropdown__items::-webkit-scrollbar {
+    width: 5px; }
+  .dropdown__items::-webkit-scrollbar-thumb {
+    background: #7b7b7b;
+    border-radius: 2px; }
+  .dropdown__items::-webkit-scrollbar-track {
+    background: #e3e3e3; }
+
+.dropdowm__item {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  padding: 5px 0; }
+  .dropdowm__item:hover {
+    background: #ffc302;
+    color: #323235; }
+
+.dropdown-arrow img {
+  transition: transform 0.5s; }
 
 #users {
   font-family: "Mitr", sans-serif;
