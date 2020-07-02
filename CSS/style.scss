@@ -23,30 +23,15 @@ main {
   background: $main-dark;
 }
 
-@import "overall";
-@import "chem";
 @import "select-box";
 
-// @users
-#users {
-  @include theme(green);
-  min-height: 60vh;
-}
+@import "overall";
+@import "chem";
+@import "user";
+@import "store";
+@import "gap";
+@import "impacts";
 
-// @stores
-#store {
-  @include theme(gray);
-}
-
-// @gap
-#gap {
-  @include theme(green);
-}
-
-// @impacts
-#impacts {
-  @include theme(white);
-}
 
 // #FOOTER
 @import "footer";

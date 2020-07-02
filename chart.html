@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"
+    />
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <style>
+      .wrapper {
+        width: 600px;
+        height: 600px;
+        background-color: azure;
+      }
+
+      #example {
+        width: 600px;
+      }
+    </style>
+
+    <div class="wrapper"><canvas id="example"></canvas></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+    <script>
+      let chart = document.getElementById("example").getContext("2d");
+      let labels = ["Chem1", "Chem2"];
+      let colorHex = ["#FB3640", "#EFCA08"];
+      let myChart = new Chart(chart, {
+        type: "pie",
+        data: {
+          datasets: [
+            {
+              data: [30, 10],
+              backgroundColor: colorHex,
+            },
+          ],
+          labels: labels,
+        },
+        options: {
+          responsive: true,
+          legend: {
+            position: "bottom",
+          },
+          plugins: {
+            datalabels: {
+              color: "#fff",
+              anchor: "end",
+              align: "start",
+              offset: -10,
+              borderWidth: 2,
+              borderColor: "#fff",
+              borderRadius: 25,
+              backgroundColor: (context) => {
+                return context.dataset.backgroundColor;
+              },
+              font: {
+                weight: "bold",
+                size: "10",
+              },
+              formatter: (value) => {
+                return value + " %";
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

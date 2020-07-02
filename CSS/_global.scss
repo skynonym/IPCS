@@ -23,6 +23,10 @@ $h3: 1.3rem;
 $normal: 1rem;
 $small: 0.8rem;
 
+$normal-800: calc(0.7rem + 0.5vw);
+$h1-800: calc(1.2rem + 1vw);
+$h2-800: calc(0.9rem + 1vw);
+
 @mixin flex($direction, $justify, $align) {
   display: flex;
   flex-wrap: wrap;
@@ -36,6 +40,7 @@ $small: 0.8rem;
   font-family: $font-normal;
   color: $color;
   font-weight: 400;
+  transition: font-size 0.5s;
 }
 
 @mixin theme($color) {
@@ -71,4 +76,5 @@ $small: 0.8rem;
 
 _ html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }

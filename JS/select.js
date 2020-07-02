@@ -1,4 +1,3 @@
-// #constructure function
 function Dropdown(opt) {
   this.options = opt;
 
@@ -82,7 +81,7 @@ function Dropdown(opt) {
   return this;
 }
 
-const opts1 = new Dropdown({
+const optsOne = new Dropdown({
   id: "prov-options",
   val: "ภาพรวม",
   data: [

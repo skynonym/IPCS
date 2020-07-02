@@ -26,6 +26,12 @@
       href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
     <!-- Charts -->
     <script
       type="text/javascript"
@@ -38,7 +44,10 @@
     <script src="./JS/nav.js" defer></script>
     <script src="./JS/overall.js" defer></script>
     <script src="./JS/chem.js" defer></script>
+    <script src="./JS/user.js" defer></script>
     <script src="./JS/select.js" defer></script>
+    <script src="./JS/select.js" defer></script>
+    <script src="./JS/gap.js" defer></script>
   </head>
 
   <body>
@@ -196,42 +205,156 @@
         <div class="chem-group__container">
           <h1>การใช้สารเคมีทางการเกษตร</h1>
           <div id="prov-options"></div>
-          <!-- <div id="dd1"></div> -->
-          <!-- <div class="pro-opt__container">
-            <div class="pro-opt__box">
-              <div class="pro-opt__first">
-                <span class="pro-opt__title">เลือกจังหวัด</span>
-                <span class="pro-opt__arrow">
-                  <img src="./images/arrow.svg" alt="" />
-                </span>
-              </div>
-              <div class="pro-opts-1">
-                <span class="pro-opt">เชียงใหม่</span>
-                <span class="pro-opt">เชียงราย</span>
-                <span class="pro-opt">ลำพูน</span>
-                <span class="pro-opt">ลำปาง</span>
-                <span class="pro-opt">น่าน</span>
-                <span class="pro-opt">แพร่</span>
-                <span class="pro-opt">พะเยา</span>
-                <span class="pro-opt">แม่ฮ่องสอน</span>
+          <div class="pie__container">
+            <div class="only-pie">
+              <div id="piechart"></div>
+              <div class="description">
+                <div class="org">
+                  <span class="color"></span>
+                  <p>Organophosphate & Carbamate (ตัน)</p>
+                </div>
+                <div class="herb">
+                  <span class="color">Herbicides (ตัน)</span>
+                  <p></p>
+                </div>
               </div>
             </div>
-          </div> -->
-          <div class="pie__container">
-            <div id="piechart" style="width: 900px; height: 500px;"></div>
+            <!-- *more info -->
+            <div id="info" class="info__box">
+              <div class="content"></div>
+              <button class="closeBtn">ปิด</button>
+            </div>
+            <img src="./images/clickme.png" alt="" class="clickme click-pie" />
           </div>
         </div>
         <!-- *types -->
         <div class="chem-type__container">
           <h2>การครอบครองสารอันตรายทางการเกษตร</h2>
           <div class="column__container">
-            <div id="top_x_div" style="width: 800px; height: 600px;"></div>
+            <div class="onlyColumn">
+              <div id="typeColumn"></div>
+            </div>
+            <!-- *more info -->
+            <div id="info-types" class="info__box">
+              <div class="content"></div>
+              <button class="closeBtn">ปิด</button>
+            </div>
+            <img src="./images/clickme.png" alt="" class="clickme click-bar" />
           </div>
         </div>
       </section>
-      <section id="users"></section>
+
+      <!-- @USER SECTION -->
+      <section id="users">
+        <h1 class="title">จำนวนผู้ใช้สารเคมีทางการเกษตร</h1>
+        <div class="user__content">
+          <div class="total">
+            <h2>ประชากร (คน)</h2>
+            <div class="numbers">
+              <p>5.88 ล้าน</p>
+            </div>
+          </div>
+          <div class="farmers">
+            <h2>เกษตรกร (คน)</h2>
+            <div class="numbers">
+              <p>827,117</p>
+            </div>
+          </div>
+          <div class="users">
+            <h2>ผู้ใช้สารเคมี (คน)</h2>
+            <div class="numbers">
+              <p>62,791</p>
+            </div>
+          </div>
+        </div>
+        <div class="table" id="userTable">
+          <div class="img__container">
+            <img src="./images/users.svg" alt="" class="img-user" />
+          </div>
+          <div class="table__container">
+            <h2 class="title">
+              ตารางเปรียบเทียบจำนวนผู้ใช้สารเคมีแต่ละจังหวัด
+            </h2>
+            <table>
+              <tr class="top">
+                <th></th>
+                <th>จำนวนประชากร</th>
+                <th>จำนวนเกษตรกร</th>
+                <th>จำนวนผู้ใช้งานสารเคมี</th>
+              </tr>
+              <tr>
+                <th>เชียงใหม่</th>
+                <td>1,764,000</td>
+                <td>180,459</td>
+                <td>13,721</td>
+              </tr>
+              <tr>
+                <th>เชียงราย</th>
+                <td>1,292,000</td>
+                <td>167,903</td>
+                <td>7,499</td>
+              </tr>
+              <tr>
+                <th>พะเยา</th>
+                <td>475,215</td>
+                <td>80,997</td>
+                <td>4,684</td>
+              </tr>
+              <tr>
+                <th>แพร่</th>
+                <td>445,090</td>
+                <td>73,292</td>
+                <td>6,740</td>
+              </tr>
+              <tr>
+                <th>ลำพูน</th>
+                <td>405,955</td>
+                <td>64,209</td>
+                <td>8,390</td>
+              </tr>
+              <tr>
+                <th>ลำปาง</th>
+                <td>742,883</td>
+                <td>126,289</td>
+                <td>7,655</td>
+              </tr>
+              <tr>
+                <th>น่าน</th>
+                <td>478,989</td>
+                <td>88,280</td>
+                <td>12,355</td>
+              </tr>
+              <tr>
+                <th>แม่ฮ่องสอน</th>
+                <td>284,138</td>
+                <td>45,688</td>
+                <td>1,747</td>
+              </tr>
+              <tr class="total">
+                <th>รวม</th>
+                <td>5,888,270</td>
+                <td>827,117</td>
+                <td>62,791</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- @STORE SECTION -->
       <section id="stores"></section>
-      <section id="gap"></section>
+      <!-- @GAP SECTION -->
+      <section id="gap">
+        <h1 class="title">ข้อมูลการจดทะเบียนรับรองแหล่งผลิต GAP</h1>
+        <div class="desc__container">
+          <div class="desc__text"></div>
+          <div class="desc__img"></div>
+        </div>
+        <div class="gap-graph__container">
+          <div id="curve_chart"></div>
+        </div>
+      </section>
+      <!-- @IMPACT SECTION -->
       <section id="impacts"></section>
     </main>
 

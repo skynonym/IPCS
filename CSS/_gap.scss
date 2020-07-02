@@ -1,0 +1,21 @@
+#gap {
+  @include theme(green);
+  min-height: 50vh;
+  padding: 4%;
+
+  h1.title {
+    @include head-text(white);
+    margin-bottom: 2rem;
+  }
+
+  .gap-graph__container {
+    width: 70%;
+    margin: auto;
+
+  }
+
+  .curve_chart {
+    width: calc(170px + 17vw);
+    height: calc(170px + 17vw);
+  }
+}

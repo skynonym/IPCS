@@ -6,25 +6,41 @@ const burger = document.querySelector(".burger__container");
 const burgerLine = burger.querySelectorAll(".line");
 
 // #Scroll
+const topSection = document.getElementById("top");
 let prevScroll = window.pageYOffset;
 const navBar = document.querySelector("nav");
-window.onscroll = () => {
-  let currentScroll = window.pageYOffset;
-  if (prevScroll > currentScroll) {
-    navBar.style.top = "0";
-    burger.style.top = "15px";
-    mobileMenu.style.top = "70px";
-  } else {
-    if (mobileMenu.classList.contains("open")) {
-      openNavHandler();
-    }
-    navBar.style.top = "-70px";
-    burger.style.top = "-70px";
-    mobileMenu.style.top = "-70px";
-  }
 
-  prevScroll = currentScroll;
-};
+const navbarObserver = new IntersectionObserver(function (entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      window.onscroll = () => {
+        navBar.style.top = "0";
+        burger.style.top = "15px";
+        mobileMenu.style.top = "70px";
+      };
+    } else {
+      window.onscroll = () => {
+        let currentScroll = window.pageYOffset;
+        if (prevScroll > currentScroll) {
+          navBar.style.top = "0";
+          burger.style.top = "15px";
+          mobileMenu.style.top = "70px";
+        } else {
+          if (mobileMenu.classList.contains("open")) {
+            openNavHandler();
+          }
+          navBar.style.top = "-70px";
+          burger.style.top = "-70px";
+          mobileMenu.style.top = "-70px";
+        }
+
+        prevScroll = currentScroll;
+      };
+    }
+  });
+});
+
+navbarObserver.observe(topSection);
 
 // #EVENTS
 addEventListener("DOMContentLoaded", mediaQuery);
