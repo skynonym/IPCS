@@ -62,6 +62,8 @@ function Dropdown(opt) {
     this.hide();
     let newVal = elem.innerHTML;
     this.value.innerHTML = newVal;
+
+    if (this.options.cb) this.options.cb(newVal);
   };
   this.show = () => {
     this.isVisible = true;
@@ -95,4 +97,5 @@ const optsOne = new Dropdown({
     "พะเยา",
     "แม่ฮ่องสอน",
   ],
+  cb: function (newVal) {},
 });

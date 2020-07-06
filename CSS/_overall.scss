@@ -9,18 +9,21 @@
   @include flex(row, space-between, center);
 
   img.bg-img {
-    opacity: 7%;
+    opacity: 60%;
     user-select: none;
     position: absolute;
     top: -50px;
     left: -350px;
     bottom: 0;
     pointer-events: none;
+    z-index: 1;
   }
 
   // #LEFT
   .left__container {
     flex: 1 1 50px;
+    position: relative;
+    z-index: 2;
   }
 
   .title__container {
@@ -92,6 +95,8 @@
 
   // #RIGHT
   .right__container {
+    position: relative;
+    z-index: 2;
     flex: 1.3 1 50px;
     font-family: $font-normal;
   }
@@ -199,7 +204,7 @@
     font-weight: 300;
     font-size: $small;
     position: absolute;
-    bottom: 20px;
+    bottom: -35px;
   }
 }
 

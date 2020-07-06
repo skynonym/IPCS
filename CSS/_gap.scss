@@ -5,17 +5,88 @@
 
   h1.title {
     @include head-text(white);
-    margin-bottom: 2rem;
   }
 
-  .gap-graph__container {
-    width: 70%;
+  .text__container {
+    @include flex(row, space-between, center);
+
+    img {
+      flex: 1 1 20rem;
+      height: 300px;
+      transition: width .5s;
+    }
+  }
+
+  p.desc {
+    font-size: $h3;
+    margin-top: 1rem;
+    font-weight: 300;
+    flex: 5 1 20rem;
+    text-indent: 3rem;
+    text-align: justify;
+    transition: font-size 1s;
+    font-family: $font-normal;
+  }
+
+  mark {
+    color: $main-yellow;
+    background: transparent;
+  }
+
+  .lineChart__container {
+    color: black;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    width: 80%;
     margin: auto;
-
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    transition: all .5s;
   }
 
-  .curve_chart {
-    width: calc(170px + 17vw);
-    height: calc(170px + 17vw);
+}
+
+@media (max-width: 900px) {
+  #gap {
+    .text__container {
+      display: block;
+
+      img {
+        display: block;
+        margin: auto;
+        margin-top: 2rem;
+        width: calc(240px + 5vw);
+      }
+    }
+
+    p.desc {
+      display: block;
+      font-size: calc(0.8rem + 0.8vw);
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #gap {
+    h1.title {
+      font-size: $h1-800;
+    }
+
+
+    .lineChart__container {
+      width: 90%;
+      padding: 1rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  #gap {
+    .lineChart__container {
+      width: 100%;
+      padding: 0.5rem;
+
+    }
   }
 }

@@ -1,4 +1,4 @@
-// #DEFAULT
+// #Chem section
 #prov-options {
   margin: 1.5rem 0;
   position: relative;
@@ -48,7 +48,7 @@
   z-index: 2;
   left: 0;
   right: 0;
-  height: 180px;
+  max-height: 180px;
   cursor: pointer;
   transform: translate(0px, -200px);
   transition: transform 0.5s ease-out;
@@ -86,8 +86,17 @@
 }
 
 .dropdown-arrow {
-
   img {
     transition: transform 0.5s;
   }
+}
+
+// #Impacts section
+#select-year {
+  display: inline-block;
+  margin: 1.5rem 0;
+  position: relative;
+  width: 150px;
+
+
 }

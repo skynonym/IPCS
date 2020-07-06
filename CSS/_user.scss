@@ -6,7 +6,6 @@
   h1.title {
     @include head-text(white);
     margin-bottom: 1rem;
-    transition: font-size 1s;
   }
 
   .user__content {

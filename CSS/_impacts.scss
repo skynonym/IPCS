@@ -1,4 +1,148 @@
 #impacts {
   @include theme(white);
   min-height: 100vh;
+  padding: 4%;
+
+  h1.title {
+    @include head-text($main-green);
+    margin: 1rem 0;
+  }
+
+  h2.subtitle {
+    font-size: $h3;
+    font-weight: 400;
+  }
+
+  .lineChart__container {
+    color: black;
+    background: white;
+    width: 80%;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    transition: all .5s;
+  }
+
+  .bottom-section {
+    @include flex(row, space-around, center);
+    background: #e0ecec;
+    position: relative;
+  }
+
+  .stackedCol__container {
+    width: 40%;
+  }
+
+  .table__container {
+    height: 100%;
+    width: 50%;
+  }
+
+  // #Residue
+  .residue__container {
+    margin-top: 3rem;
+  }
+
+  .veggies {
+    background: $main-green;
+    border-radius: 10px;
+    padding: 1.5rem 4rem;
+  }
+
+  .full-results {
+
+    cursor: pointer;
+    color: $main-lightgray;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // #Contaminants
+  .contaminant__container {
+    margin-top: 3rem;
+  }
+
+  p.guide {
+    color: $sec-lightgray;
+    margin-top: 1rem;
+    text-indent: 20px;
+  }
+
+  .prov-seals {
+    @include flex(row, space-around, center);
+    margin-top: 1.5rem;
+
+  }
+
+  .prov {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+    p {
+      pointer-events: none;
+    }
+  }
+
+  .prov:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  img.seal {
+    width: 150px;
+    pointer-events: none;
+  }
+
+  img.emoji {
+    width: 50px;
+    margin-top: 1rem;
+    pointer-events: none;
+  }
+
+  // #con-info__box {}
+
+  #con-info__box {
+    position: relative;
+    padding: 5%;
+    padding-bottom: 0;
+    display: none;
+
+
+    img {
+      position: absolute;
+      right: 10%;
+      top: 10%;
+      width: 30%;
+    }
+  }
+
+  #con-info__box.open {
+    display: block;
+  }
+
+  .each-detail {
+    margin-bottom: 1.5rem;
+  }
+
+  p.result {
+    text-indent: 1.5rem;
+  }
+
+  mark {
+    background: transparent;
+  }
+
+  .mark-river {
+    color: $main-green;
+    font-size: $h3;
+    font-weight: 300;
+  }
+
+  .mark-others {
+    color: $main-green;
+  }
 }
