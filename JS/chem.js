@@ -259,40 +259,6 @@ class RenderInfo {
   }
 }
 
-// // *MEDIA QUERIES
-// const pieLong = () => {
-//   pieInfoCon.style.pointerEvents = "all";
-//   pieInfoCon.style.width = "100%";
-//   pieInfoCon.style.borderRadius = "0px";
-//   pieCon.style.transform = "translateX(0%)";
-//   pieClickMe.style.display = "none";
-// };
-
-// const pieShort = () => {
-//   pieInfoCon.style.width = "40%";
-//   pieInfoCon.style.borderRadius = "10px";
-//   pieInfoCon.style.pointerEvents = "all";
-//   pieCon.style.transform = "translateX(20%)";
-//   pieClickMe.style.display = "none";
-// };
-
-// const colLong = () => {
-//   colInfoCon.style.pointerEvents = "all";
-//   colInfoCon.style.width = "100%";
-//   colInfoCon.style.borderRadius = "0px";
-//   colCon.style.transform = "translateX(0%)";
-//   colClickMe.style.display = "none";
-// };
-
-// const colShort = () => {
-//   colInfoCon.style.width = "40%";
-//   colInfoCon.style.borderRadius = "10px";
-//   colInfoCon.style.pointerEvents = "all";
-//   colCon.style.transform = "translateX(20%)";
-//   pieCon.style.transform = "translateX(20%)";
-//   colClickMe.style.display = "none";
-// };
-
 const DOMquery = () => {
   if (
     (innerWidth > 800 && pieInfoCon.style.opacity === "1") ||
@@ -311,55 +277,6 @@ const DOMquery = () => {
   } else {
     return;
   }
-  // if (
-  //   innerWidth < 800 &&
-  //   pieInfoCon.style.opacity === "1" &&
-  //   colInfoCon.style.opacity === "1"
-  // ) {
-  //   console.log("condition 1.1");
-  //   pieLong();
-  //   colLong();
-  // } else if (
-  //   innerWidth < 800 &&
-  //   pieInfoCon.style.opacity === "1" &&
-  //   colInfoCon.style.opacity === "0"
-  // ) {
-  //   console.log("condition 1.2");
-  //   pieLong();
-  // } else if (
-  //   innerWidth < 800 &&
-  //   pieInfoCon.style.opacity === "0" &&
-  //   colInfoCon.style.opacity === "1"
-  // ) {
-  //   console.log("condition 1.3");
-  //   colLong();
-  // } else if (
-  //   innerWidth > 800 &&
-  //   pieInfoCon.style.opacity === "1" &&
-  //   colInfoCon.style.opacity === "1"
-  // ) {
-  //   console.log("condition 2.1");
-  //   pieShort();
-  //   colShort();
-  // } else if (
-  //   innerWidth > 800 &&
-  //   pieInfoCon.style.opacity === "1" &&
-  //   colInfoCon.style.opacity === "0"
-  // ) {
-  //   console.log("condition 2.2");
-  //   pieShort();
-  // } else if (
-  //   innerWidth > 800 &&
-  //   pieInfoCon.style.opacity === "0" &&
-  //   colInfoCon.style.opacity === "1"
-  // ) {
-  //   console.log("condition 2.3");
-  //   colShort();
-  // } else {
-  //   console.log("bye");
-  //   console.log("bye");
-  //   return;
-  // }
 };
 
 addEventListener("DOMContentLoaded", DOMquery);

@@ -385,12 +385,77 @@
               <div id="select-year"></div>
               <table id="patients">
                 <tr>
-                  <th></th>
+                  <th>จังหวัด</th>
                   <th>ประชากรทั้งหมด</th>
-                  <th>ผู้ป่วยทั้งหมด</th>
-                  <th>สารกำจัดแมลง</th>
-                  <th>สารกำจัดวัชพืช</th>
-                  <th>สารอื่น ๆ</th>
+                  <th>ผู้ป่วยทั้งหมด (%)</th>
+                  <th>สารกำจัดแมลง (%)</th>
+                  <th>สารกำจัดวัชพืช (%)</th>
+                  <th>สารอื่น ๆ (%)</th>
+                </tr>
+
+                <tr>
+                  <td>เชียงใหม่</td>
+                  <td>1,282,113</td>
+                  <td>25.11</td>
+                  <td>11.39</td>
+                  <td>11.15</td>
+                  <td>2.42</td>
+                </tr>
+                <tr>
+                  <td>เชียงราย</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>ลำพูน</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>ลำปาง</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>น่าน</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>แพร่</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>พะเยา</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>แม่ฮ่องสอน</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                 </tr>
               </table>
             </div>
@@ -402,12 +467,32 @@
           <h2 class="subtitle">สารตกค้างในผักและผลไม้</h2>
           <div class="current-year__container">
             <h3>ปี 2563</h3>
-            <div class="veggies"></div>
-            <div class="fruits"></div>
+            <div class="veggies">
+              <img src="./images/chili-onions.png" alt="" />
+              <div class="text">
+                <p class="head">ผัก</p>
+                <p>จำนวนตัวอย่าง: <mark class="number">1,466</mark> รายการ</p>
+                <p>พบสารตกค้าง: <mark class="percent">1.16%</mark> (17 รายการ)</p>
+                <p>เช่น ต้นหอม ผักกาดขาว แตงกวา ถั่วฝักยาว ขึ้นฉ่าย พริกสด</p>
+              </div>
+            </div>
+            <div class="fruits">
+              <img src="./images/orange.png" alt="" />
+              <div class="text">
+                <p class="head">ผลไม้</p>
+                <p>จำนวนตัวอย่าง: <mark class="number">56</mark></mark> รายการ</p>
+                <p>พบสารตกค้าง: <mark class="percent">10.71%</mark> (6 รายการ)</p>
+                <p>เช่น ส้ม พุทรา</p>
+              </div>
+            </div>
           </div>
-          <p class="full-results">
-            ผลการเฝ้าระวังผักและผลไม้ในพื้นที่เขตสุขภาพ 1 ปี 2558-2563
+          <p class="see-full-results">
+            ผลการเฝ้าระวังผักและผลไม้ในพื้นที่เขตสุขภาพที่ 1 ปี 2558-2563
           </p>
+          <div class="full-results">
+            <div id="select-year--residue"></div>
+            <table class="residue-table"></table>
+          </div>
         </div>
 
         <!-- *contaminants -->
