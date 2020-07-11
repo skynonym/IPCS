@@ -376,18 +376,26 @@
           <div class="lineChart__container">
             <div id="all-patients"></div>
           </div>
-          <!-- bottom section -->
-          <div class="bottom-section">
+          <!-- section 2 -->
+          <div class="section2">
+            <img src="./images/patient.png" alt="">
             <div class="stackedCol__container">
+              <h3>สัดส่วนผู้ป่วยในแต่ละปี</h3>
               <div id="stackedCol"></div>
             </div>
+          </div>
+          <!-- section 3 -->
+          <div class="bottom-section">
             <div class="table__container">
+              <div class="head">
+                <h3>ตารางแสดงจำนวนผู้ป่วยในแต่ละจังหวัด</h3>
               <div id="select-year"></div>
+            </div>
               <table id="patients">
                 <tr>
                   <th>จังหวัด</th>
-                  <th>ประชากรทั้งหมด</th>
-                  <th>ผู้ป่วยทั้งหมด (%)</th>
+                  <th class="pop">ประชากร</th>
+                  <th>ผู้ป่วยจากสารเคมีทั้งหมด (%)</th>
                   <th>สารกำจัดแมลง (%)</th>
                   <th>สารกำจัดวัชพืช (%)</th>
                   <th>สารอื่น ๆ (%)</th>
@@ -403,59 +411,59 @@
                 </tr>
                 <tr>
                   <td>เชียงราย</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>922,099</td>
+                  <td>52.27</td>
+                  <td>14.1</td>
+                  <td>9.65</td>
+                  <td>28.52</td>
                 </tr>
                 <tr>
                   <td>ลำพูน</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>369,878</td>
+                  <td>17.3</td>
+                  <td>7.57</td>
+                  <td>7.57</td>
+                  <td>2.16</td>
                 </tr>
                 <tr>
                   <td>ลำปาง</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>573,881</td>
+                  <td>13.24</td>
+                  <td>5.58</td>
+                  <td>5.4</td>
+                  <td>2.27</td>
                 </tr>
                 <tr>
                   <td>น่าน</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>368,741</td>
+                  <td>19.53</td>
+                  <td>7.59</td>
+                  <td>8.14</td>
+                  <td>3.8</td>
                 </tr>
                 <tr>
                   <td>แพร่</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>332,150</td>
+                  <td>0.18</td>
+                  <td>0.10</td>
+                  <td>7.23</td>
+                  <td>69.85</td>
                 </tr>
                 <tr>
                   <td>พะเยา</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>390,209</td>
+                  <td>10.76</td>
+                  <td>7.18</td>
+                  <td>1.03</td>
+                  <td>2.56</td>
                 </tr>
                 <tr>
                   <td>แม่ฮ่องสอน</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>188,583</td>
+                  <td>32.88</td>
+                  <td>11.67</td>
+                  <td>16.44</td>
+                  <td>4.77</td>
                 </tr>
               </table>
             </div>
@@ -546,7 +554,12 @@
               <img src="./images/water.svg" alt="" class="emoji" />
             </div>
           </div>
-          <div id="con-info__box"></div>
+          <div id="con-info__box">
+            <div class="con-info__text"></div>
+            <div class="info-img__container">
+              <img src="" alt="" class="info-img">
+            </div>
+          </div>
         </div>
       </section>
     </main>

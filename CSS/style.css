@@ -731,7 +731,7 @@ main {
   #chem img.clickme {
     right: 0%; }
   #chem .description {
-    font-size: calc(0.7rem + 0.5vw); }
+    font-size: calc(0.65rem + 0.5vw); }
 
   .info__box h1 {
     font-size: calc(0.9rem + 0.4vw); }
@@ -859,7 +859,7 @@ main {
   #users h1.title {
     font-size: calc(1.2rem + 1vw); }
   #users table {
-    font-size: calc(0.7rem + 0.5vw); }
+    font-size: calc(0.65rem + 0.5vw); }
   #users h2.title {
     font-size: calc(0.9rem + 1vw); } }
 #stores {
@@ -943,6 +943,8 @@ main {
   color: #323235;
   min-height: 100vh;
   padding: 4%; }
+  #impacts img {
+    pointer-events: none; }
   #impacts h1.title {
     font-size: 1.8rem;
     font-family: "Mitr", sans-serif;
@@ -962,32 +964,66 @@ main {
     margin-top: 3rem;
     margin-bottom: 2rem;
     transition: all .5s; }
-  #impacts .bottom-section {
+  #impacts .section2 {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0 4rem; }
+    #impacts .section2 img {
+      width: calc(350px + 10vw);
+      transition: all 0.3s; }
+  #impacts .bottom-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
     background: #e0ecec;
-    position: relative; }
+    position: relative;
+    padding: 3rem 1rem;
+    overflow-x: auto; }
+    #impacts .bottom-section h3 {
+      font-weight: 400;
+      display: inline-block; }
+    #impacts .bottom-section .head {
+      margin-bottom: 1rem; }
   #impacts .stackedCol__container {
-    width: 40%; }
+    width: 40%;
+    height: 80%;
+    margin-right: 1%; }
+    #impacts .stackedCol__container h3 {
+      font-weight: 400; }
+  #impacts #stackedCol {
+    margin-top: 1.5rem; }
   #impacts .table__container {
     height: 100%;
-    width: 50%; }
-  #impacts #patients th {
-    font-weight: 400;
-    background: #659e9e;
-    padding: 0.5rem 1rem; }
-  #impacts #patients td {
-    padding: 0.5rem 1rem;
-    text-align: center; }
+    width: 70%; }
+  #impacts #patients {
+    margin-top: 20px; }
+    #impacts #patients th {
+      font-weight: 400;
+      background: #69b9b9;
+      padding: 0.5rem 1rem; }
+    #impacts #patients th.pop {
+      width: 120px; }
+    #impacts #patients td {
+      padding: 0.5rem 1rem;
+      text-align: center;
+      background: #b8dbdb; }
   #impacts #select-year,
   #impacts #select-year--residue {
     display: inline-block;
-    margin: 1.5rem 0;
     position: relative;
-    width: 150px; }
+    width: 150px;
+    right: 0;
+    color: #7b7b7b; }
+  #impacts #select-year {
+    margin-left: 20px; }
+  #impacts #select-year--residue {
+    margin: 1.5rem 0; }
   #impacts .residue__container {
     margin-top: 3rem;
     text-align: center; }
@@ -1043,13 +1079,21 @@ main {
   #impacts .see-full-results {
     cursor: pointer;
     color: #7b7b7b;
-    margin-top: 1.5rem 0; }
+    margin-top: 1.5rem 0;
+    display: inline-block; }
     #impacts .see-full-results:hover {
       text-decoration: underline; }
   #impacts .full-results {
-    display: none; }
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%); }
   #impacts .full-results.open {
-    display: block; }
+    opacity: 1;
+    visibility: visible;
+    position: relative; }
   #impacts .residue-table {
     width: 60%;
     margin: auto; }
@@ -1075,10 +1119,11 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 1.5rem; }
   #impacts .prov {
+    flex-grow: 1;
     text-align: center;
     padding: 1rem;
     border-radius: 5px;
@@ -1088,27 +1133,33 @@ main {
       pointer-events: none; }
   #impacts .prov:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.1); }
+  #impacts .active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.1); }
   #impacts img.seal {
-    width: 150px;
-    pointer-events: none; }
+    width: 150px; }
   #impacts img.emoji {
     width: 50px;
-    margin-top: 1rem;
-    pointer-events: none; }
+    margin-top: 1rem; }
   #impacts #con-info__box {
-    position: relative;
     padding: 5%;
     padding-bottom: 0;
-    display: none; }
-    #impacts #con-info__box img {
-      position: absolute;
-      right: 10%;
-      top: 10%;
-      width: 30%; }
+    display: none;
+    width: 100%; }
   #impacts #con-info__box.open {
-    display: block; }
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
   #impacts .each-detail {
-    margin-bottom: 1.5rem; }
+    margin-bottom: 1.5rem;
+    flex: 1 1 400px; }
+  #impacts .info-img__container {
+    flex: 1 1 200px;
+    text-align: center; }
+  #impacts .info-img {
+    width: 70%;
+    min-width: 300px; }
   #impacts p.result {
     text-indent: 1.5rem; }
   #impacts mark {
@@ -1120,6 +1171,143 @@ main {
   #impacts .mark-others {
     color: #0f979b; }
 
+@media (max-width: 1200px) {
+  #impacts .current-year__container {
+    text-align: left;
+    width: 80%;
+    margin-top: 2rem; }
+    #impacts .current-year__container h3 {
+      font-size: calc(0.7rem + 1vw); }
+  #impacts .veggies {
+    padding: 1rem 2rem; }
+    #impacts .veggies p {
+      margin-left: 100px; }
+    #impacts .veggies img {
+      width: calc(120px + 5vw);
+      top: -20px;
+      left: -40px; }
+  #impacts .fruits {
+    margin-top: 3rem;
+    margin-bottom: 3rem; }
+    #impacts .fruits p {
+      margin-right: 200px; }
+    #impacts .fruits img {
+      width: calc(100px + 5vw);
+      top: 0px;
+      right: 30px; }
+  #impacts .residue-table {
+    width: 80%;
+    font-size: calc(0.65rem + 0.5vw); } }
+@media (max-width: 1000px) {
+  #impacts img.seal {
+    width: calc(100px + 2vw); }
+  #impacts img.emoji {
+    width: calc(30px + 2vw);
+    margin-top: 0.8rem; } }
+@media (max-width: 800px) {
+  #impacts h1.title {
+    font-size: calc(1.2rem + 1vw); }
+  #impacts .lineChart__container {
+    width: 95%; }
+  #impacts .section2 img {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute; }
+  #impacts .stackedCol__container {
+    width: 100%;
+    margin-right: 0; }
+    #impacts .stackedCol__container h3 {
+      font-size: calc(0.7rem + 1vw); }
+  #impacts .table__container {
+    width: 95%; }
+  #impacts .bottom-section h3 {
+    font-size: calc(0.7rem + 1vw); }
+  #impacts .table__container {
+    font-size: calc(0.65rem + 0.5vw); }
+  #impacts #patients th.pop {
+    width: 100%; }
+  #impacts .current-year__container {
+    width: 90%; }
+  #impacts mark.number {
+    font-size: calc(0.7rem + 1vw); }
+  #impacts mark.percent {
+    font-size: calc(0.9rem + 1vw); }
+  #impacts .veggies {
+    padding: 1rem 1.5rem; }
+    #impacts .veggies p {
+      margin-left: 130px; }
+    #impacts .veggies img {
+      width: 100px;
+      top: 30px;
+      left: 20px; }
+  #impacts .fruits {
+    margin-top: 3rem;
+    margin-bottom: 3rem; }
+    #impacts .fruits p {
+      margin-right: 150px; }
+    #impacts .fruits img {
+      width: 100px;
+      top: 30px;
+      right: 35px; }
+  #impacts .see-full-results {
+    font-size: calc(0.65rem + 0.5vw); }
+  #impacts .residue-table {
+    width: 90%;
+    font-size: calc(0.65rem + 0.5vw); }
+    #impacts .residue-table th {
+      padding: 0.5rem; }
+    #impacts .residue-table td {
+      padding: 0.5rem; }
+  #impacts p.guide {
+    font-size: calc(0.65rem + 0.5vw); }
+  #impacts #con-info__box {
+    font-size: calc(0.65rem + 0.5vw); }
+  #impacts .mark-river {
+    font-size: calc(0.7rem + 1vw); } }
+@media (max-width: 550px) {
+  #impacts .bottom-section {
+    padding: 3rem 0rem; }
+    #impacts .bottom-section .table__container {
+      width: 100%; }
+  #impacts .veggies {
+    padding: 1.5rem; }
+    #impacts .veggies p {
+      margin-left: 0px; }
+    #impacts .veggies img {
+      opacity: 0;
+      position: absolute; }
+  #impacts .fruits {
+    margin-top: 3rem;
+    margin-bottom: 3rem; }
+    #impacts .fruits p {
+      margin-right: 0px; }
+    #impacts .fruits img {
+      opacity: 0;
+      position: absolute; }
+  #impacts .residue-table {
+    width: 95%;
+    font-size: calc(0.65rem + 0.5vw); }
+  #impacts #con-info__box {
+    font-size: calc(0.65rem + 0.5vw);
+    padding: 0; } }
+@media (max-width: 400px) {
+  #impacts h1.title {
+    font-size: calc(1.2rem + 1vw); }
+  #impacts h2.subtitle {
+    font-size: calc(0.9rem + 1vw); }
+  #impacts .bottom-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    position: relative;
+    padding: 3rem 1rem; }
+    #impacts .bottom-section h3 {
+      font-weight: 400;
+      display: inline-block; }
+    #impacts .bottom-section .head {
+      margin-bottom: 1rem; } }
 footer {
   grid-area: foot;
   display: flex;

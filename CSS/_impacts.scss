@@ -1,4 +1,8 @@
 #impacts {
+  img {
+    pointer-events: none;
+  }
+
   @include theme(white);
   min-height: 100vh;
   padding: 4%;
@@ -22,46 +26,99 @@
     margin-top: 3rem;
     margin-bottom: 2rem;
     transition: all .5s;
+
+  }
+
+  .section2 {
+    @include flex(row, space-around, center);
+    margin-bottom: 1.5rem;
+    padding: 0 4rem;
+
+    img {
+      width: calc(350px + 10vw);
+      transition: all 0.3s;
+    }
   }
 
   .bottom-section {
-    @include flex(row, space-around, center);
+    @include flex(row, space-around, flex-start);
     background: #e0ecec;
     position: relative;
+    padding: 3rem 1rem;
+    overflow-x: auto;
+
+    h3 {
+      font-weight: 400;
+      display: inline-block;
+    }
+
+    .head {
+      margin-bottom: 1rem;
+    }
   }
+
 
   .stackedCol__container {
     width: 40%;
+    height: 80%;
+    margin-right: 1%;
+
+
+    h3 {
+      font-weight: 400;
+      ;
+    }
+  }
+
+  #stackedCol {
+    margin-top: 1.5rem;
   }
 
   .table__container {
     height: 100%;
-    width: 50%;
+    width: 70%;
   }
 
   #patients {
+    margin-top: 20px;
+
     th {
       font-weight: 400;
-      background: #659e9e;
+      background: #69b9b9;
       padding: 0.5rem 1rem;
+    }
 
+    th.pop {
+      width: 120px;
     }
 
     td {
       padding: 0.5rem 1rem;
       text-align: center;
+      background: #b8dbdb;
     }
+
   }
 
   #select-year,
   #select-year--residue {
     display: inline-block;
-    margin: 1.5rem 0;
     position: relative;
     width: 150px;
+    right: 0;
+    color: $main-lightgray;
+  }
+
+  #select-year {
+    margin-left: 20px;
+  }
+
+  #select-year--residue {
+    margin: 1.5rem 0;
   }
 
   // #Residue
+
   .residue__container {
     margin-top: 3rem;
     text-align: center;
@@ -153,6 +210,7 @@
     cursor: pointer;
     color: $main-lightgray;
     margin-top: 1.5rem 0;
+    display: inline-block;
 
     &:hover {
       text-decoration: underline;
@@ -160,29 +218,32 @@
   }
 
   .full-results {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
   }
 
   .full-results.open {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
   }
 
   .residue-table {
     width: 60%;
     margin: auto;
 
-    // border-collapse: collapse;
     th {
       font-weight: 400;
       background: #b6dfdf;
       padding: 0;
-      // border: solid 1px $main-lightgray;
       padding: 0.5rem 1rem;
-
     }
 
     td {
-      // border: solid 1px $main-lightgray;
       padding: 0.5rem 1rem;
       background: #eef7f7;
     }
@@ -210,12 +271,12 @@
   }
 
   .prov-seals {
-    @include flex(row, space-around, center);
+    @include flex(row, flex-start, center);
     margin-top: 1.5rem;
-
   }
 
   .prov {
+    flex-grow: 1;
     text-align: center;
     padding: 1rem;
     border-radius: 5px;
@@ -231,38 +292,44 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.1);
   }
 
+  .active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.1);
+  }
+
   img.seal {
     width: 150px;
-    pointer-events: none;
   }
 
   img.emoji {
     width: 50px;
     margin-top: 1rem;
-    pointer-events: none;
   }
 
   #con-info__box {
-    position: relative;
+    // position: relative;
     padding: 5%;
     padding-bottom: 0;
     display: none;
-
-
-    img {
-      position: absolute;
-      right: 10%;
-      top: 10%;
-      width: 30%;
-    }
+    width: 100%;
   }
 
   #con-info__box.open {
-    display: block;
+    @include flex(row, space-between, center);
   }
 
   .each-detail {
     margin-bottom: 1.5rem;
+    flex: 1 1 400px;
+  }
+
+  .info-img__container {
+    flex: 1 1 200px;
+    text-align: center;
+  }
+
+  .info-img {
+    width: 70%;
+    min-width: 300px;
   }
 
   p.result {
@@ -281,5 +348,273 @@
 
   .mark-others {
     color: $main-green;
+  }
+}
+
+// #MEDIA QUERIES!!!!!!!!!!!!!!!!!
+@media (max-width: 1200px) {
+  #impacts {
+    .current-year__container {
+      text-align: left;
+      width: 80%;
+      margin-top: 2rem;
+
+      h3 {
+        font-size: $h3-800;
+      }
+    }
+
+    // *residue
+    .veggies {
+      padding: 1rem 2rem;
+
+      p {
+        margin-left: 100px;
+      }
+
+      img {
+        width: calc(120px + 5vw);
+        top: -20px;
+        left: -40px;
+      }
+    }
+
+    .fruits {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+
+      p {
+        margin-right: 200px;
+      }
+
+      img {
+        width: calc(100px + 5vw);
+        top: 0px;
+        right: 30px;
+      }
+    }
+
+    .residue-table {
+      width: 80%;
+      font-size: $normal-800;
+    }
+
+  }
+}
+
+@media(max-width: 1000px) {
+  #impacts {
+
+    // *contaminants
+    img.seal {
+      width: calc(100px + 2vw);
+    }
+
+    img.emoji {
+      width: calc(30px + 2vw);
+      margin-top: 0.8rem;
+    }
+  }
+}
+
+@media(max-width: 800px) {
+  #impacts {
+    h1.title {
+      font-size: $h1-800;
+    }
+
+    .lineChart__container {
+      width: 95%;
+    }
+
+    .section2 {
+      img {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+      }
+    }
+
+    .stackedCol__container {
+      width: 100%;
+      margin-right: 0;
+
+      h3 {
+        font-size: $h3-800;
+        ;
+      }
+    }
+
+    .table__container {
+      width: 95%;
+    }
+
+    .bottom-section {
+      h3 {
+        font-size: $h3-800;
+      }
+    }
+
+    .table__container {
+      font-size: $normal-800;
+    }
+
+    #patients {
+      th.pop {
+        width: 100%;
+      }
+    }
+
+    // *residue
+
+    .current-year__container {
+      width: 90%;
+    }
+
+    mark.number {
+      font-size: $h3-800;
+    }
+
+    mark.percent {
+      font-size: $h2-800;
+    }
+
+    .veggies {
+      padding: 1rem 1.5rem;
+
+      p {
+        margin-left: 130px;
+      }
+
+      img {
+        width: 100px;
+        top: 30px;
+        left: 20px;
+      }
+    }
+
+    .fruits {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+
+      p {
+        margin-right: 150px;
+      }
+
+      img {
+        width: 100px;
+        top: 30px;
+        right: 35px;
+      }
+    }
+
+    .see-full-results {
+      font-size: $normal-800;
+    }
+
+    .residue-table {
+      width: 90%;
+      font-size: $normal-800;
+
+      th {
+        padding: 0.5rem;
+      }
+
+      td {
+        padding: 0.5rem;
+      }
+    }
+
+    //*Contaminants
+    p.guide {
+      font-size: $normal-800;
+    }
+
+    #con-info__box {
+      font-size: $normal-800;
+    }
+
+    .mark-river {
+      font-size: $h3-800;
+    }
+
+  }
+}
+
+@media(max-width: 550px) {
+  #impacts {
+    .bottom-section {
+      padding: 3rem 0rem;
+
+      .table__container {
+        width: 100%;
+      }
+    }
+
+    .veggies {
+      padding: 1.5rem;
+
+      p {
+        margin-left: 0px;
+      }
+
+      img {
+        opacity: 0;
+        position: absolute;
+      }
+    }
+
+    .fruits {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+
+      p {
+        margin-right: 0px;
+      }
+
+      img {
+        opacity: 0;
+        position: absolute;
+      }
+    }
+
+    .residue-table {
+      width: 95%;
+      font-size: $normal-800;
+    }
+
+    // *contaminant
+    #con-info__box {
+      font-size: $normal-800;
+      padding: 0;
+    }
+  }
+}
+
+@media(max-width: 400px) {
+  #impacts {
+
+    h1.title {
+      font-size: $h1-800;
+    }
+
+    h2.subtitle {
+      font-size: $h2-800;
+    }
+
+    .bottom-section {
+      @include flex(row, space-around, flex-start);
+      position: relative;
+      padding: 3rem 1rem;
+
+      h3 {
+        font-weight: 400;
+        display: inline-block;
+      }
+
+      .head {
+        margin-bottom: 1rem;
+      }
+    }
   }
 }

@@ -137,9 +137,9 @@ const stackedColOptions = {
     opacity: 1,
   },
   legend: {
-    position: "right",
+    position: "top",
     offsetX: 0,
-    offsetY: 50,
+    offsetY: 0,
   },
 };
 
@@ -159,11 +159,130 @@ const paTableVal = new Dropdown({
   cb: function (newVal) {
     switch (newVal) {
       case "2560":
-        const pa2560 = new ProvinceInfo(["1,282,113", "322"]);
+        const pa2560 = [
+          new ProvinceInfo(
+            "เชียงใหม่",
+            "1,282,113",
+            "25.11",
+            "11.39",
+            "11.15",
+            "2.42"
+          ),
+          new ProvinceInfo(
+            "เชียงราย",
+            "922,099",
+            "52.27",
+            "14.10",
+            "9.65",
+            "28.52"
+          ),
+          new ProvinceInfo("ลำพูน", "369,878", "17.3", "7.57", "7.57", "2.16"),
+          new ProvinceInfo("ลำปาง", "573,881", "13.24", "5.58", "5.4", "2.27"),
+          new ProvinceInfo("น่าน", "368,741", "19.53", "7.59", "8.14", "3.8"),
+          new ProvinceInfo("แพร่", "332,150", "0.18", "0.10", "7.23", "69.85"),
+          new ProvinceInfo("พะเยา", "390,209", "10.76", "7.18", "1.03", "2.56"),
+          new ProvinceInfo(
+            "แม่ฮ่องสอน",
+            "188,583",
+            "32.88",
+            "11.67",
+            "16.44",
+            "4.77"
+          ),
+        ];
+        ProvinceInfo.tableRender();
+        pa2560.forEach((item) => {
+          item.insideRender();
+        });
         break;
       case "2561":
+        const pa2561 = [
+          new ProvinceInfo(
+            "เชียงใหม่",
+            "1,245,397",
+            "14.93",
+            "6.34",
+            "5.3",
+            "3.29"
+          ),
+          new ProvinceInfo(
+            "เชียงราย",
+            "911,253",
+            "13.17",
+            "14.10",
+            "5.05",
+            "4.06"
+          ),
+          new ProvinceInfo(
+            "ลำพูน",
+            "360,269",
+            "18.87",
+            "10.27",
+            "2.78",
+            "5.83"
+          ),
+          new ProvinceInfo(
+            "ลำปาง",
+            "557,029",
+            "39.50",
+            "33.21",
+            "2.69",
+            "3.59"
+          ),
+          new ProvinceInfo("น่าน", "361,086", "19.94", "6.37", "10.25", "3.32"),
+          new ProvinceInfo("แพร่", "331,954", "13.56", "5.72", "3.92", "3.92"),
+          new ProvinceInfo("พะเยา", "388,082", "8.25", "4.38", "0.77", "3.09"),
+          new ProvinceInfo(
+            "แม่ฮ่องสอน",
+            "189,097",
+            "18.51",
+            "6.87",
+            "9.52",
+            "2.12"
+          ),
+        ];
+        ProvinceInfo.tableRender();
+        pa2561.forEach((item) => {
+          item.insideRender();
+        });
+
         break;
       case "2562":
+        const pa2562 = [
+          new ProvinceInfo(
+            "เชียงใหม่",
+            "1,212,472",
+            "17.07",
+            "3.38",
+            "5.3",
+            "3.29"
+          ),
+          new ProvinceInfo(
+            "เชียงราย",
+            "902,676",
+            "16.73",
+            "3.66",
+            "6.54",
+            "6.54"
+          ),
+          new ProvinceInfo("ลำพูน", "354,923", "12.68", "5.07", "5.64", "1.97"),
+          new ProvinceInfo("ลำปาง", "534,116", "11.61", "3.93", "4.12", "3.56"),
+          new ProvinceInfo("น่าน", "355,972", "14.05", "5.90", "6.46", "1.69"),
+          new ProvinceInfo("แพร่", "324,545", "15.10", "7.39", "6.16", "1.54"),
+          new ProvinceInfo("พะเยา", "362,016", "9.12", "3.59", "2.21", "3.31"),
+          new ProvinceInfo(
+            "แม่ฮ่องสอน",
+            "182,499",
+            "30.69",
+            "8.77",
+            "17.53",
+            "4.38"
+          ),
+        ];
+        ProvinceInfo.tableRender();
+        pa2562.forEach((item) => {
+          item.insideRender();
+        });
         break;
       default:
         console.log("error! new case detected");
@@ -172,22 +291,39 @@ const paTableVal = new Dropdown({
 });
 
 class ProvinceInfo {
-  // constructor(population, all, insect, weed, others) {
-  //   (this.pop = population),
-  //     (this.all = all),
-  //     (this.ins = insect),
-  //     (this.weed = weed),
-  //     (this.oth = others);
-  // }
-  constructor(chm, chr, lpo, lpa, nan, pra, pay, mae) {
-    (this.chm = chm),
-      (this.chr = chr),
-      (this.lpo = lpo),
-      (this.lpa = lpa),
-      (this.nan = nan),
-      (this.pra = pra),
-      (this.pay = pay),
-      (this.mae = mae);
+  constructor(province, population, all, insect, weed, others) {
+    (this.province = province),
+      (this.pop = population),
+      (this.all = all),
+      (this.ins = insect),
+      (this.weed = weed),
+      (this.oth = others);
+  }
+
+  static tableRender() {
+    paTable.innerHTML = `
+    <tr>
+      <th>จังหวัด</th>
+      <th class="pop">ประชากร</th>
+      <th>ผู้ป่วยจากสารเคมีทั้งหมด (%)</th>
+      <th>สารกำจัดแมลง (%)</th>
+      <th>สารกำจัดวัชพืช (%)</th>
+      <th>สารอื่น ๆ (%)</th>
+    </tr>
+    `;
+  }
+
+  insideRender() {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${this.province}</td>
+      <td>${this.pop}</td>
+      <td>${this.all}</td>
+      <td>${this.ins}</td>
+      <td>${this.weed}</td>
+      <td>${this.oth}</td>
+    `;
+    paTable.appendChild(row);
   }
 }
 
@@ -440,9 +576,11 @@ class ResVegFru {
 // #CONTAMINANT#######################################
 const provs = document.querySelectorAll(".prov");
 const infoBox = document.getElementById("con-info__box");
+const infoText = document.querySelector(".con-info__text");
+const imgBox = document.querySelector(".info-img");
 
-provs.forEach((prov, index) => {
-  prov.addEventListener("click", function (e) {
+provs.forEach((prov) => {
+  prov.addEventListener("click", function () {
     const txt = prov.children[1].innerHTML;
     let provDetail;
     switch (txt) {
@@ -559,11 +697,12 @@ class ConInfo {
   }
 
   static clear() {
-    infoBox.innerHTML = ``;
+    infoText.innerHTML = ``;
   }
 
   render() {
     const detail = document.createElement("div");
+
     detail.className = "each-detail";
     detail.innerHTML = `
     <p> แหล่งน้ำ: <mark class="mark-river">${this.river}</mark> </p> 
@@ -577,14 +716,13 @@ class ConInfo {
     <p>ปีที่ตรวจสอบ: ${this.year}</p>
     `;
 
-    infoBox.appendChild(detail);
+    infoText.appendChild(detail);
+
     this.openClose();
   }
 
   static addImg(address) {
-    const imgBox = document.createElement("div");
-    imgBox.innerHTML = `<img src="./images/${address}"/>`;
-    infoBox.appendChild(imgBox);
+    imgBox.src = `./images/${address}`;
   }
 
   openClose() {
