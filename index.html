@@ -40,26 +40,25 @@
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/style.css" />
     <!--JS-->
     <script src="./JS/nav.js" defer></script>
     <script src="./JS/overall.js" defer></script>
+    <script src="./JS/select.js" defer></script>
+    <script src="./JS/map.js" defer></script>
     <script src="./JS/chem.js" defer></script>
     <script src="./JS/user.js" defer></script>
     <script src="./JS/select.js" defer></script>
-    <script src="./JS/select.js" defer></script>
     <script src="./JS/gap.js" defer></script>
     <script src="./JS/impacts.js" defer></script>
-  </head>
-
   <body>
     <!-- #NAV -->
     <nav>
       <div class="logo">
         <a href="#top">
           <img src="./images/logos/IPCS-small.png" alt="IPCS logo" />
-          <h3>ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี</h3>
         </a>
       </div>
       <div class="menu">
@@ -132,8 +131,9 @@
         <!-- *left -->
         <div class="left__container">
           <div class="title__container">
-            <h1>ศูนย์เฝ้าระวัง</h1>
-            <h1>ด้านสารเคมีแห่งชาติ</h1>
+            <h1>โครงการบูรณาการเฝ้าระวัง</h1>
+            <h1>และติดตามผลกระทบจากการใช้</h1>
+            <h1>วัตถุอันตรายทางการเกษตร</h1>
 
             <p>เขตสุขภาพที่ 1</p>
             <p>(เชียงใหม่ เชียงราย ลำพูน ลำปาง น่าน แพร่ พะเยา แม่ฮ่องสอน)</p>
@@ -169,6 +169,30 @@
                   />
                 </li>
               </a>
+              <a href="http://www.pcd.go.th/" target="_blank">
+                <li>
+                  <img
+                    src="./images/logos/pcd-logo.png"
+                    alt="กรมควบคุมมลพิษ"
+                  />
+                </li>
+              </a>
+              <a href="https://www.egov.go.th/th/government-agency/318/" target="_blank">
+                <li>
+                  <img
+                    src="./images/logos/esc-logo.png"
+                    alt="กรมส่งเสริมการเกษตร"
+                  />
+                </li>
+              </a>
+              <a href="http://www.fda.moph.go.th/Pages/HomeP_D2.aspx" target="_blank">
+                <li>
+                  <img
+                    src="./images/logos/egov-logo.png"
+                    alt="สำนักงานคณะกรรมการอาหารและยา"
+                  />
+                </li>
+              </a>
             </ul>
           </div>
         </div>
@@ -200,6 +224,13 @@
           </p>
         </div>
         <img src="./images/world.svg" alt="" class="bg-img" />
+      </section>
+
+      <!-- @MAP SECTION -->
+      <section id="map">
+        <div class="map__contianer">
+         <h1 class="title">แผนที่เขตสุขภาพในประเทศไทย</h1>
+        </div>
       </section>
 
       <!-- @CHEM SECTION -->
@@ -345,13 +376,55 @@
       </section>
 
       <!-- @STORE SECTION -->
-      <section id="stores"></section>
+      <section id="stores">
+        <h1 class="title">ร้านเคมีภัณฑ์</h1>  
+        <div class="overall__container">
+          <div class="img__container"><img src="./images/store1.svg" alt="" class="store"></div>
+          <div class="overall">
+            <h2>จำนวนร้านทั้งหมด <mark>4,056</mark> ร้าน</h2>
+            <h2>จำนวนร้านที่จำหน่ายสารพาราควอต ไกลโฟเซต และคลอร์ไพริฟอส <mark>1,821</mark> ร้าน</h2>
+            <div class="line"></div>
+            <table>
+              <tr>
+                <td>
+                  จำนวนผู้ใช้ต่อร้านค้า
+                </td>
+                <td>
+                  15 : 1
+                </td>
+              </tr>
+              <tr>
+                <td>จำนวนร้านค้าต่อประชากร</td>
+                <td>1 : 1452</td>
+              </tr>
+              <tr>
+                <td>จำนวนร้านค้าต่อพื้นที่เพาะปลูก (ไร่)</td>
+                <td>2,603 : 1</td>
+              </tr>
+              <tr>
+                <td>
+                  จำนวนผู้ใช้ต่อพื้นที่เพาะปลูก (ไร่)
+                </td>
+                <td>
+                  168 : 1
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      <!-- *map -->
+      <!-- <div class="map__container">
+        <div class="map__title">ร้านเคมีภัณฑ์ในเขตสุขภาพที่ 1</div>
+        
+      </div> -->
+      </section>
+
       <!-- @GAP SECTION -->
       <section id="gap">
         <h1 class="title">การจดทะเบียนรับรองแหล่งผลิต GAP</h1>
         <div class="text__container">
           <p class="desc">
-            "GAT (Good Agricultural Practices) คือ
+            "GAP (Good Agricultural Practices) คือ
             <mark>มาตรฐานการปฏิบัติทางการเกษตรที่ดี</mark>
             ทำให้เกษตรกรมีความรู้ในการผลิตพืชผลอย่างเป็นระบบ
             และได้ผลผลิตที่มีคุณภาพตามความต้องการของตลาด
@@ -376,7 +449,7 @@
           <div class="lineChart__container">
             <div id="all-patients"></div>
           </div>
-          <!-- section 2 -->
+          <!-- *section 2 -->
           <div class="section2">
             <img src="./images/patient.png" alt="">
             <div class="stackedCol__container">
@@ -384,7 +457,53 @@
               <div id="stackedCol"></div>
             </div>
           </div>
-          <!-- section 3 -->
+          <!-- *section 3 -->
+          <div class="section3">
+            <div class="title__container">
+              <h3>อัตราการเจ็บป่วยด้วยโรคจากสารเคมี</h3>
+              <p>อัตราส่วน 1 : 100,000 ประชากร</p>
+            </div>
+            <div class="option__container">
+              <ul class="sec3-options">
+                <li class="sec3-opt active">เชียงใหม่</li>
+                <li class="sec3-opt">เชียงราย</li> 
+                <li class="sec3-opt">พะเยา</li> 
+                <li class="sec3-opt">แพร่</li> 
+                <li class="sec3-opt">ลำพูน</li> 
+                <li class="sec3-opt">ลำปาง</li> 
+                <li class="sec3-opt">น่าน</li> 
+                <li class="sec3-opt">แม่ฮ่องสอน</li>
+              </ul>
+            </div>
+            <div class="sec3-wrapper--all">
+              <div class="wrapper open" id="sec3-chiangmai">
+                <canvas id="sec3-chiangmai__chart"></canvas>
+
+              </div>
+              <div class="wrapper" id="sec3-chiangrai">
+                <canvas id="sec3-chiangrai__chart"></canvas>
+              </div>
+              <div class="wrapper" id="sec3-payao">
+                <canvas id="sec3-payao__chart"></canvas>
+              </div>
+              <div class="wrapper" id="sec3-prae">
+                <canvas id="sec3-prae__chart"></canvas>
+              </div>
+              <div class="wrapper" id="sec3-lampoon">
+                <canvas id="sec3-lampoon__chart"></canvas>
+              </div>
+              <div class="wrapper" id="sec3-lampang">
+                <canvas id="sec3-lampang__chart"></canvas>
+              </div>
+              <div class="wrapper" id="sec3-nan">
+                <canvas id="sec3-nan__chart"></canvas>
+              </div>
+              <div class="wrapper" id="sec3-maehongsorn">
+                <canvas id="sec3-maehongsorn__chart"></canvas>
+              </div>
+            </div>
+          </div>
+          <!-- *section 4 -->
           <div class="bottom-section">
             <div class="table__container">
               <div class="head">
@@ -495,7 +614,7 @@
             </div>
           </div>
           <p class="see-full-results">
-            ผลการเฝ้าระวังผักและผลไม้ในพื้นที่เขตสุขภาพที่ 1 ปี 2558-2563
+            ข้อมูลผลการเฝ้าระวังผักและผลไม้ในพื้นที่เขตสุขภาพที่ 1 ปี 2558-2563
           </p>
           <div class="full-results">
             <div id="select-year--residue"></div>
@@ -515,7 +634,6 @@
                 class="seal"
               />
               <p>เชียงใหม่</p>
-              <img src="./images/water.svg" alt="" class="emoji" />
             </div>
 
             <div class="prov">
@@ -525,13 +643,11 @@
                 class="seal"
               />
               <p>เชียงราย</p>
-              <img src="./images/water.svg" alt="" class="emoji" />
             </div>
 
             <div class="prov">
               <img src="./images/provinces/น่าน.png" alt="น่าน" class="seal" />
               <p>น่าน</p>
-              <img src="./images/water.svg" alt="" class="emoji" />
             </div>
 
             <div class="prov">
@@ -541,7 +657,6 @@
                 class="seal"
               />
               <p>พะเยา</p>
-              <img src="./images/water.svg" alt="" class="emoji" />
             </div>
 
             <div class="prov">
@@ -551,7 +666,6 @@
                 class="seal"
               />
               <p>ลำปาง</p>
-              <img src="./images/water.svg" alt="" class="emoji" />
             </div>
           </div>
           <div id="con-info__box">
@@ -559,6 +673,26 @@
             <div class="info-img__container">
               <img src="" alt="" class="info-img">
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- *google trend -->
+      <section id="gg-trends">
+        <div class="head">
+          <h1 class="title">คำค้นหาที่เกี่ยวข้อง</h1>
+        </div>
+        <div class="trend__container">
+          <div class="all">
+            <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2213_RC01/embed_loader.js"></script>
+            <script type="text/javascript">
+              trends.embed.renderExploreWidget("TIMESERIES", { "comparisonItem": [{ "keyword": "สารเคมีเกษตร", "geo": "TH", "time": "today 1-m" }, { "keyword": "สารกำจัดเชื้อรา", "geo": "TH", "time": "today 1-m" }, { "keyword": "Herbicide", "geo": "TH", "time": "today 1-m" }, { "keyword": "สารกำจัดศัตรูพืช", "geo": "TH", "time": "today 1-m" }], "category": 0, "property": "" }, { "exploreQuery": "date=today%201-m&geo=TH&q=%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%84%E0%B8%A1%E0%B8%B5%E0%B9%80%E0%B8%81%E0%B8%A9%E0%B8%95%E0%B8%A3,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%8A%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%A3%E0%B8%B2,Herbicide,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%A8%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%B9%E0%B8%9E%E0%B8%B7%E0%B8%8A", "guestPath": "https://trends.google.co.th:443/trends/embed/" });
+            </script>
+          </div>
+          <div class="subregion">
+              <script type="text/javascript">
+                trends.embed.renderExploreWidget("GEO_MAP", { "comparisonItem": [{ "keyword": "สารเคมีเกษตร", "geo": "TH", "time": "today 1-m" }, { "keyword": "สารกำจัดเชื้อรา", "geo": "TH", "time": "today 1-m" }, { "keyword": "/m/0f399", "geo": "TH", "time": "today 1-m" }, { "keyword": "สารกำจัดศัตรูพืช", "geo": "TH", "time": "today 1-m" }], "category": 0, "property": "" }, { "exploreQuery": "date=today%201-m&geo=TH&q=%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%84%E0%B8%A1%E0%B8%B5%E0%B9%80%E0%B8%81%E0%B8%A9%E0%B8%95%E0%B8%A3,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%8A%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%A3%E0%B8%B2,%2Fm%2F0f399,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%A8%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%B9%E0%B8%9E%E0%B8%B7%E0%B8%8A", "guestPath": "https://trends.google.co.th:443/trends/embed/" });
+              </script>
           </div>
         </div>
       </section>

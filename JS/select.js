@@ -21,7 +21,7 @@ function Dropdown(opt) {
 									</div>
 								</div>`;
     this.elem.innerHTML = html;
-    let elem = this.elem;
+    const elem = this.elem;
 
     // *store a hash of dropdowns
     if (!window.dropdowns) window.dropdowns = {};
@@ -83,19 +83,19 @@ function Dropdown(opt) {
   return this;
 }
 
-const optsOne = new Dropdown({
-  id: "prov-options",
-  val: "ภาพรวม",
-  data: [
-    "ภาพรวม",
-    "เชียงใหม่",
-    "เชียงราย",
-    "ลำพูน",
-    "ลำปาง",
-    "น่าน",
-    "แพร่",
-    "พะเยา",
-    "แม่ฮ่องสอน",
-  ],
-  cb: function (newVal) {},
-});
+// const optsOne = new Dropdown({
+//   id: "prov-options",
+//   val: "ภาพรวม",
+//   data: [
+//     "ภาพรวม",
+//     "เชียงใหม่",
+//     "เชียงราย",
+//     "ลำพูน",
+//     "ลำปาง",
+//     "น่าน",
+//     "แพร่",
+//     "พะเยา",
+//     "แม่ฮ่องสอน",
+//   ],
+//   cb: function (newVal) {},
+// });

@@ -1,0 +1,13 @@
+#map {
+  @include theme(gray);
+  min-height: 80vh;
+  padding: 4%;
+  color: $sec-dark;
+
+  h1.title {
+    @include head-text($main-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+}

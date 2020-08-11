@@ -149,6 +149,546 @@ const stackedChart = new ApexCharts(
 );
 stackedChart.render();
 
+// #SECTION3-----------------
+// @graphs
+const sec3ChiangMai = document
+  .getElementById("sec3-chiangmai__chart")
+  .getContext("2d");
+let myChart = new Chart(sec3ChiangMai, {
+  type: "bar",
+  data: {
+    labels: ["2560", "2561", "2562"],
+    datasets: [
+      {
+        label: "สารกำจัดแมลง",
+        backgroundColor: "#bee26a",
+        data: [10, 10, 10],
+      },
+      {
+        label: "สารกำจัดวัชพืช",
+        backgroundColor: "#45c490",
+        data: [20, 20, 20],
+      },
+      {
+        label: "สารกำจัดศัตรูพืชอื่น ๆ",
+        backgroundColor: "#008d93",
+        data: [30, 20, 10],
+      },
+    ],
+  },
+  options: {
+    tooltips: {
+      displayColors: true,
+      callbacks: {
+        mode: "x",
+      },
+    },
+    scales: {
+      xAxes: [
+        {
+          stacked: true,
+          gridLines: {
+            display: false,
+          },
+        },
+      ],
+      yAxes: [
+        {
+          stacked: true,
+          ticks: {
+            beginAtZero: true,
+          },
+          type: "linear",
+        },
+      ],
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: { position: "bottom" },
+  },
+});
+
+// @active class
+const secThreeOpt = document.querySelectorAll(".sec3-opt");
+const sec3AllWrapper = document.querySelector(".sec3-wrapper--all");
+
+const chiangMaiChart = document.getElementById("sec3-chiangmai");
+const chiangRaiChart = document.getElementById("sec3-chiangrai");
+const paYaoChart = document.getElementById("sec3-payao");
+const praeChart = document.getElementById("sec3-prae");
+const lamPoonChart = document.getElementById("sec3-lampoon");
+const lamPangChart = document.getElementById("sec3-lampang");
+const nanChart = document.getElementById("sec3-nan");
+const maeHongSornChart = document.getElementById("sec3-maehongsorn");
+
+for (let i = 0; i < secThreeOpt.length; i++) {
+  secThreeOpt[i].addEventListener("click", function (e) {
+    const current = document.querySelector(".active");
+    current.className = current.className.replace("active", "");
+    this.className = "active";
+
+    // *showing/hiding charts
+    const openItem = sec3AllWrapper.querySelector(".open");
+    openItem.className = openItem.className.replace("open", "");
+
+    const text = e.target.innerHTML;
+    switch (text) {
+      case "เชียงใหม่":
+        if (chiangMaiChart.classList[1] === "open") {
+          return;
+        } else {
+          chiangMaiChart.classList.add("open");
+        }
+
+        break;
+      case "เชียงราย":
+        let sec3ChiangRai;
+        if (chiangRaiChart.classList[1] === "open") {
+          return;
+        } else if (chiangRaiChart.classList[1] !== "open") {
+          chiangRaiChart.classList.add("open");
+          sec3ChiangRai = document
+            .getElementById("sec3-chiangrai__chart")
+            .getContext("2d");
+          const crChart = new Chart(sec3ChiangRai, {
+            type: "bar",
+            data: {
+              labels: ["2560", "2561", "2562"],
+              datasets: [
+                {
+                  label: "สารกำจัดแมลง",
+                  backgroundColor: "#caf270",
+                  data: [20, 20, 10],
+                },
+                {
+                  label: "สารกำจัดวัชพืช",
+                  backgroundColor: "#45c490",
+                  data: [10, 40, 20],
+                },
+                {
+                  label: "สารกำจัดศัตรูพืชอื่น ๆ",
+                  backgroundColor: "#008d93",
+                  data: [30, 20, 10],
+                },
+              ],
+            },
+            options: {
+              tooltips: {
+                displayColors: true,
+                callbacks: {
+                  mode: "x",
+                },
+              },
+              scales: {
+                xAxes: [
+                  {
+                    stacked: true,
+                    gridLines: {
+                      display: false,
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    stacked: true,
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                    type: "linear",
+                  },
+                ],
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: { position: "bottom" },
+            },
+          });
+        }
+        break;
+      case "พะเยา":
+        if (paYaoChart.classList[1] === "open") {
+          return;
+        } else if (paYaoChart.classList[1] !== "open") {
+          paYaoChart.classList.add("open");
+          const sec3PaYao = document
+            .getElementById("sec3-payao__chart")
+            .getContext("2d");
+          const pyChart = new Chart(sec3PaYao, {
+            type: "bar",
+            data: {
+              labels: ["2560", "2561", "2562"],
+              datasets: [
+                {
+                  label: "สารกำจัดแมลง",
+                  backgroundColor: "#caf270",
+                  data: [10, 5, 10],
+                },
+                {
+                  label: "สารกำจัดวัชพืช",
+                  backgroundColor: "#45c490",
+                  data: [35, 40, 20],
+                },
+                {
+                  label: "สารกำจัดศัตรูพืชอื่น ๆ",
+                  backgroundColor: "#008d93",
+                  data: [5, 30, 10],
+                },
+              ],
+            },
+            options: {
+              tooltips: {
+                displayColors: true,
+                callbacks: {
+                  mode: "x",
+                },
+              },
+              scales: {
+                xAxes: [
+                  {
+                    stacked: true,
+                    gridLines: {
+                      display: false,
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    stacked: true,
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                    type: "linear",
+                  },
+                ],
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: { position: "bottom" },
+            },
+          });
+        }
+        break;
+      case "แพร่":
+        if (praeChart.classList[1] === "open") {
+          return;
+        } else if (praeChart.classList[1] !== "open") {
+          praeChart.classList.add("open");
+          const sec3Prae = document
+            .getElementById("sec3-prae__chart")
+            .getContext("2d");
+          const prChart = new Chart(sec3Prae, {
+            type: "bar",
+            data: {
+              labels: ["2560", "2561", "2562"],
+              datasets: [
+                {
+                  label: "สารกำจัดแมลง",
+                  backgroundColor: "#caf270",
+                  data: [8, 5, 8],
+                },
+                {
+                  label: "สารกำจัดวัชพืช",
+                  backgroundColor: "#45c490",
+                  data: [20, 20, 20],
+                },
+                {
+                  label: "สารกำจัดศัตรูพืชอื่น ๆ",
+                  backgroundColor: "#008d93",
+                  data: [15, 15, 15],
+                },
+              ],
+            },
+            options: {
+              tooltips: {
+                displayColors: true,
+                callbacks: {
+                  mode: "x",
+                },
+              },
+              scales: {
+                xAxes: [
+                  {
+                    stacked: true,
+                    gridLines: {
+                      display: false,
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    stacked: true,
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                    type: "linear",
+                  },
+                ],
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: { position: "bottom" },
+            },
+          });
+        }
+        break;
+      case "ลำพูน":
+        if (lamPoonChart.classList[1] === "open") {
+          return;
+        } else if (lamPoonChart.classList[1] !== "open") {
+          lamPoonChart.classList.add("open");
+          const sec3LamPoon = document
+            .getElementById("sec3-lampoon__chart")
+            .getContext("2d");
+          const lpoChart = new Chart(sec3LamPoon, {
+            type: "bar",
+            data: {
+              labels: ["2560", "2561", "2562"],
+              datasets: [
+                {
+                  label: "สารกำจัดแมลง",
+                  backgroundColor: "#caf270",
+                  data: [50, 5, 5],
+                },
+                {
+                  label: "สารกำจัดวัชพืช",
+                  backgroundColor: "#45c490",
+                  data: [50, 10, 10],
+                },
+                {
+                  label: "สารกำจัดศัตรูพืชอื่น ๆ",
+                  backgroundColor: "#008d93",
+                  data: [50, 20, 20],
+                },
+              ],
+            },
+            options: {
+              tooltips: {
+                displayColors: true,
+                callbacks: {
+                  mode: "x",
+                },
+              },
+              scales: {
+                xAxes: [
+                  {
+                    stacked: true,
+                    gridLines: {
+                      display: false,
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    stacked: true,
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                    type: "linear",
+                  },
+                ],
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: { position: "bottom" },
+            },
+          });
+        }
+        break;
+      case "ลำปาง":
+        if (lamPangChart.classList[1] === "open") {
+          return;
+        } else if (lamPangChart.classList[1] !== "open") {
+          lamPangChart.classList.add("open");
+          const sec3LamPang = document
+            .getElementById("sec3-lampang__chart")
+            .getContext("2d");
+          const lpaChart = new Chart(sec3LamPang, {
+            type: "bar",
+            data: {
+              labels: ["2560", "2561", "2562"],
+              datasets: [
+                {
+                  label: "สารกำจัดแมลง",
+                  backgroundColor: "#caf270",
+                  data: [40, 30, 10],
+                },
+                {
+                  label: "สารกำจัดวัชพืช",
+                  backgroundColor: "#45c490",
+                  data: [40, 2, 20],
+                },
+                {
+                  label: "สารกำจัดศัตรูพืชอื่น ๆ",
+                  backgroundColor: "#008d93",
+                  data: [20, 2, 20],
+                },
+              ],
+            },
+            options: {
+              tooltips: {
+                displayColors: true,
+                callbacks: {
+                  mode: "x",
+                },
+              },
+              scales: {
+                xAxes: [
+                  {
+                    stacked: true,
+                    gridLines: {
+                      display: false,
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    stacked: true,
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                    type: "linear",
+                  },
+                ],
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: { position: "bottom" },
+            },
+          });
+        }
+        break;
+      case "น่าน":
+        if (nanChart.classList[1] === "open") {
+          return;
+        } else if (nanChart.classList[1] !== "open") {
+          nanChart.classList.add("open");
+          const sec3Nan = document
+            .getElementById("sec3-nan__chart")
+            .getContext("2d");
+          const nnChart = new Chart(sec3Nan, {
+            type: "bar",
+            data: {
+              labels: ["2560", "2561", "2562"],
+              datasets: [
+                {
+                  label: "สารกำจัดแมลง",
+                  backgroundColor: "#caf270",
+                  data: [20, 10, 10],
+                },
+                {
+                  label: "สารกำจัดวัชพืช",
+                  backgroundColor: "#45c490",
+                  data: [15, 15, 15],
+                },
+                {
+                  label: "สารกำจัดศัตรูพืชอื่น ๆ",
+                  backgroundColor: "#008d93",
+                  data: [18, 25, 22],
+                },
+              ],
+            },
+            options: {
+              tooltips: {
+                displayColors: true,
+                callbacks: {
+                  mode: "x",
+                },
+              },
+              scales: {
+                xAxes: [
+                  {
+                    stacked: true,
+                    gridLines: {
+                      display: false,
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    stacked: true,
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                    type: "linear",
+                  },
+                ],
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: { position: "bottom" },
+            },
+          });
+        }
+        break;
+      case "แม่ฮ่องสอน":
+        if (maeHongSornChart.classList[1] === "open") {
+          return;
+        } else if (maeHongSornChart.classList[1] !== "open") {
+          maeHongSornChart.classList.add("open");
+          const sec3MaeHongSorn = document
+            .getElementById("sec3-maehongsorn__chart")
+            .getContext("2d");
+          const mhsChart = new Chart(sec3MaeHongSorn, {
+            type: "bar",
+            data: {
+              labels: ["2560", "2561", "2562"],
+              datasets: [
+                {
+                  label: "สารกำจัดแมลง",
+                  backgroundColor: "#caf270",
+                  data: [10, 10, 10],
+                },
+                {
+                  label: "สารกำจัดวัชพืช",
+                  backgroundColor: "#45c490",
+                  data: [50, 10, 10],
+                },
+                {
+                  label: "สารกำจัดศัตรูพืชอื่น ๆ",
+                  backgroundColor: "#008d93",
+                  data: [15, 15, 15],
+                },
+              ],
+            },
+            options: {
+              tooltips: {
+                displayColors: true,
+                callbacks: {
+                  mode: "x",
+                },
+              },
+              scales: {
+                xAxes: [
+                  {
+                    stacked: true,
+                    gridLines: {
+                      display: false,
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    stacked: true,
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                    type: "linear",
+                  },
+                ],
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: { position: "bottom" },
+            },
+          });
+        }
+        break;
+      default:
+        console.log("unexpected situation!!!!!");
+    }
+  });
+}
+
 // #TABLE
 const paTable = document.getElementById("patients");
 
@@ -328,9 +868,9 @@ class ProvinceInfo {
 }
 
 // #RESIDUE#######################################
-const resTable = document.querySelector(".residue-table");
 const seeResult = document.querySelector(".see-full-results");
 const fullResult = document.querySelector(".full-results");
+const resTable = document.querySelector(".residue-table");
 
 seeResult.addEventListener("click", () => {
   fullResult.classList.toggle("open");
@@ -420,6 +960,8 @@ const ResTableSelect = new Dropdown({
           [
             ["ส้ม", "13.11"],
             ["สตรอว์เบอร์รี", "4.17"],
+            ["มะเขือเทศ", "0.46"],
+            ["อื่น ๆ", "1.14"],
           ]
         );
         res2561.tableRender();
@@ -458,8 +1000,8 @@ const ResTableSelect = new Dropdown({
           ],
           ["56", "6", "10.71"],
           [
-            ["ส้ม", "-"],
-            ["พุทรา", "-"],
+            ["ส้ม", "**"],
+            ["พุทรา", "**"],
           ]
         );
         res2563.tableRender();
@@ -467,12 +1009,13 @@ const ResTableSelect = new Dropdown({
       default:
         console.log("new case detected");
     }
+    ResVegFru.noteRender();
   },
 });
 
 class TableRender {
   render(veggies, fruits) {
-    const resTable = document.querySelector(".residue-table");
+    // const resTable = document.querySelector(".residue-table");
     resTable.innerHTML = `
     <tr>
       <th rowspan="2">ประเภท</th>
@@ -505,7 +1048,7 @@ class ResVegFru {
     <tr>
       <th rowspan="2">ประเภท</th>
       <th rowspan="2" class="t-no">จำนวนตัวอย่าง</th>
-      <th colspan="2">การพบสารตกค้าง</th>
+      <th colspan="2">การพบสารตกค้าง*</th>
       <th colspan="2">ตัวอย่างที่พบสารตกค้าง</th>
     </tr>
     <tr>
@@ -571,16 +1114,44 @@ class ResVegFru {
       });
     }
   }
+
+  static noteRender() {
+    const note = document.createElement("tr");
+    note.innerHTML = `
+    <tr>
+      <td colspan="6" class="note">
+        ผลวิเคราะห์จากชุดทดสอบเบื้องต้น GT-Test Kit สามารถตรวจสอบความเป็นพิษตกค้างจากการใช้สารเคมีกำจัดศัตรูพืช (Pesticide) และ/หรือ สารพิษอื่นๆ ที่อาจปนเปื้อนหรือตกค้างในอาหาร โดยสามารถตรวจหาความเป็นพิษของสารเคมีกำจัดศัตรูพืช 2 กลุ่ม คือ กลุ่ม Organophosphate, Carbamate และสารพิษอื่นๆ ที่เป็นสาร Cholinesterase inhibitor โดยคลอร์ไพริฟอส (Chlorpyrifos) จัดอยู่ในกลุ่ม Organophosphate เป็นสารอินทรีย์ที่มีฟอสฟอรัสเป็นองค์ประกอบที่สำคัญ มีฤทธิ์ยับยั้งการทำงานของเอนไซม์โคลีนเอสเทอเรสแบบถาวร
+        <br>
+        * การพบสารตกค้าง หมายถึง การพบสารตกค้างในระดับอันตราย ซึ่งเป็นยาฆ่าแมลงในระดับที่ยับยั้งการทำงานของเอนไซม์โคลีนเอสเทอเรสมากกว่าร้อยละ 50
+        <br>
+        ** จำนวนตัวอย่างไม่ถึง 30 ตัวอย่าง ไม่สามารถนำมาอ้างอิงทางสถิติได้
+        <br>
+        ผลวิเคราะห์ปี 2563 เป็นการนำข้อมูลถึงเดือนพฤษภาคม 2563 (ข้อมูล ณ วันที่ 4 มิถุนายน 2563)
+      </td>
+    </tr>
+    `;
+    resTable.appendChild(note);
+  }
 }
 
 // #CONTAMINANT#######################################
 const provs = document.querySelectorAll(".prov");
+const allProvs = document.querySelector(".prov-seals");
 const infoBox = document.getElementById("con-info__box");
 const infoText = document.querySelector(".con-info__text");
 const imgBox = document.querySelector(".info-img");
+// const current = allProvs.querySelector(".active");
 
 provs.forEach((prov) => {
-  prov.addEventListener("click", function () {
+  prov.addEventListener("click", function (e) {
+    // const current = allProvs.querySelector(".active");
+    // if (current !== null) {
+    //   current.className = current.className.replace("active", "");
+    //   this.classList.add("active");
+    // } else {
+    //   e.target.classList.add("active");
+    // }
+
     const txt = prov.children[1].innerHTML;
     let provDetail;
     switch (txt) {
@@ -705,7 +1276,7 @@ class ConInfo {
 
     detail.className = "each-detail";
     detail.innerHTML = `
-    <p> แหล่งน้ำ: <mark class="mark-river">${this.river}</mark> </p> 
+    <p> แหล่งน้ำ: <mark class="mark-river">${this.river}</mark> <img src="./images/water.svg" class="water-emoji"> </p> 
     <p>บริเวณที่ตรวจสอบ: <mark class="mark-others">${this.area}</mark> </p>
     <p>ผลการตรวจสอบตัวอย่างน้ำ: </p>
     <p class="result">- Glyphosate (u/L): <mark class="mark-others">${this.water[0]}</mark></p>
@@ -726,12 +1297,18 @@ class ConInfo {
   }
 
   openClose() {
+    const current = allProvs.querySelector(".active");
+
     if (infoBox.classList[1] === undefined) {
       infoBox.classList.add("open");
       infoBox.classList.add(this.boxClass);
     } else if (infoBox.classList[1] === this.boxClass) {
       infoBox.classList.remove(infoBox.classList[1]);
       infoBox.classList.remove("open");
+      // if (!infoBox.classList.contains("open")) {
+      //   alert("here");
+      //   current.className = current.className.replace("active", "");
+      // }
     } else if (
       infoBox.classList[1] !== undefined &&
       infoBox.classList[1] !== this.boxClass

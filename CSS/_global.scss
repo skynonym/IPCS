@@ -3,11 +3,13 @@ $main-yellow: #ffc302;
 $sec-yellow: #EDB500;
 $main-pink: #ff5975;
 $main-dark: #323235;
+$sec-dark: #404B4B;
 $main-lightgray: #7b7b7b;
 $sec-lightgray: #ababab;
 $main-light: #DBDBDB;
 $sec-green: #009240;
 $main-blue: #03539B;
+$test: #bee26a;
 
 $font-logo: "Niramit",
 sans-serif;
@@ -15,7 +17,7 @@ sans-serif;
 $font-normal: "Mitr",
 sans-serif;
 
-$logo: 3rem;
+$logo: 2rem;
 $xl: 4rem;
 $h1: 3rem;
 $h2: 1.8rem;
@@ -77,5 +79,4 @@ $h3-800: calc(0.7rem + 1vw);
 
 _ html {
   font-size: 62.5%;
-  scroll-behavior: smooth;
 }

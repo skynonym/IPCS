@@ -1,0 +1,23 @@
+#gg-trends {
+  @include theme(gray);
+  min-height: 100vh;
+  padding: 4%;
+  color: $sec-dark;
+
+  h1.title {
+    @include head-text($main-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .trend__container>div {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+
+  }
+
+  .subregion {
+    height: 500px;
+  }
+}

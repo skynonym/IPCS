@@ -6,14 +6,102 @@ const colInfoCon = document.getElementById("info-types");
 const colClickMe = document.querySelector(".click-bar");
 
 // #PIE CHART
+// @Select
+const optsOne = new Dropdown({
+  id: "prov-options",
+  val: "ภาพรวม",
+  data: [
+    "ภาพรวม",
+    "เชียงใหม่",
+    "เชียงราย",
+    "ลำพูน",
+    "ลำปาง",
+    "น่าน",
+    "แพร่",
+    "พะเยา",
+    "แม่ฮ่องสอน",
+  ],
+  cb: function (newVal) {
+    let oc;
+    let herb;
+    switch (newVal) {
+      case "ภาพรวม":
+        oc = 195.39;
+        herb = 3634.42;
+        para = 2022.94;
+        glyp = 1611.48;
+        chlo = 195.39;
+        break;
+      case "เชียงใหม่":
+        oc = 500;
+        herb = 200;
+        para = 1000;
+        glyp = 1500;
+        chlo = 200;
+        break;
+      case "เชียงราย":
+        oc = 100;
+        herb = 1000;
+        para = 200;
+        glyp = 10;
+        chlo = 800;
+        break;
+      case "ลำพูน":
+        oc = 550;
+        herb = 1000;
+        para = 2020;
+        glyp = 105;
+        chlo = 800;
+        break;
+      case "ลำปาง":
+        oc = 700;
+        herb = 1000;
+        para = 524;
+        glyp = 556;
+        chlo = 230;
+        break;
+      case "น่าน":
+        oc = 100;
+        herb = 600;
+        para = 9564;
+        glyp = 54;
+        chlo = 555;
+        break;
+      case "แพร่":
+        oc = 422;
+        herb = 557;
+        para = 9564;
+        glyp = 54;
+        chlo = 555;
+        break;
+      case "พะเยา":
+        oc = 4152;
+        herb = 417;
+        para = 9564;
+        glyp = 54;
+        chlo = 452;
+        break;
+      case "แม่ฮ่องสอน":
+        oc = 524;
+        herb = 254;
+        para = 75;
+        glyp = 85;
+        chlo = 458;
+        break;
+    }
+    drawChart(oc, herb);
+    drawStuff(para, glyp, chlo);
+  },
+});
+
 google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
+function drawChart(oc = 195.39, herb = 3634.42) {
   const data = google.visualization.arrayToDataTable([
     ["กลุ่มสารเคมี", "ตัน"],
-    ["Organophosphate & Carbamate", 195.39],
-    ["Herbicides", 3634.42],
+    ["Organophosphate & Carbamate", oc],
+    ["Herbicides", herb],
   ]);
 
   const options = {
@@ -77,11 +165,15 @@ $(window).resize(function () {
 google.charts.load("current", { packages: ["bar"] });
 google.charts.setOnLoadCallback(drawStuff);
 
-function drawStuff() {
+function drawStuff(
+  paraquat = 2022.94,
+  glyphosate = 1611.48,
+  chlorpyrifos = 195.39
+) {
   const numbers = {
-    paraquat: 2022.94,
-    glyphosate: 1611.48,
-    chlorpyrifos: 195.39,
+    paraquat: paraquat,
+    glyphosate: glyphosate,
+    chlorpyrifos: chlorpyrifos,
     total() {
       const total = this.paraquat + this.glyphosate + this.chlorpyrifos;
       return total;
@@ -106,9 +198,12 @@ function drawStuff() {
 
   const data = new google.visualization.arrayToDataTable([
     ["สาร", "ร้อยละ", { role: "style" }],
-    ["พาราควอต", 52.82, "#9AE2E4"],
-    ["ไกลโฟเซต", 42.08, "#404B4B"],
-    ["คลอร์ไพริพอส", 5.1, "#CECECE"],
+    ["พาราควอต", paraquat, "#9AE2E4"],
+    ["ไกลโฟเซต", glyphosate, "#404B4B"],
+    ["คลอร์ไพริพอส", chlorpyrifos, "#CECECE"],
+    // ["พาราควอต", 52.82, "#9AE2E4"],
+    // ["ไกลโฟเซต", 42.08, "#404B4B"],
+    // ["คลอร์ไพริพอส", 5.1, "#CECECE"],
   ]);
 
   const options = {

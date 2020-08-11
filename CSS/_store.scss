@@ -1,4 +1,107 @@
 #stores {
   @include theme(gray);
-  min-height: 100vh;
+  min-height: 70vh;
+  padding: 4%;
+  color: $sec-dark;
+
+  h1.title {
+    @include head-text($main-dark);
+  }
+
+  .overall__container {
+    @include flex(row, space-between, stretch);
+    margin: 0 5%;
+  }
+
+  .img__container {
+    text-align: center;
+    flex: 1 1 300px;
+  }
+
+  img.store {
+    width: 80%;
+  }
+
+  .overall {
+    flex: 3 1 400px;
+    padding-left: 3rem;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      position: relative;
+    }
+
+    h2:nth-child(2) {
+      margin-top: 20px;
+    }
+
+    h2::before {
+      content: "";
+      background: url("speech1.png") no-repeat 0 0;
+      background-size: 100%;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      left: -60px;
+      transition: all 0.3s;
+    }
+
+    mark {
+      background: transparent;
+      font-size: $h2;
+      color: $sec-dark;
+    }
+  }
+
+  .line {
+    background-color: $main-lightgray;
+    height: 1.5px;
+    width: 100%;
+    margin: 2rem 0;
+    transition: margin 0.3s;
+  }
+
+  td:nth-child(1) {
+    width: 250px;
+  }
+}
+
+// #MEDIA QUERIES
+@media(max-width: 870px) {
+  #stores {
+    .overall {
+      padding-left: 2rem;
+
+      h2 {
+        font-size: calc(1rem + 1vw);
+      }
+
+      h2:nth-child(2) {
+        margin-top: 10px;
+      }
+
+      h2::before {
+        width: calc(20px + 1vw);
+        height: calc(20px + 1vw);
+        left: -40px;
+      }
+
+      mark {
+        font-size: calc(1.5rem + 1vw);
+      }
+    }
+
+    .line {
+      margin: 1rem 0;
+    }
+  }
+}
+
+@media(max-width: 800px) {
+  #stores {
+    h1.title {
+      font-size: $h1-800;
+    }
+  }
 }
