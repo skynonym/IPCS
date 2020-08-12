@@ -1,0 +1,260 @@
+#residue {
+  @include theme(gray);
+  min-height: 100vh;
+  padding: 4%;
+
+  .residue__container {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  h1.title {
+    @include head-text($main-dark);
+    margin: 1rem 0;
+  }
+
+
+  .current-year__container {
+    text-align: left;
+    width: 70%;
+    margin: 2rem auto 5rem auto;
+
+    h3 {
+      font-weight: 300;
+      font-size: $h3;
+    }
+
+    p {
+      line-height: 35px;
+    }
+
+    img {
+      position: absolute;
+    }
+  }
+
+  .veggies {
+    background: $main-green;
+    border-radius: 10px;
+    padding: 1rem 11rem 1rem 4rem;
+    // margin-top: 1.5rem !important;
+    color: white;
+    position: relative;
+
+    .text {
+      position: relative;
+      left: 25%;
+
+      ul li {
+        list-style: disc !important;
+        margin-bottom: 10px;
+      }
+    }
+
+    p {
+      // margin-left: 200px;
+      list-style-type: circle;
+    }
+
+    img {
+      position: absolute;
+      width: calc(150px + 5vw);
+      top: 0;
+      left: 10px;
+    }
+
+    mark {
+      color: white;
+    }
+
+  }
+
+  p.head {
+    font-size: $h3;
+  }
+
+  mark {
+    font-weight: 400;
+    background: transparent;
+  }
+
+  mark.number {
+    font-size: $h3;
+  }
+
+  mark.percent {
+    font-size: $h2;
+  }
+
+  // .fruits {
+  //   text-align: right;
+  //   color: #535461;
+  //   margin-top: 3rem;
+  //   margin-bottom: 3rem;
+  //   position: relative;
+
+  //   p {
+  //     margin-right: 300px;
+  //   }
+
+  //   img {
+  //     width: calc(120px + 5vw);
+  //     top: -10px;
+  //     right: 50px;
+  //   }
+
+  //   mark {
+  //     color: #535461;
+  //   }
+  // }
+
+  // .see-full-results {
+  //   // cursor: pointer;
+  //   color: $main-dark;
+  //   margin-top: 2rem;
+  //   display: inline-block;
+
+  //   // &:hover {
+  //   //   text-decoration: underline;
+  //   // }
+  // }
+
+  .full-results {
+    // opacity: 0;
+    // visibility: hidden;
+    transition: opacity 0.3s;
+    // position: absolute;
+    left: 50%;
+    // transform: translate(-50%);
+  }
+
+  // .full-results.open {
+  //   opacity: 1;
+  //   visibility: visible;
+  //   position: relative;
+  // }
+
+  table {
+    width: 80%;
+    margin: auto;
+  }
+
+  th {
+    font-weight: 400;
+    background: #ecac4b;
+    padding: 0;
+    padding: 0.5rem 1rem;
+  }
+
+  td {
+    padding: 0.5rem 1rem;
+    background: #fff3e2;
+  }
+
+  .t-no {
+    width: 20%;
+  }
+
+  .t-ex {
+    width: 20%;
+  }
+
+  .note {
+    background: #ffffff !important;
+    color: $main-lightgray;
+    text-align: justify;
+    font-size: $small;
+  }
+
+  // @Select
+  #select-year--residue,
+  #res-sold__select,
+  #res-monitor__select,
+  #res-frequecy2__select {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    right: 0;
+    color: $main-lightgray;
+  }
+
+  #select-year--residue {
+    margin: 1.5rem 0;
+  }
+
+  .res-chart-select__container {
+    text-align: center;
+  }
+
+  // #CHARTS
+
+  .chart-container {
+    margin-top: 90px;
+  }
+
+  .chart {
+    width: 70%;
+    position: relative;
+    @include center;
+
+  }
+
+  .res-chart__title {
+    text-align: center;
+    font-size: $h3;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+
+
+  .res-import__table {
+    margin-top: 20px;
+  }
+
+  .import-table {
+    margin: auto;
+
+    th {
+      font-weight: 400;
+      background: #ecac4b;
+      padding: 10px 15px;
+    }
+
+    li {
+      background: $main-lightyellow;
+    }
+
+    ul {
+      height: 350px;
+      background: $main-lightyellow;
+      padding: 15px;
+    }
+
+  }
+
+  // @sold
+  .res-sold__table {
+    table {
+      margin-top: 30px;
+    }
+
+    td,
+    th {
+      width: 40px;
+      text-align: center;
+    }
+  }
+
+  // @monitor
+  .res-monitor__chart {
+    margin-top: 30px;
+  }
+
+  .monitor__note {
+    margin-top: 30px;
+    color: $main-lightgray;
+    text-align: center;
+    font-size: $small;
+    font-weight: 300;
+  }
+}

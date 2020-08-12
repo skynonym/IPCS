@@ -150,7 +150,9 @@ nav {
 
 
 .mobile-nav {
+  text-align: center;
   display: none;
+  width: 200px;
   position: fixed;
   background: $main-light;
   right: 10px;
@@ -176,7 +178,7 @@ nav {
       @include theme(green);
     }
 
-    &:nth-child(6):hover {
+    &:last-child:hover {
       border-radius: 0 0 5px 5px;
     }
   }

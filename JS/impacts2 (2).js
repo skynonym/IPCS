@@ -149,7 +149,7 @@ const stackedChart = new ApexCharts(
 );
 stackedChart.render();
 
-// #SECTION3-----------------
+// #SECTION3-----------------------------------------------------------------------
 // @graphs
 const sec3ChiangMai = document
   .getElementById("sec3-chiangmai__chart")
@@ -701,12 +701,12 @@ const paTableVal = new Dropdown({
       case "2560":
         const pa2560 = [
           new ProvinceInfo("เชียงใหม่", "1,282,113", "322", "146", "143", "31"),
-          new ProvinceInfo("เชียงราย", "922,099", "482", "130", "89", "263"),
-          new ProvinceInfo("ลำพูน", "369,878", "64", "28", "28", "8"),
-          new ProvinceInfo("ลำปาง", "573,881", "76", "32", "31", "13"),
+          new ProvinceInfo("เชียงราย","922,099", "482", "130", "89", "263"),
+          new ProvinceInfo("ลำพูน", "369,878", "64", "28", "28", "8" ),
+          new ProvinceInfo("ลำปาง", "573,881", "76", "32", "31", "13" ),
           new ProvinceInfo("น่าน", "368,741", "72", "28", "30", "4"),
-          new ProvinceInfo("แพร่", "332,150", "596", "340", "24", "232"),
-          new ProvinceInfo("พะเยา", "390,209", "42", "28", "4", "10"),
+          new ProvinceInfo("แพร่", "332,150", "596", "340", "24", "232" ),
+          new ProvinceInfo("พะเยา", "390,209", "42", "28", "4", "10"  ),
           new ProvinceInfo("แม่ฮ่องสอน", "188,583", "62", "22", "31", "9"),
         ];
         ProvinceInfo.tableRender();
@@ -716,14 +716,14 @@ const paTableVal = new Dropdown({
         break;
       case "2561":
         const pa2561 = [
-          new ProvinceInfo("เชียงใหม่", "1,245,397", "186", "79", "66", "41"),
-          new ProvinceInfo("เชียงราย", "911,253", "120", "46", "37", "37"),
-          new ProvinceInfo("ลำพูน", "360,269", "68", "37", "10", "21"),
-          new ProvinceInfo("ลำปาง", "557,029", "220", "185", "15", "20"),
-          new ProvinceInfo("น่าน", "361,086", "72", "23", "37", "12"),
-          new ProvinceInfo("แพร่", "331,954", "45", "19", "13", "13"),
-          new ProvinceInfo("พะเยา", "388,082", "32", "17", "3", "12"),
-          new ProvinceInfo("แม่ฮ่องสอน", "189,097", "35", "13", "18", "4"),
+          new ProvinceInfo("เชียงใหม่", "1,245,397", "186", "79", "66", "41" ),
+          new ProvinceInfo("เชียงราย","911,253", "120", "46", "37", "37" ),
+          new ProvinceInfo("ลำพูน", "360,269", "68", "37", "10", "21"  ),
+          new ProvinceInfo("ลำปาง", "557,029", "220", "185", "15", "20"   ),
+          new ProvinceInfo("น่าน", "361,086", "72", "23", "37", "12" ),
+          new ProvinceInfo("แพร่", "331,954", "45", "19", "13", "13" ),
+          new ProvinceInfo("พะเยา", "388,082", "32", "17", "3", "12"   ),
+          new ProvinceInfo("แม่ฮ่องสอน", "189,097", "35", "13", "18", "4" ),
         ];
         ProvinceInfo.tableRender();
         pa2561.forEach((item) => {
@@ -733,14 +733,14 @@ const paTableVal = new Dropdown({
         break;
       case "2562":
         const pa2562 = [
-          new ProvinceInfo("เชียงใหม่", "1,282,113", "207", "94", "72", "41"),
-          new ProvinceInfo("เชียงราย", "922,099", "151", "33", "59", "59"),
-          new ProvinceInfo("ลำพูน", "369,878", "45", "18", "20", "7"),
-          new ProvinceInfo("ลำปาง", "573,881", "62", "21", "22", "19"),
-          new ProvinceInfo("น่าน", "368,741", "50", "21", "23", "6"),
-          new ProvinceInfo("แพร่", "332,150", "49", "24", "20", "5"),
-          new ProvinceInfo("พะเยา", "390,209", "33", "13", "8", "12"),
-          new ProvinceInfo("แม่ฮ่องสอน", "188,583", "56", "16", "32", "8"),
+          new ProvinceInfo("เชียงใหม่", "1,282,113", "207", "94", "72", "41" ),
+          new ProvinceInfo("เชียงราย","922,099", "151", "33", "59", "59" ),
+          new ProvinceInfo("ลำพูน", "369,878", "45", "18", "20", "7"  ),
+          new ProvinceInfo("ลำปาง", "573,881", "62", "21", "22", "19"  ),
+          new ProvinceInfo("น่าน", "368,741", "50", "21", "23", "6" ),
+          new ProvinceInfo("แพร่", "332,150", "49", "24", "20", "5"  ),
+          new ProvinceInfo("พะเยา", "390,209", "33", "13", "8", "12"  ),
+          new ProvinceInfo("แม่ฮ่องสอน", "188,583", "56", "16", "32", "8" ),
         ];
         ProvinceInfo.tableRender();
         pa2562.forEach((item) => {

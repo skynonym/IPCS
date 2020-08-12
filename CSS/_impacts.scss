@@ -1,5 +1,12 @@
 #impacts {
 
+  .plainam__title {
+    font-size: $xl;
+    font-weight: 400;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+
   img {
     pointer-events: none;
   }
@@ -102,8 +109,7 @@
 
   }
 
-  #select-year,
-  #select-year--residue {
+  #select-year {
     display: inline-block;
     position: relative;
     width: 150px;
@@ -180,147 +186,6 @@
   }
 
 
-  // #Residue
-
-  .residue__container {
-    margin-top: 3rem;
-    text-align: center;
-  }
-
-  .current-year__container {
-    text-align: left;
-    width: 70%;
-    margin: auto;
-    margin-top: 2rem;
-
-    h3 {
-      font-weight: 300;
-      font-size: $h3;
-    }
-
-    p {
-      line-height: 35px;
-    }
-
-    img {
-      position: absolute;
-    }
-  }
-
-  .veggies {
-    background: $main-green;
-    border-radius: 10px;
-    padding: 1rem 4rem;
-    margin-top: 1.5rem !important;
-    color: white;
-    position: relative;
-
-    p {
-      margin-left: 200px;
-    }
-
-    img {
-      width: calc(150px + 5vw);
-      top: -70px;
-      left: 10px;
-    }
-
-    mark {
-      color: white;
-    }
-
-  }
-
-  p.head {
-    font-size: $h3;
-  }
-
-  mark {
-    font-weight: 400;
-  }
-
-  mark.number {
-    font-size: $h3;
-  }
-
-  mark.percent {
-    font-size: $h2;
-  }
-
-  .fruits {
-    text-align: right;
-    color: #535461;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    position: relative;
-
-    p {
-      margin-right: 300px;
-    }
-
-    img {
-      width: calc(120px + 5vw);
-      top: -10px;
-      right: 50px;
-    }
-
-    mark {
-      color: #535461;
-    }
-  }
-
-  .see-full-results {
-    cursor: pointer;
-    color: $main-lightgray;
-    margin-top: 1.5rem 0;
-    display: inline-block;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .full-results {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-  }
-
-  .full-results.open {
-    opacity: 1;
-    visibility: visible;
-    position: relative;
-  }
-
-  .residue-table {
-    width: 60%;
-    margin: auto;
-
-    th {
-      font-weight: 400;
-      background: #b6dfdf;
-      padding: 0;
-      padding: 0.5rem 1rem;
-    }
-
-    td {
-      padding: 0.5rem 1rem;
-      background: #eef7f7;
-    }
-
-  }
-
-  .t-no {
-    width: 20%;
-  }
-
-  .t-ex {
-    width: 20%;
-  }
-
   // #Contaminants
 
   .contaminant__container {
@@ -363,17 +228,11 @@
     width: 150px;
   }
 
-  // img.emoji {
-  //   width: 50px;
-  //   margin-top: 1rem;
-  // }
-
   .water-emoji {
     width: 30px;
   }
 
   #con-info__box {
-    // position: relative;
     padding: 5%;
     padding-bottom: 0;
     display: none;

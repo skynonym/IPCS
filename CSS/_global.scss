@@ -1,6 +1,7 @@
 $main-green: #0f979b;
 $main-yellow: #ffc302;
 $sec-yellow: #EDB500;
+$main-lightyellow: #fff3e2;
 $main-pink: #ff5975;
 $main-dark: #323235;
 $sec-dark: #404B4B;
@@ -9,7 +10,7 @@ $sec-lightgray: #ababab;
 $main-light: #DBDBDB;
 $sec-green: #009240;
 $main-blue: #03539B;
-$test: #bee26a;
+$test: #2e5f43;
 
 $font-logo: "Niramit",
 sans-serif;
@@ -64,6 +65,12 @@ $h3-800: calc(0.7rem + 1vw);
     background: $main-light;
     color: $main-dark;
   }
+}
+
+@mixin center {
+  left: 50%;
+  right: -50%;
+  transform: translate(-50%);
 }
 
 //#GLOBAL STYLE

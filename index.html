@@ -40,7 +40,9 @@
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/style.css" />
     <!--JS-->
@@ -48,11 +50,21 @@
     <script src="./JS/overall.js" defer></script>
     <script src="./JS/select.js" defer></script>
     <script src="./JS/map.js" defer></script>
+    <script src="./JS/tonnam-map.js" defer></script>
     <script src="./JS/chem.js" defer></script>
     <script src="./JS/user.js" defer></script>
-    <script src="./JS/select.js" defer></script>
+    <!-- <script src="./JS/select.js" defer></script> -->
     <script src="./JS/gap.js" defer></script>
+    <script src="./JS/residue.js" defer></script>
     <script src="./JS/impacts.js" defer></script>
+
+    <!-- Map -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="./CSS/map.css" /></head
+  >>
   <body>
     <!-- #NAV -->
     <nav>
@@ -66,22 +78,14 @@
           <a href="#top">
             <li class="list-item border-right">ภาพรวม</li>
           </a>
-          <a href="#chem">
-            <li class="list-item border-right border-left">การใช้สารเคมี</li>
+          <a href="#tonnam">
+            <li class="list-item border-right border-left">ต้นน้ำ</li>
           </a>
-          <a href="#users">
-            <li class="list-item border-right border-left">ผู้ใช้สารเคมี</li>
+          <a href="#klangnam">
+            <li class="list-item border-right border-left">กลางน้ำ</li>
           </a>
-          <a href="#stores">
-            <li class="list-item border-right border-left">ร้านเคมีภัณฑ์</li>
-          </a>
-          <a href="#gap">
-            <li class="list-item border-right border-left">
-              การจดทะเบียนแหล่งผลิต GAP
-            </li>
-          </a>
-          <a href="#impacts">
-            <li class="list-item border-left">ผลกระทบ</li>
+          <a href="#plainam">
+            <li class="list-item border-left">ปลายน้ำ</li>
           </a>
         </ul>
       </div>
@@ -101,22 +105,14 @@
           <a href="#top">
             <li>ภาพรวม</li>
           </a>
-          <a href="#chem">
-            <li>การใช้สารเคมี</li>
+          <a href="#tonnam">
+            <li>ต้นน้ำ</li>
           </a>
-          <a href="#users">
-            <li>ผู้ใช้สารเคมี</li>
+          <a href="#klangnam">
+            <li>กลางน้ำ</li>
           </a>
-          <a href="#stores">
-            <li>ร้านเคมีภัณฑ์</li>
-          </a>
-          <a href="#gap">
-            <li>
-              การจดทะเบียนแหล่งผลิต GAP
-            </li>
-          </a>
-          <a href="#impacts">
-            <li>ผลกระทบ</li>
+          <a href="#plainam">
+            <li>ปลายน้ำ</li>
           </a>
         </ul>
       </div>
@@ -161,23 +157,15 @@
                   />
                 </li>
               </a>
-              <a href="https://www.deqp.go.th/new/" target="_blank">
-                <li>
-                  <img
-                    src="./images/logos/environment(1).png"
-                    alt="กรมส่งเสริมคุณภาพสิ่งแวดล้อม"
-                  />
-                </li>
-              </a>
               <a href="http://www.pcd.go.th/" target="_blank">
                 <li>
-                  <img
-                    src="./images/logos/pcd-logo.png"
-                    alt="กรมควบคุมมลพิษ"
-                  />
+                  <img src="./images/logos/pcd-logo.png" alt="กรมควบคุมมลพิษ" />
                 </li>
               </a>
-              <a href="https://www.egov.go.th/th/government-agency/318/" target="_blank">
+              <a
+                href="https://www.egov.go.th/th/government-agency/318/"
+                target="_blank"
+              >
                 <li>
                   <img
                     src="./images/logos/esc-logo.png"
@@ -185,7 +173,10 @@
                   />
                 </li>
               </a>
-              <a href="http://www.fda.moph.go.th/Pages/HomeP_D2.aspx" target="_blank">
+              <a
+                href="http://www.fda.moph.go.th/Pages/HomeP_D2.aspx"
+                target="_blank"
+              >
                 <li>
                   <img
                     src="./images/logos/egov-logo.png"
@@ -201,7 +192,7 @@
           <div class="box">
             <!-- *users -->
             <div class="user__box">
-              <p>ผู้ใช้สารเคมี (คน)</p>
+              <p>เกษตรกรที่ผ่านการอบรม* (คน)</p>
               <h1>62,791</h1>
             </div>
             <!-- *stores -->
@@ -211,7 +202,7 @@
             </div>
             <!-- *chem -->
             <div class="quantity__box">
-              <p>ปริมาณสารเคมีอันตราย* (ตัน)</p>
+              <p>ปริมาณสารเคมีอันตราย** (ตัน)</p>
               <h1>3,829</h1>
             </div>
             <div class="patient__box">
@@ -220,7 +211,9 @@
             </div>
           </div>
           <p class="note">
-            *ได้แก่สารพาราควอต ไกลโฟเซต และคลอร์ไพริฟอส
+            *เกษตรกรที่ผ่านการอบรมการใช้สารเคมี ได้แก่ สารพาราควอต ไกลโฟเซต
+            และคลอร์ไพริฟอส<br />
+            **ได้แก่สารพาราควอต ไกลโฟเซต และคลอร์ไพริฟอส
           </p>
         </div>
         <img src="./images/world.svg" alt="" class="bg-img" />
@@ -228,473 +221,1018 @@
 
       <!-- @MAP SECTION -->
       <section id="map">
+        <h1 class="title">แผนที่เขตสุขภาพประเทศไทย</h1>
         <div class="map__contianer">
-         <h1 class="title">แผนที่เขตสุขภาพในประเทศไทย</h1>
+          <div class="container">
+            <div id="mapid"></div>
+          </div>
         </div>
       </section>
 
-      <!-- @CHEM SECTION -->
-      <section id="chem">
-        <!-- *groups -->
-        <div class="chem-group__container">
-          <h1>การใช้สารเคมีทางการเกษตร</h1>
-          <div id="prov-options"></div>
-          <div class="pie__container">
-            <div class="only-pie">
-              <div id="piechart"></div>
-              <div class="description">
-                <div class="org">
-                  <span class="color"></span>
-                  <p>Organophosphate & Carbamate (ตัน)</p>
+      <!-- #ต้นน้ำ -->
+      <section id="tonnam">
+        <!-- @CHEM SECTION -->
+        <section id="chem">
+          <h1 class="tonnam__title">ต้นน้ำ</h1>
+          <div class="tonnam__map">
+            <div class="container">
+              <div id="tonnam-map"></div>
+            </div>
+          </div>
+
+          <!-- *groups -->
+          <div class="chem-group__container">
+            <h1>การใช้สารเคมีทางการเกษตร</h1>
+            <div id="prov-options"></div>
+            <div class="pie__container">
+              <div class="only-pie">
+                <div id="piechart"></div>
+                <div class="description">
+                  <div class="org">
+                    <span class="color"></span>
+                    <p>Organophosphate & Carbamate (ตัน)</p>
+                  </div>
+                  <div class="herb">
+                    <span class="color">Herbicides (ตัน)</span>
+                    <p></p>
+                  </div>
                 </div>
-                <div class="herb">
-                  <span class="color">Herbicides (ตัน)</span>
-                  <p></p>
-                </div>
               </div>
+              <!-- *more info -->
+              <div id="info" class="info__box">
+                <div class="content"></div>
+                <button class="closeBtn">ปิด</button>
+              </div>
+              <img
+                src="./images/clickme.png"
+                alt=""
+                class="clickme click-pie"
+              />
             </div>
-            <!-- *more info -->
-            <div id="info" class="info__box">
-              <div class="content"></div>
-              <button class="closeBtn">ปิด</button>
-            </div>
-            <img src="./images/clickme.png" alt="" class="clickme click-pie" />
           </div>
-        </div>
-        <!-- *types -->
-        <div class="chem-type__container">
-          <h2>การครอบครองสารอันตรายทางการเกษตร</h2>
-          <div class="column__container">
-            <div class="onlyColumn">
-              <div id="typeColumn"></div>
+          <!-- *types -->
+          <div class="chem-type__container">
+            <h2>การครอบครองสารอันตรายทางการเกษตร</h2>
+            <div class="column__container">
+              <div class="onlyColumn">
+                <div id="typeColumn"></div>
+              </div>
+              <!-- *more info -->
+              <div id="info-types" class="info__box">
+                <div class="content"></div>
+                <button class="closeBtn">ปิด</button>
+              </div>
+              <img
+                src="./images/clickme.png"
+                alt=""
+                class="clickme click-bar"
+              />
             </div>
-            <!-- *more info -->
-            <div id="info-types" class="info__box">
-              <div class="content"></div>
-              <button class="closeBtn">ปิด</button>
-            </div>
-            <img src="./images/clickme.png" alt="" class="clickme click-bar" />
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- @USER SECTION -->
-      <section id="users">
-        <h1 class="title">จำนวนผู้ใช้สารเคมีทางการเกษตร</h1>
-        <div class="user__content">
-          <div class="total">
-            <h2>ประชากร (คน)</h2>
-            <div class="numbers">
-              <p>5.88 ล้าน</p>
+        <!-- @USER SECTION -->
+        <section id="users">
+          <h1 class="title">จำนวนผู้ใช้สารเคมีทางการเกษตรในเขตสุขภาพที่ 1</h1>
+          <div class="user__content">
+            <div class="total">
+              <h2>ประชากร (คน)</h2>
+              <div class="numbers">
+                <p>5.88 ล้าน</p>
+              </div>
             </div>
-          </div>
-          <div class="farmers">
-            <h2>เกษตรกร (คน)</h2>
-            <div class="numbers">
-              <p>827,117</p>
+            <div class="farmers">
+              <h2>เกษตรกร (คน)</h2>
+              <div class="numbers">
+                <p>827,117</p>
+              </div>
             </div>
-          </div>
-          <div class="users">
-            <h2>ผู้ใช้สารเคมี (คน)</h2>
-            <div class="numbers">
-              <p>62,791</p>
-            </div>
-          </div>
-        </div>
-        <div class="table" id="userTable">
-          <div class="img__container">
-            <img src="./images/users.svg" alt="" class="img-user" />
-          </div>
-          <div class="table__container">
-            <h2 class="title">
-              ตารางเปรียบเทียบจำนวนผู้ใช้สารเคมีแต่ละจังหวัด
-            </h2>
-            <table>
-              <tr class="top">
-                <th></th>
-                <th>จำนวนประชากร</th>
-                <th>จำนวนเกษตรกร</th>
-                <th>จำนวนผู้ใช้สารเคมี</th>
-              </tr>
-              <tr>
-                <th>เชียงใหม่</th>
-                <td>1,764,000</td>
-                <td>180,459</td>
-                <td>13,721</td>
-              </tr>
-              <tr>
-                <th>เชียงราย</th>
-                <td>1,292,000</td>
-                <td>167,903</td>
-                <td>7,499</td>
-              </tr>
-              <tr>
-                <th>พะเยา</th>
-                <td>475,215</td>
-                <td>80,997</td>
-                <td>4,684</td>
-              </tr>
-              <tr>
-                <th>แพร่</th>
-                <td>445,090</td>
-                <td>73,292</td>
-                <td>6,740</td>
-              </tr>
-              <tr>
-                <th>ลำพูน</th>
-                <td>405,955</td>
-                <td>64,209</td>
-                <td>8,390</td>
-              </tr>
-              <tr>
-                <th>ลำปาง</th>
-                <td>742,883</td>
-                <td>126,289</td>
-                <td>7,655</td>
-              </tr>
-              <tr>
-                <th>น่าน</th>
-                <td>478,989</td>
-                <td>88,280</td>
-                <td>12,355</td>
-              </tr>
-              <tr>
-                <th>แม่ฮ่องสอน</th>
-                <td>284,138</td>
-                <td>45,688</td>
-                <td>1,747</td>
-              </tr>
-              <tr class="total">
-                <th>รวม</th>
-                <td>5,888,270</td>
-                <td>827,117</td>
-                <td>62,791</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- @STORE SECTION -->
-      <section id="stores">
-        <h1 class="title">ร้านเคมีภัณฑ์</h1>  
-        <div class="overall__container">
-          <div class="img__container"><img src="./images/store1.svg" alt="" class="store"></div>
-          <div class="overall">
-            <h2>จำนวนร้านทั้งหมด <mark>4,056</mark> ร้าน</h2>
-            <h2>จำนวนร้านที่จำหน่ายสารพาราควอต ไกลโฟเซต และคลอร์ไพริฟอส <mark>1,821</mark> ร้าน</h2>
-            <div class="line"></div>
-            <table>
-              <tr>
-                <td>
-                  จำนวนผู้ใช้ต่อร้านค้า
-                </td>
-                <td>
-                  15 : 1
-                </td>
-              </tr>
-              <tr>
-                <td>จำนวนร้านค้าต่อประชากร</td>
-                <td>1 : 1452</td>
-              </tr>
-              <tr>
-                <td>จำนวนร้านค้าต่อพื้นที่เพาะปลูก (ไร่)</td>
-                <td>2,603 : 1</td>
-              </tr>
-              <tr>
-                <td>
-                  จำนวนผู้ใช้ต่อพื้นที่เพาะปลูก (ไร่)
-                </td>
-                <td>
-                  168 : 1
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      <!-- *map -->
-      <!-- <div class="map__container">
-        <div class="map__title">ร้านเคมีภัณฑ์ในเขตสุขภาพที่ 1</div>
-        
-      </div> -->
-      </section>
-
-      <!-- @GAP SECTION -->
-      <section id="gap">
-        <h1 class="title">การจดทะเบียนรับรองแหล่งผลิต GAP</h1>
-        <div class="text__container">
-          <p class="desc">
-            "GAP (Good Agricultural Practices) คือ
-            <mark>มาตรฐานการปฏิบัติทางการเกษตรที่ดี</mark>
-            ทำให้เกษตรกรมีความรู้ในการผลิตพืชผลอย่างเป็นระบบ
-            และได้ผลผลิตที่มีคุณภาพตามความต้องการของตลาด
-            ผู้บริโภคมั่นใจได้ว่าจะได้บริโภคสินค้าที่ปลอดภัย
-            ไม่เป็นอัตรายต่อสุขภาพ
-            โดยพื้นที่ทางการเกษตรที่ผ่านการจดทะเบียนนั้นต้องประกอบด้วยแหล่งน้ำสะอาด
-            พื้นที่เพาะปลูกปลอดเชื้อโรค ไร้สารเคมีอันตรายและโลหะตกค้าง
-            สารเคมีที่ใช้ต้องขึ้นทะเบียนอย่างถูกต้องและเก็บในที่สะอาด
-            เกษตรกรมีการจัดทำแผนควบคุมคุณภาพผลผลิตและหมั่นดูแลรักษาความสะอาดของเครื่องมืออยู่เสมอ"
-          </p>
-          <img src="./images/Trees.svg" alt="" />
-        </div>
-
-        <div class="lineChart__container"><div id="chart"></div></div>
-      </section>
-      <!-- @IMPACT SECTION -->
-      <section id="impacts">
-        <h1 class="title">ผลกระทบจากการใช้สารเคมีทางการเกษตร</h1>
-        <!-- *patients -->
-        <div class="patient__container">
-          <h2 class="subtitle">ผู้ป่วยจากสารเคมี</h2>
-          <div class="lineChart__container">
-            <div id="all-patients"></div>
-          </div>
-          <!-- *section 2 -->
-          <div class="section2">
-            <img src="./images/patient.png" alt="">
-            <div class="stackedCol__container">
-              <h3>สัดส่วนผู้ป่วยในแต่ละปี</h3>
-              <div id="stackedCol"></div>
-            </div>
-          </div>
-          <!-- *section 3 -->
-          <div class="section3">
-            <div class="title__container">
-              <h3>อัตราการเจ็บป่วยด้วยโรคจากสารเคมี</h3>
-              <p>อัตราส่วน 1 : 100,000 ประชากร</p>
-            </div>
-            <div class="option__container">
-              <ul class="sec3-options">
-                <li class="sec3-opt active">เชียงใหม่</li>
-                <li class="sec3-opt">เชียงราย</li> 
-                <li class="sec3-opt">พะเยา</li> 
-                <li class="sec3-opt">แพร่</li> 
-                <li class="sec3-opt">ลำพูน</li> 
-                <li class="sec3-opt">ลำปาง</li> 
-                <li class="sec3-opt">น่าน</li> 
-                <li class="sec3-opt">แม่ฮ่องสอน</li>
-              </ul>
-            </div>
-            <div class="sec3-wrapper--all">
-              <div class="wrapper open" id="sec3-chiangmai">
-                <canvas id="sec3-chiangmai__chart"></canvas>
-
-              </div>
-              <div class="wrapper" id="sec3-chiangrai">
-                <canvas id="sec3-chiangrai__chart"></canvas>
-              </div>
-              <div class="wrapper" id="sec3-payao">
-                <canvas id="sec3-payao__chart"></canvas>
-              </div>
-              <div class="wrapper" id="sec3-prae">
-                <canvas id="sec3-prae__chart"></canvas>
-              </div>
-              <div class="wrapper" id="sec3-lampoon">
-                <canvas id="sec3-lampoon__chart"></canvas>
-              </div>
-              <div class="wrapper" id="sec3-lampang">
-                <canvas id="sec3-lampang__chart"></canvas>
-              </div>
-              <div class="wrapper" id="sec3-nan">
-                <canvas id="sec3-nan__chart"></canvas>
-              </div>
-              <div class="wrapper" id="sec3-maehongsorn">
-                <canvas id="sec3-maehongsorn__chart"></canvas>
+            <div class="users">
+              <h2>เกษตรกรที่ผ่านการอบรม (คน)</h2>
+              <div class="numbers">
+                <p>62,791</p>
               </div>
             </div>
           </div>
-          <!-- *section 4 -->
-          <div class="bottom-section">
+          <div class="table" id="userTable">
+            <div class="img__container">
+              <img src="./images/users.svg" alt="" class="img-user" />
+            </div>
             <div class="table__container">
-              <div class="head">
-                <h3>ตารางแสดงจำนวนผู้ป่วยในแต่ละจังหวัด</h3>
-              <div id="select-year"></div>
-            </div>
-              <table id="patients">
-                <tr>
-                  <th>จังหวัด</th>
-                  <th class="pop">ประชากร</th>
-                  <th>ผู้ป่วยจากสารเคมีทั้งหมด (%)</th>
-                  <th>สารกำจัดแมลง (%)</th>
-                  <th>สารกำจัดวัชพืช (%)</th>
-                  <th>สารอื่น ๆ (%)</th>
-                </tr>
-
-                <tr>
-                  <td>เชียงใหม่</td>
-                  <td>1,282,113</td>
-                  <td>25.11</td>
-                  <td>11.39</td>
-                  <td>11.15</td>
-                  <td>2.42</td>
+              <h2 class="title">
+                ตารางเปรียบเทียบจำนวนผู้ใช้สารเคมีแต่ละจังหวัด
+              </h2>
+              <table>
+                <tr class="top">
+                  <th></th>
+                  <th>จำนวนประชากร</th>
+                  <th>จำนวนเกษตรกร</th>
+                  <th>เกษตรกรที่ผ่านการอบรม (คน)</th>
+                  <th>เกษตรกรที่ผ่านการอบรม* (%)</th>
                 </tr>
                 <tr>
-                  <td>เชียงราย</td>
-                  <td>922,099</td>
-                  <td>52.27</td>
-                  <td>14.1</td>
-                  <td>9.65</td>
-                  <td>28.52</td>
+                  <th>เชียงใหม่</th>
+                  <td>1,764,000</td>
+                  <td>180,459</td>
+                  <td>13,721</td>
+                  <td>7.60</td>
                 </tr>
                 <tr>
-                  <td>ลำพูน</td>
-                  <td>369,878</td>
-                  <td>17.3</td>
-                  <td>7.57</td>
-                  <td>7.57</td>
-                  <td>2.16</td>
+                  <th>เชียงราย</th>
+                  <td>1,292,000</td>
+                  <td>167,903</td>
+                  <td>7,499</td>
+                  <td>4.47</td>
                 </tr>
                 <tr>
-                  <td>ลำปาง</td>
-                  <td>573,881</td>
-                  <td>13.24</td>
-                  <td>5.58</td>
-                  <td>5.4</td>
-                  <td>2.27</td>
+                  <th>พะเยา</th>
+                  <td>475,215</td>
+                  <td>80,997</td>
+                  <td>4,684</td>
+                  <td>5.78</td>
                 </tr>
                 <tr>
-                  <td>น่าน</td>
-                  <td>368,741</td>
-                  <td>19.53</td>
+                  <th>แพร่</th>
+                  <td>445,090</td>
+                  <td>73,292</td>
+                  <td>6,740</td>
+                  <td>9.20</td>
+                </tr>
+                <tr>
+                  <th>ลำพูน</th>
+                  <td>405,955</td>
+                  <td>64,209</td>
+                  <td>8,390</td>
+                  <td>13.07</td>
+                </tr>
+                <tr>
+                  <th>ลำปาง</th>
+                  <td>742,883</td>
+                  <td>126,289</td>
+                  <td>7,655</td>
+                  <td>6.06</td>
+                </tr>
+                <tr>
+                  <th>น่าน</th>
+                  <td>478,989</td>
+                  <td>88,280</td>
+                  <td>12,355</td>
+                  <td>14.00</td>
+                </tr>
+                <tr>
+                  <th>แม่ฮ่องสอน</th>
+                  <td>284,138</td>
+                  <td>45,688</td>
+                  <td>1,747</td>
+                  <td>3.82</td>
+                </tr>
+                <tr class="total">
+                  <th>รวม</th>
+                  <td>5,888,270</td>
+                  <td>827,117</td>
+                  <td>62,791</td>
                   <td>7.59</td>
-                  <td>8.14</td>
-                  <td>3.8</td>
-                </tr>
-                <tr>
-                  <td>แพร่</td>
-                  <td>332,150</td>
-                  <td>0.18</td>
-                  <td>0.10</td>
-                  <td>7.23</td>
-                  <td>69.85</td>
-                </tr>
-                <tr>
-                  <td>พะเยา</td>
-                  <td>390,209</td>
-                  <td>10.76</td>
-                  <td>7.18</td>
-                  <td>1.03</td>
-                  <td>2.56</td>
-                </tr>
-                <tr>
-                  <td>แม่ฮ่องสอน</td>
-                  <td>188,583</td>
-                  <td>32.88</td>
-                  <td>11.67</td>
-                  <td>16.44</td>
-                  <td>4.77</td>
                 </tr>
               </table>
             </div>
           </div>
-        </div>
-
-        <!-- *residue -->
-        <div class="residue__container">
-          <h2 class="subtitle">สารตกค้างในผักและผลไม้</h2>
-          <div class="current-year__container">
-            <h3>ปี 2563</h3>
-            <div class="veggies">
-              <img src="./images/chili-onions.png" alt="" />
-              <div class="text">
-                <p class="head">ผัก</p>
-                <p>จำนวนตัวอย่าง: <mark class="number">1,466</mark> รายการ</p>
-                <p>พบสารตกค้าง: <mark class="percent">1.16%</mark> (17 รายการ)</p>
-                <p>เช่น ต้นหอม ผักกาดขาว แตงกวา ถั่วฝักยาว ขึ้นฉ่าย พริกสด</p>
-              </div>
-            </div>
-            <div class="fruits">
-              <img src="./images/orange.png" alt="" />
-              <div class="text">
-                <p class="head">ผลไม้</p>
-                <p>จำนวนตัวอย่าง: <mark class="number">56</mark></mark> รายการ</p>
-                <p>พบสารตกค้าง: <mark class="percent">10.71%</mark> (6 รายการ)</p>
-                <p>เช่น ส้ม พุทรา</p>
-              </div>
-            </div>
-          </div>
-          <p class="see-full-results">
-            ข้อมูลผลการเฝ้าระวังผักและผลไม้ในพื้นที่เขตสุขภาพที่ 1 ปี 2558-2563
+          <p class="note">
+            * ร้อยละของเกษตรกรที่ผ่านการอบรมต่อจำนวนเกษตรทั้งหมดในจังหวัด
           </p>
-          <div class="full-results">
-            <div id="select-year--residue"></div>
-            <table class="residue-table"></table>
-          </div>
-        </div>
+        </section>
 
-        <!-- *contaminants -->
-        <div class="contaminant__container">
-          <h2 class="subtitle">สารปนเปื้อนในดินและแหล่งน้ำ</h2>
-          <p class="guide">คลิกรูปเพื่อดูรายละเอียด</p>
-          <div class="prov-seals">
-            <div class="prov">
-              <img
-                src="./images/provinces/เชียงใหม่2.png"
-                alt="เชียงใหม่"
-                class="seal"
-              />
-              <p>เชียงใหม่</p>
+        <!-- @STORE SECTION -->
+        <section id="stores">
+          <h1 class="title">ร้านเคมีภัณฑ์ในเขตสุขภาพที่ 1</h1>
+          <div class="overall__container">
+            <div class="img__container">
+              <img src="./images/store1.svg" alt="" class="store" />
             </div>
-
-            <div class="prov">
-              <img
-                src="./images/provinces/เชียงราย.png"
-                alt="เชียงราย"
-                class="seal"
-              />
-              <p>เชียงราย</p>
-            </div>
-
-            <div class="prov">
-              <img src="./images/provinces/น่าน.png" alt="น่าน" class="seal" />
-              <p>น่าน</p>
-            </div>
-
-            <div class="prov">
-              <img
-                src="./images/provinces/พะเยา.png"
-                alt="พะเยา"
-                class="seal"
-              />
-              <p>พะเยา</p>
-            </div>
-
-            <div class="prov">
-              <img
-                src="./images/provinces/ลำปาง2.png"
-                alt="ลำปาง"
-                class="seal"
-              />
-              <p>ลำปาง</p>
-            </div>
-          </div>
-          <div id="con-info__box">
-            <div class="con-info__text"></div>
-            <div class="info-img__container">
-              <img src="" alt="" class="info-img">
+            <div class="overall">
+              <h2>จำนวนร้านทั้งหมด <mark>4,056</mark> ร้าน</h2>
+              <h2>
+                จำนวนร้านที่จำหน่ายสารพาราควอต ไกลโฟเซต และคลอร์ไพริฟอส
+                <mark>1,821</mark> ร้าน
+              </h2>
+              <div class="line"></div>
+              <table>
+                <tr>
+                  <td>
+                    จำนวนผู้ใช้ต่อร้านค้า (คน : ร้าน)
+                  </td>
+                  <td>
+                    15 : 1
+                  </td>
+                </tr>
+                <tr>
+                  <td>จำนวนร้านค้าต่อประชากร (ร้าน : คน)</td>
+                  <td>1 : 1452</td>
+                </tr>
+                <tr>
+                  <td>จำนวนร้านค้าต่อพื้นที่เพาะปลูก (ไร่ : ร้าน)</td>
+                  <td>2,603 : 1</td>
+                </tr>
+                <tr>
+                  <td>
+                    จำนวนผู้ใช้ต่อพื้นที่เพาะปลูก (ไร่ : คน)
+                  </td>
+                  <td>
+                    168 : 1
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    ร้านค้าต่อเกษตรกรที่ผ่านการอบรม (ร้าน : คน)
+                  </td>
+                  <td>
+                    1 : 1,452
+                  </td>
+                </tr>
+              </table>
+              <div class="source">
+                <p>ข้อมูล ณ วันที่ 23 เมษายน พ.ศ. 2563</p>
+                <p>ที่มา: สำนักวิจัยและพัฒนาการเกษตรเขตที่ 1</p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <!-- @google trend -->
+        <section id="gg-trends">
+          <div class="head">
+            <h1 class="title">คำค้นหาที่เกี่ยวข้อง</h1>
+          </div>
+          <div class="trend__container">
+            <div class="all">
+              <script
+                type="text/javascript"
+                src="https://ssl.gstatic.com/trends_nrtr/2213_RC01/embed_loader.js"
+              ></script>
+              <script type="text/javascript">
+                trends.embed.renderExploreWidget(
+                  "TIMESERIES",
+                  {
+                    comparisonItem: [
+                      { keyword: "สารเคมีเกษตร", geo: "TH", time: "today 1-m" },
+                      {
+                        keyword: "สารกำจัดเชื้อรา",
+                        geo: "TH",
+                        time: "today 1-m",
+                      },
+                      { keyword: "Herbicide", geo: "TH", time: "today 1-m" },
+                      {
+                        keyword: "สารกำจัดศัตรูพืช",
+                        geo: "TH",
+                        time: "today 1-m",
+                      },
+                    ],
+                    category: 0,
+                    property: "",
+                  },
+                  {
+                    exploreQuery:
+                      "date=today%201-m&geo=TH&q=%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%84%E0%B8%A1%E0%B8%B5%E0%B9%80%E0%B8%81%E0%B8%A9%E0%B8%95%E0%B8%A3,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%8A%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%A3%E0%B8%B2,Herbicide,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%A8%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%B9%E0%B8%9E%E0%B8%B7%E0%B8%8A",
+                    guestPath: "https://trends.google.co.th:443/trends/embed/",
+                  }
+                );
+              </script>
+            </div>
+            <div class="subregion">
+              <script type="text/javascript">
+                trends.embed.renderExploreWidget(
+                  "GEO_MAP",
+                  {
+                    comparisonItem: [
+                      { keyword: "สารเคมีเกษตร", geo: "TH", time: "today 1-m" },
+                      {
+                        keyword: "สารกำจัดเชื้อรา",
+                        geo: "TH",
+                        time: "today 1-m",
+                      },
+                      { keyword: "/m/0f399", geo: "TH", time: "today 1-m" },
+                      {
+                        keyword: "สารกำจัดศัตรูพืช",
+                        geo: "TH",
+                        time: "today 1-m",
+                      },
+                    ],
+                    category: 0,
+                    property: "",
+                  },
+                  {
+                    exploreQuery:
+                      "date=today%201-m&geo=TH&q=%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%84%E0%B8%A1%E0%B8%B5%E0%B9%80%E0%B8%81%E0%B8%A9%E0%B8%95%E0%B8%A3,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%8A%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%A3%E0%B8%B2,%2Fm%2F0f399,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%A8%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%B9%E0%B8%9E%E0%B8%B7%E0%B8%8A",
+                    guestPath: "https://trends.google.co.th:443/trends/embed/",
+                  }
+                );
+              </script>
+            </div>
+          </div>
+        </section>
       </section>
 
-      <!-- *google trend -->
-      <section id="gg-trends">
-        <div class="head">
-          <h1 class="title">คำค้นหาที่เกี่ยวข้อง</h1>
-        </div>
-        <div class="trend__container">
-          <div class="all">
-            <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2213_RC01/embed_loader.js"></script>
-            <script type="text/javascript">
-              trends.embed.renderExploreWidget("TIMESERIES", { "comparisonItem": [{ "keyword": "สารเคมีเกษตร", "geo": "TH", "time": "today 1-m" }, { "keyword": "สารกำจัดเชื้อรา", "geo": "TH", "time": "today 1-m" }, { "keyword": "Herbicide", "geo": "TH", "time": "today 1-m" }, { "keyword": "สารกำจัดศัตรูพืช", "geo": "TH", "time": "today 1-m" }], "category": 0, "property": "" }, { "exploreQuery": "date=today%201-m&geo=TH&q=%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%84%E0%B8%A1%E0%B8%B5%E0%B9%80%E0%B8%81%E0%B8%A9%E0%B8%95%E0%B8%A3,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%8A%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%A3%E0%B8%B2,Herbicide,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%A8%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%B9%E0%B8%9E%E0%B8%B7%E0%B8%8A", "guestPath": "https://trends.google.co.th:443/trends/embed/" });
-            </script>
+      <!-- #กลางน้ำ -->
+      <section id="klangnam">
+        <!-- @GAP SECTION -->
+        <section id="gap">
+          <h1 class="klangnam__title">กลางน้ำ</h1>
+          <h1 class="title">การจดทะเบียนรับรองแหล่งผลิต GAP</h1>
+          <div class="text__container">
+            <p class="desc">
+              "GAP (Good Agricultural Practices) คือ
+              <mark>มาตรฐานการปฏิบัติทางการเกษตรที่ดี</mark>
+              ทำให้เกษตรกรมีความรู้ในการผลิตพืชผลอย่างเป็นระบบ
+              และได้ผลผลิตที่มีคุณภาพตามความต้องการของตลาด
+              ผู้บริโภคมั่นใจได้ว่าจะได้บริโภคสินค้าที่ปลอดภัย
+              ไม่เป็นอัตรายต่อสุขภาพ
+              โดยพื้นที่ทางการเกษตรที่ผ่านการจดทะเบียนนั้นต้องประกอบด้วยแหล่งน้ำสะอาด
+              พื้นที่เพาะปลูกปลอดเชื้อโรค ไร้สารเคมีอันตรายและโลหะตกค้าง
+              สารเคมีที่ใช้ต้องขึ้นทะเบียนอย่างถูกต้องและเก็บในที่สะอาด
+              เกษตรกรมีการจัดทำแผนควบคุมคุณภาพผลผลิตและหมั่นดูแลรักษาความสะอาดของเครื่องมืออยู่เสมอ"
+            </p>
+            <img src="./images/Trees.svg" alt="" />
           </div>
-          <div class="subregion">
-              <script type="text/javascript">
-                trends.embed.renderExploreWidget("GEO_MAP", { "comparisonItem": [{ "keyword": "สารเคมีเกษตร", "geo": "TH", "time": "today 1-m" }, { "keyword": "สารกำจัดเชื้อรา", "geo": "TH", "time": "today 1-m" }, { "keyword": "/m/0f399", "geo": "TH", "time": "today 1-m" }, { "keyword": "สารกำจัดศัตรูพืช", "geo": "TH", "time": "today 1-m" }], "category": 0, "property": "" }, { "exploreQuery": "date=today%201-m&geo=TH&q=%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%84%E0%B8%A1%E0%B8%B5%E0%B9%80%E0%B8%81%E0%B8%A9%E0%B8%95%E0%B8%A3,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%8A%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%A3%E0%B8%B2,%2Fm%2F0f399,%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%A8%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%B9%E0%B8%9E%E0%B8%B7%E0%B8%8A", "guestPath": "https://trends.google.co.th:443/trends/embed/" });
-              </script>
+
+          <div class="lineChart__container"><div id="chart"></div></div>
+        </section>
+        <!-- @residue -->
+        <section id="residue">
+          <div class="residue__container">
+            <h1 class="title">สารตกค้างในผักและผลไม้</h1>
+            <div class="current-year__container">
+              <div class="veggies">
+                <img src="./images/chili-onions.png" alt="" />
+                <div class="text">
+                  <ul>
+                    <li>พบการตกค้างสารกำจัดศัตรูพืชเกินมาตรฐานร้อยละ 40-60</li>
+                    <li>
+                      ผักที่มักพบสารตกค้าง ได้แก่ ถั่วฝักยาว คะน้า และพริก
+                    </li>
+                    <li>ผลไม้ที่มักพบสารตกค้าง ได้แก่ ส้ม ชมพู่ แก้ว</li>
+                    <li>
+                      พบการตกค้างของสารที่เป็นวัตถุอันตรายชนิดที่ 4 ได้แก่
+                      methamidophos, endosulphan และ EPN
+                    </li>
+                    <li>
+                      พบวัตถุอันตราย ที่เฝ้าระวัง 4 ชนิด คือ carbofuran,
+                      methomyl chlorpyriphos
+                    </li>
+                    <li>
+                      พบการตกค้างของสารกำจัดศัตรูพืชลำดับต้น ๆ
+                      ที่หลายประเทศยกเลิกการใช้เพราะมีผลกระทบต่อสุขภาพ เช่น
+                      carbendazim
+                    </li>
+                  </ul>
+                  <!-- <p>พบการตกค้างสารกำจัดศัตรูพืชเกินมาตรฐานร้อยละ 40-60</p>
+                  <p>ผักที่มักพบสารตกค้าง ได้แก่ ถั่วฝักยาว คะน้า และพริก</p>
+                  <p>ผลไม้ที่มักพบสารตกค้าง ได้แก่ ส้ม ชมพู่ แก้ว</p>
+                  <p>
+                    พบการตกค้างของสารที่เป็นวัตถุอันตรายชนิดที่ 4 ได้แก่
+                    methamidophos, endosulphan และ EPN
+                  </p>
+                  <p>
+                    พบวัตถุอันตราย ที่เฝ้าระวัง 4 ชนิด คือ carbofuran, methomyl
+                    chlorpyriphos
+                  </p>
+                  <p>
+                    พบการตกค้างของสารกำจัดศัตรูพืชลำดับต้น ๆ
+                    ที่หลายประเทศยกเลิกการใช้เพราะมีผลกระทบต่อสุขภาพเช่น
+                    carbendazim
+                  </p> -->
+                  <!-- <ul>
+                    <li>พบการตกค้างสารกำจัดศัตรูพืชเกินมาตรฐานร้อยละ 40-60</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul> -->
+                </div>
+              </div>
+              <!-- <h3>ปี 2563</h3>
+              <div class="veggies">
+                <img src="./images/chili-onions.png" alt="" />
+                <div class="text">
+                  <p class="head">ผัก</p>
+                  <p>จำนวนตัวอย่าง: <mark class="number">1,466</mark> รายการ</p>
+                  <p>
+                    พบสารตกค้าง: <mark class="percent">1.16%</mark> (17 รายการ)
+                  </p>
+                  <p>เช่น ต้นหอม ผักกาดขาว แตงกวา ถั่วฝักยาว ขึ้นฉ่าย พริกสด</p>
+                </div>
+              </div> -->
+              <!-- <div class="fruits">
+                    <img src="./images/orange.svg" alt="" />
+                    <div class="text">
+                      <p class="head">ผลไม้</p>
+                      <p>จำนวนตัวอย่าง: <mark class="number">56</mark></mark> รายการ</p>
+                      <p>พบสารตกค้าง: <mark class="percent">10.71%</mark> (6 รายการ)</p>
+                      <p>เช่น ส้ม พุทรา</p>
+                    </div>
+                  </div> -->
+            </div>
+            <p class="see-full-results">
+              ข้อมูลผลการเฝ้าระวังผักและผลไม้ในพื้นที่เขตสุขภาพที่ 1 ปี
+              2558-2563
+            </p>
+            <div class="full-results">
+              <div id="select-year--residue"></div>
+              <table class="residue-table">
+                <tr>
+                  <th rowspan="2">ประเภท</th>
+                  <th rowspan="2" class="t-no">จำนวนตัวอย่าง</th>
+                  <th colspan="2">การพบสารตกค้าง*</th>
+                  <th colspan="2">ตัวอย่างที่พบสารตกค้าง</th>
+                </tr>
+                <tr>
+                  <th>จำนวน</th>
+                  <th>ร้อยละ</th>
+                  <th class="t-ex">ชนิด</th>
+                  <th>ร้อยละ</th>
+                </tr>
+                <tr>
+                  <td rowspan="7">ผัก</td>
+                  <td rowspan="7">1,466</td>
+                  <td rowspan="7">17</td>
+                  <td rowspan="7">1.16</td>
+                  <td>ต้นหอม</td>
+                  <td>3.75</td>
+                </tr>
+                <tr>
+                  <td>ผักกาดขาว</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>ผักชี</td>
+                  <td>2.44</td>
+                </tr>
+                <tr>
+                  <td>แตงกวา</td>
+                  <td>1.52</td>
+                </tr>
+                <tr>
+                  <td>ถั่วฝักยาว</td>
+                  <td>1.47</td>
+                </tr>
+                <tr>
+                  <td>ขึ้นฉ่าย</td>
+                  <td>1.23</td>
+                </tr>
+                <tr>
+                  <td>พริกสด</td>
+                  <td>1.22</td>
+                </tr>
+                <tr>
+                  <td rowspan="2">ผลไม้</td>
+                  <td rowspan="2">56</td>
+                  <td rowspan="2">6</td>
+                  <td rowspan="2">10.71</td>
+                  <td>ส้ม</td>
+                  <td>**</td>
+                </tr>
+                <tr>
+                  <td>พุทรา</td>
+                  <td>**</td>
+                </tr>
+
+                <tr>
+                  <td colspan="6" class="note">
+                    ผลวิเคราะห์จากชุดทดสอบเบื้องต้น GT-Test Kit
+                    สามารถตรวจสอบความเป็นพิษตกค้างจากการใช้สารเคมีกำจัดศัตรูพืช
+                    (Pesticide) และ/หรือ สารพิษอื่นๆ
+                    ที่อาจปนเปื้อนหรือตกค้างในอาหาร
+                    โดยสามารถตรวจหาความเป็นพิษของสารเคมีกำจัดศัตรูพืช 2 กลุ่ม
+                    คือ กลุ่ม Organophosphate, Carbamate และสารพิษอื่นๆ
+                    ที่เป็นสาร Cholinesterase inhibitor โดยคลอร์ไพริฟอส
+                    (Chlorpyrifos) จัดอยู่ในกลุ่ม Organophosphate
+                    เป็นสารอินทรีย์ที่มีฟอสฟอรัสเป็นองค์ประกอบที่สำคัญ
+                    มีฤทธิ์ยับยั้งการทำงานของเอนไซม์โคลีนเอสเทอเรสแบบถาวร
+                    <br />
+                    * การพบสารตกค้าง หมายถึง การพบสารตกค้างในระดับอันตราย
+                    ซึ่งเป็นยาฆ่าแมลงในระดับที่ยับยั้งการทำงานของเอนไซม์โคลีนเอสเทอเรสมากกว่าร้อยละ
+                    50
+                    <br />
+                    ** จำนวนตัวอย่างไม่ถึง 30 ตัวอย่าง
+                    ไม่สามารถนำมาอ้างอิงทางสถิติได้
+                    <br />
+                    ผลวิเคราะห์ปี 2563 เป็นการนำข้อมูลถึงเดือนพฤษภาคม 2563
+                    (ข้อมูล ณ วันที่ 4 มิถุนายน 2563)
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
-        </div>
+          <!-- @residue frequency chart -->
+          <div class="res-frequency__container chart-container">
+            <h2 class="res-chart__title">
+              ความถี่สารป้องกันและกำจัดศัตรูพืชที่พบตกค้าง 30
+              อันดับแรกในผักและผลไม้ ปี 2562
+            </h2>
+            <div class="res-frequency__chart chart">
+              <canvas id="res-frequency"></canvas>
+            </div>
+          </div>
+
+          <!-- @residue type pie chart -->
+          <div class="res-type__container chart-container">
+            <h2 class="res-chart__title">
+              ประเภทสารเคมีป้องกันกำจัดศัตรูพืชที่พบตกค้างในผักและผลไม้จำหน่ายในประเทศไทยปี
+              2562
+            </h2>
+            <div class="res-type__chart chart">
+              <canvas id="res-type"></canvas>
+            </div>
+          </div>
+
+          <!-- @residue analysis pie chart -->
+          <div class="res-ana-pie__container chart-container">
+            <h2 class="res-chart__title">
+              ผลการตรวจวิเคราะห์สารกำจัดวัชพืชตกค้างในผัก ผลไม้ ปี 2560
+            </h2>
+            <div class="res-ana-pie__chart chart">
+              <canvas id="res-ana-pie"></canvas>
+            </div>
+          </div>
+
+          <!-- @residue analysis bar chart -->
+          <div class="res-ana-bar__container chart-container">
+            <h2 class="res-chart__title">
+              ผลการตรวจวิเคราะห์เปรียบเทียบสารกำจัดวัชพืช 3 ชนิด คือ พาราควอต
+              ไกลโฟเซต และ อะทราซีน
+            </h2>
+            <div class="res-ana-bar__chart chart">
+              <canvas id="res-ana-bar"></canvas>
+            </div>
+          </div>
+
+          <!-- @residue import chart -->
+          <div class="res-import__container chart-container">
+            <h2 class="res-chart__title">
+              ประเภทสารเคมีป้องกันกำจัดศัตรูพืชที่พบตกค้างในผักและผลไม้นำเข้าจากต่างประเทศ
+              ปี 2562
+            </h2>
+            <div class="res-import__chart chart">
+              <canvas id="res-import"></canvas>
+            </div>
+          </div>
+
+          <!-- @residue import table -->
+          <div class="res-import--table__container chart-container">
+            <h2 class="res-chart__title">
+              ชื่อสารเคมีป้องกันกำจัดศัตรูพืชที่พบในผักและผลไม้ที่นำเข้าจากต่างประเทศปี
+              2562
+            </h2>
+            <div class="res-import__table">
+              <table class="import-table">
+                <tr>
+                  <th>ไพรีทรอยด์</th>
+                  <th>ออร์กาโนฟอสเฟต</th>
+                  <th>คาร์บาเมต</th>
+                  <th>ออร์กาโนคลอรีน</th>
+                  <th>สารกำจัดแมลงกลุ่มอื่น</th>
+                  <th>สารกำจัดรา</th>
+                  <th>สารกำจัดไร</th>
+                  <th>สารกำจัดวัชพืช</th>
+                </tr>
+                <tr>
+                  <!-- ไพรีทรอยด์ -->
+                  <td valign="top">
+                    <ul style="list-style: none;">
+                      <li>Bifenthrin</li>
+                      <li>Cyfluthrin</li>
+                      <li>CypermethrinDeltamethrin</li>
+                      <li>Acrinathrin</li>
+                      <li>Deltamethrin</li>
+                      <li>FenpropathrinLambda-Cyhalothrin</li>
+                      <li>Permethrin</li>
+                    </ul>
+                  </td>
+                  <!-- ออร์กาโนฟอสเฟต -->
+                  <td valign="top">
+                    <ul style="list-style: none;">
+                      <li>Acephate</li>
+                      <li>Chlorpyrifos</li>
+                      <li>Dimethoate</li>
+                      <li>Ethion</li>
+                      <li>Malathion</li>
+                      <li>Methamidophos*</li>
+                      <li>Omethoate</li>
+                      <li>Profenofos</li>
+                      <li>Triazophos</li>
+                    </ul>
+                  </td>
+                  <!-- คาร์บาเมต -->
+                  <td valign="top">
+                    <ul style="list-style: none;">
+                      <li>Aldicarb</li>
+                      <li>Carbaryl</li>
+                      <li>Carbofuran</li>
+                      <li>Diethofencarb</li>
+                      <li>Fenobucarb</li>
+                      <li>Isoprocarb</li>
+                      <li>Isoprocarb</li>
+                      <li>Methiocarb</li>
+                      <li>Methomyl</li>
+                      <li>Propamocarb</li>
+                      <li>Carbaryl</li>
+                      <li>Fenobucarb</li>
+                    </ul>
+                  </td>
+                  <!-- ออร์กาโนคลอรีน -->
+                  <td valign="top">
+                    <ul style="list-style: none;">
+                      <li>Dicofol</li>
+                      <li>Endosulfan</li>
+                      <li>sulfate*</li>
+                    </ul>
+                  </td>
+                  <!-- สารกำจัดแมลงกลุ่มอื่น -->
+                  <td valign="top">
+                    <ul style="list-style: none;">
+                      <li>Chlorfenapyr</li>
+                      <li>Fipronil</li>
+                      <li>Trichlorfon</li>
+                      <li>Lufenuron</li>
+                      <li>Tolfenpyrad</li>
+                      <li>Fosthiazate</li>
+                      <li>Clothianidin</li>
+                    </ul>
+                  </td>
+                  <!-- สารกำจัดรา -->
+                  <td valign="top">
+                    <ul style="list-style: none;">
+                      <li>Abamectine</li>
+                      <li>Acibenzolar-S-methyl</li>
+                      <li>Azoxystrobin</li>
+                      <li>Biphenyl</li>
+                      <li>Carbendazim</li>
+                      <li>Chlorfluazuron</li>
+                      <li>Chlorothalonil</li>
+                      <li>Cyromazin</li>
+                      <li>Difenoconazole</li>
+                      <li>Dimethomorph</li>
+                      <li>Diniconazole</li>
+                      <li>Fludioxonil</li>
+                    </ul>
+                  </td>
+                  <!-- สารกำจัดไร -->
+                  <td valign="top">
+                    <ul style="list-style: none;">
+                      <li>Propargite</li>
+                      <li>Pyridaben</li>
+                    </ul>
+                  </td>
+                  <!-- สารกำจัดวัชพืช -->
+                  <td valign="top">
+                    <ul style="list-style: none;">
+                      <li>2-4 D</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- @residue: chem sold -->
+          <div class="res-sold__container chart-container">
+            <h2 class="res-chart__title">
+              สารเคมีป้องกันกำจัดศัตรูพืชที่พบในผักและผลไม้จำหน่ายในเขต 1
+            </h2>
+            <!-- *select -->
+            <div class="res-chart-select__container chart">
+              <div id="res-sold__select"></div>
+            </div>
+            <!-- *table -->
+            <div class="res-sold__table">
+              <table id="res-sold">
+                <tr>
+                  <th>จังหวัด</th>
+                  <th>จำนวนตัวอย่างทั้งหมด</th>
+                  <th>ปลอดภัย</th>
+                  <th>พบผ่านเกณฑ์มาตรฐาน</th>
+                  <th>พบไม่ผ่านเกณฑ์มาตรฐาน</th>
+                </tr>
+                <tr>
+                  <td>เชียงใหม่</td>
+                  <td>7</td>
+                  <td>6</td>
+                  <td>1</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>เชียงราย</td>
+                  <td>9</td>
+                  <td>8</td>
+                  <td>1</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>ลำพูน</td>
+                  <td>6</td>
+                  <td>5</td>
+                  <td>0</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>ลำปาง</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>น่าน</td>
+                  <td>7</td>
+                  <td>6</td>
+                  <td>1</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>แพร่</td>
+                  <td>7</td>
+                  <td>7</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>พะเยา</td>
+                  <td>7</td>
+                  <td>5</td>
+                  <td>0</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>แม่ฮ่องสอน</td>
+                  <td>7</td>
+                  <td>6</td>
+                  <td>0</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>รวม</td>
+                  <td>50</td>
+                  <td>43</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>ร้อยละ</td>
+                  <td>100</td>
+                  <td>86</td>
+                  <td>6</td>
+                  <td>8</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- @residue monitor -->
+          <div class="res-monitor__container chart-container">
+            <h2 class="res-chart__title">
+              การเฝ้าระวังการปนเปื้อนในพืช ผัก ผลไม้ และอาหาร ในแหล่งจำหน่ายต่าง
+              ๆ ในเขตสุขภาพที่ 1*
+            </h2>
+            <!-- *select -->
+            <div class="res-chart-select__container">
+              <div id="res-monitor__select"></div>
+            </div>
+            <!-- *chart -->
+            <div class="res-monitor__chart chart">
+              <canvas id="res-monitor2"></canvas>
+            </div>
+            <!-- *note -->
+            <div class="monitor__note">
+              *ข้อมูลจากจังหวัดเชียงใหม่ เชียงราย แพร่ น่าน ลำพูน พะเยา
+              และแม่ฮ่องสอน
+            </div>
+          </div>
+
+          <!-- @residue frequecy 2 years -->
+          <div class="res-frequecy2__container chart-container">
+            <h2 class="res-chart__title">
+              ความถี่ของชนิดป้องกันและกำจัดศัตรูพืชที่พบตกค้างในผักผลไม้
+            </h2>
+            <!-- *select -->
+            <div class="res-chart-select__container">
+              <div id="res-frequecy2__select"></div>
+            </div>
+            <!-- *chart -->
+            <div class="res-frequecy2__chart chart">
+              <canvas id="res-frequecy2"></canvas>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- #ปลายน้ำ -->
+      <section id="plainam">
+        <!-- @IMPACT SECTION -->
+        <section id="impacts">
+          <h1 class="plainam__title">ปลายน้ำ</h1>
+          <h1 class="title">ผลกระทบจากการใช้สารเคมีทางการเกษตร</h1>
+          <!-- *patients -->
+          <div class="patient__container">
+            <h2 class="subtitle">ผู้ป่วยจากสารเคมี</h2>
+            <div class="lineChart__container">
+              <div id="all-patients"></div>
+            </div>
+            <!-- *section 2 -->
+            <div class="section2">
+              <img src="./images/patient.png" alt="" />
+              <div class="stackedCol__container">
+                <h3>สัดส่วนผู้ป่วยในแต่ละปี</h3>
+                <div id="stackedCol"></div>
+              </div>
+            </div>
+            <!-- *section 3 -->
+            <div class="section3">
+              <div class="title__container">
+                <h3>อัตราการเจ็บป่วยด้วยโรคจากสารเคมี</h3>
+                <p>อัตราส่วน 1 : 100,000 ประชากร</p>
+              </div>
+              <div class="option__container">
+                <ul class="sec3-options">
+                  <li class="sec3-opt active">เชียงใหม่</li>
+                  <li class="sec3-opt">เชียงราย</li>
+                  <li class="sec3-opt">พะเยา</li>
+                  <li class="sec3-opt">แพร่</li>
+                  <li class="sec3-opt">ลำพูน</li>
+                  <li class="sec3-opt">ลำปาง</li>
+                  <li class="sec3-opt">น่าน</li>
+                  <li class="sec3-opt">แม่ฮ่องสอน</li>
+                </ul>
+              </div>
+              <div class="sec3-wrapper--all">
+                <div class="wrapper open" id="sec3-chiangmai">
+                  <canvas id="sec3-chiangmai__chart"></canvas>
+                </div>
+                <div class="wrapper" id="sec3-chiangrai">
+                  <canvas id="sec3-chiangrai__chart"></canvas>
+                </div>
+                <div class="wrapper" id="sec3-payao">
+                  <canvas id="sec3-payao__chart"></canvas>
+                </div>
+                <div class="wrapper" id="sec3-prae">
+                  <canvas id="sec3-prae__chart"></canvas>
+                </div>
+                <div class="wrapper" id="sec3-lampoon">
+                  <canvas id="sec3-lampoon__chart"></canvas>
+                </div>
+                <div class="wrapper" id="sec3-lampang">
+                  <canvas id="sec3-lampang__chart"></canvas>
+                </div>
+                <div class="wrapper" id="sec3-nan">
+                  <canvas id="sec3-nan__chart"></canvas>
+                </div>
+                <div class="wrapper" id="sec3-maehongsorn">
+                  <canvas id="sec3-maehongsorn__chart"></canvas>
+                </div>
+              </div>
+            </div>
+            <!-- *section 4 -->
+            <div class="bottom-section">
+              <div class="table__container">
+                <div class="head">
+                  <h3>ตารางแสดงจำนวนผู้ป่วยในแต่ละจังหวัด</h3>
+                  <div id="select-year"></div>
+                </div>
+                <table id="patients">
+                  <tr>
+                    <th>จังหวัด</th>
+                    <th class="pop">ประชากร</th>
+                    <th>ผู้ป่วยจากสารเคมีทั้งหมด (คน)</th>
+                    <th>สารกำจัดแมลง (คน)</th>
+                    <th>สารกำจัดวัชพืช (คน)</th>
+                    <th>สารอื่น ๆ (คน)</th>
+                  </tr>
+
+                  <tr>
+                    <td>เชียงใหม่</td>
+                    <td>1,282,113</td>
+                    <td>207</td>
+                    <td>94</td>
+                    <td>72</td>
+                    <td>41</td>
+                  </tr>
+                  <tr>
+                    <td>เชียงราย</td>
+                    <td>922,099</td>
+                    <td>151</td>
+                    <td>33</td>
+                    <td>59</td>
+                    <td>59</td>
+                  </tr>
+                  <tr>
+                    <td>ลำพูน</td>
+                    <td>369,878</td>
+                    <td>45</td>
+                    <td>18</td>
+                    <td>20</td>
+                    <td>7</td>
+                  </tr>
+                  <tr>
+                    <td>ลำปาง</td>
+                    <td>573,881</td>
+                    <td>62</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>19</td>
+                  </tr>
+                  <tr>
+                    <td>น่าน</td>
+                    <td>368,741</td>
+                    <td>50</td>
+                    <td>21</td>
+                    <td>23</td>
+                    <td>6</td>
+                  </tr>
+                  <tr>
+                    <td>แพร่</td>
+                    <td>332,150</td>
+                    <td>49</td>
+                    <td>24</td>
+                    <td>20</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>พะเยา</td>
+                    <td>390,209</td>
+                    <td>33</td>
+                    <td>13</td>
+                    <td>8</td>
+                    <td>12</td>
+                  </tr>
+                  <tr>
+                    <td>แม่ฮ่องสอน</td>
+                    <td>188,583</td>
+                    <td>56</td>
+                    <td>16</td>
+                    <td>32</td>
+                    <td>8</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- *contaminants -->
+          <div class="contaminant__container">
+            <h2 class="subtitle">สารปนเปื้อนในดินและแหล่งน้ำ</h2>
+            <p class="guide">คลิกรูปเพื่อดูรายละเอียด</p>
+            <div class="prov-seals">
+              <div class="prov">
+                <img
+                  src="./images/provinces/เชียงใหม่2.png"
+                  alt="เชียงใหม่"
+                  class="seal"
+                />
+                <p>เชียงใหม่</p>
+              </div>
+
+              <div class="prov">
+                <img
+                  src="./images/provinces/เชียงราย.png"
+                  alt="เชียงราย"
+                  class="seal"
+                />
+                <p>เชียงราย</p>
+              </div>
+
+              <div class="prov">
+                <img
+                  src="./images/provinces/น่าน.png"
+                  alt="น่าน"
+                  class="seal"
+                />
+                <p>น่าน</p>
+              </div>
+
+              <div class="prov">
+                <img
+                  src="./images/provinces/พะเยา.png"
+                  alt="พะเยา"
+                  class="seal"
+                />
+                <p>พะเยา</p>
+              </div>
+
+              <div class="prov">
+                <img
+                  src="./images/provinces/ลำปาง2.png"
+                  alt="ลำปาง"
+                  class="seal"
+                />
+                <p>ลำปาง</p>
+              </div>
+            </div>
+            <div id="con-info__box">
+              <div class="con-info__text"></div>
+              <div class="info-img__container">
+                <img src="" alt="" class="info-img" />
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
 
@@ -710,5 +1248,9 @@
         โทร : 02 590 7289 | อีเมล : ipcs_fda@fda.moph.go.th
       </div>
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="./JS/topmap.js"></script>
   </body>
 </html>

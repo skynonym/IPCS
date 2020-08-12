@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+  </head>
+  <body style="width: 90%; height: 90%;">
+    <canvas id="myChart"></canvas>
+    <script>
+      window.onload = function () {
+        var ctx = document.getElementById("res-frequecy2").getContext("2d");
+        var myChart = new Chart(document.getElementById("res-frequecy2"), {
+          type: "bar",
+          data: {
+            labels: [
+              "Cypermethrin",
+              "Chlorpyri fos",
+              "Carbenda zim",
+              "Carbofuran",
+              "Chlorfena pyr",
+              "Ethion",
+              "Metalaxyl",
+              "Methomyl",
+              "Profenofos",
+            ],
+            datasets: [
+              {
+                data: [5, 3, 1, 1, 1, 1, 1, 1, 1],
+                backgroundColor: [
+                  "#2A76D2",
+                  "#FFC300",
+                  "#DAF7A6",
+                  "#FF5733",
+                  "#900C3F",
+                  "#EA642A",
+                  "#506E91",
+                  "#DF4FC3",
+                  "#F15536",
+                ],
+              },
+            ],
+          },
+          options: {
+            animation: {
+              duration: 10,
+            },
+            title: {
+              display: true,
+              text:
+                "ความถี่ของชนิดป้องกันและกำจัดศัตรูพืช ที่พบตกค้างในผักผลไม้ปี 2562",
+            },
+            scales: {
+              xAxes: [
+                {
+                  stacked: true,
+                  gridLines: { display: false },
+                },
+              ],
+              yAxes: [
+                {
+                  stacked: true,
+                },
+              ],
+            }, // scales
+            legend: { display: false },
+          }, // options
+        });
+      };
+    </script>
+  </body>
+</html>

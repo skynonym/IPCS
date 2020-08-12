@@ -78,7 +78,7 @@ for (let i = 0; i < navItems.children.length; i++) {
     if (i === 0) {
       item.classList.remove("green");
       nextItem.children[0].classList.remove("whiteLeft");
-    } else if (i == 5) {
+    } else if (i === 3) {
       item.classList.remove("green");
       prevItem.children[0].classList.remove("whiteRight");
     } else {

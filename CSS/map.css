@@ -1,0 +1,31 @@
+.map__contianer {
+    position: relative;
+    height: 70vh;
+    z-index: 1;
+}
+
+#mapid {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 90%;
+    height: 90%;
+    left: 50%;
+    right: -50%;
+    transform: translate(-50%);
+}
+
+/* table {
+    margin-top: 510px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.tablerow:hover {
+    background-color: #73b6e6;
+} */

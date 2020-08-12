@@ -3,6 +3,13 @@
   min-height: 50vh;
   padding: 4%;
 
+  h1.klangnam__title {
+    font-size: $xl;
+    font-weight: 400;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+
   h1.title {
     @include head-text(white);
   }

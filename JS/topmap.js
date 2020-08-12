@@ -1,5 +1,6 @@
-const tonnamMap = L.map("tonnam-map").setView([18.787007, 98.984952], 7.2);
-let okay = 1;
+// Load Map
+const mymap = L.map("mapid").setView([18.787007, 98.984952], 7.2);
+let ok = 1;
 L.tileLayer(
   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
   {
@@ -12,13 +13,13 @@ L.tileLayer(
     accessToken:
       "pk.eyJ1Ijoid29yYXdhdHRyaSIsImEiOiJja2JnMHdqa3oxMHR0MzBubzd4MW54aW00In0.xpv91a9YP7GRa4BtJWts_A",
   }
-).addTo(tonnamMap);
+).addTo(mymap);
 
 // Load Polygon
 $.getJSON(
   "https://raw.githubusercontent.com/WorawatPP/todolist/master/map4",
   function (data) {
-    okay = L.geoJSON(data, {
+    ok = L.geoJSON(data, {
       onEachFeature: function (feature, layer) {
         layer.on("mouseover", function () {
           this.setStyle({
@@ -53,12 +54,12 @@ $.getJSON(
         });
         layer.on({ click: whenClick });
       },
-    }).addTo(tonnamMap);
+    }).addTo(mymap);
   }
 );
 
 // Create marker array
-const markerMap = [
+const marker = [
   {
     name: "ChiangMai",
     param: "50",
@@ -113,19 +114,19 @@ const markerMap = [
 // Show Marker onclick()
 function province(id) {
   console.log(id);
-  const result = markerMap.filter((e) => {
+  const result = marker.filter((e) => {
     return e.param == id;
   });
   console.log(result[0]["param"]);
-  if (okay != 1) {
-    okay.clearLayers();
+  if (ok != 1) {
+    ok.clearLayers();
   }
   $.getJSON(
     "https://chemical-system.mididigital.co.th/api/marker/" +
       result[0]["param"],
     function (data) {
-      tonnamMap.setView([result[0]["lat"], result[0]["long"]], 9);
-      okay = L.geoJSON(data, {
+      mymap.setView([result[0]["lat"], result[0]["long"]], 9);
+      ok = L.geoJSON(data, {
         onEachFeature: function (feature, layer) {
           let string =
             "<h2>" +
@@ -145,7 +146,7 @@ function province(id) {
           layer.bindPopup(string);
           console.log(feature.properties.Data);
         },
-      }).addTo(tonnamMap);
+      }).addTo(mymap);
     }
   );
 }
@@ -153,7 +154,7 @@ function province(id) {
 function whenClick(f) {
   // console.log(f.target.feature.properties.name);
 
-  const result = markerMap.filter((e) => {
+  const result = marker.filter((e) => {
     return e.name == f.target.feature.properties.name;
   });
 
@@ -161,16 +162,16 @@ function whenClick(f) {
   province(result[0]["param"]);
 }
 
-tonnamMap.on("zoomend", function () {
-  console.log(tonnamMap.getZoom());
-  if (tonnamMap.getZoom() < 9) {
-    if (okay != 1) {
-      okay.clearLayers();
+mymap.on("zoomend", function () {
+  console.log(mymap.getZoom());
+  if (mymap.getZoom() < 9) {
+    if (ok != 1) {
+      ok.clearLayers();
     }
     $.getJSON(
       "https://raw.githubusercontent.com/WorawatPP/todolist/master/map4",
       function (data) {
-        okay = L.geoJSON(data, {
+        ok = L.geoJSON(data, {
           onEachFeature: function (feature, layer) {
             layer.on("mouseover", function () {
               this.setStyle({
@@ -205,7 +206,7 @@ tonnamMap.on("zoomend", function () {
             });
             layer.on({ click: whenClick });
           },
-        }).addTo(tonnamMap);
+        }).addTo(mymap);
       }
     );
   }

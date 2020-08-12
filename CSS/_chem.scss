@@ -3,6 +3,13 @@
   min-height: 400px;
   padding: 4%;
 
+  h1.tonnam__title {
+    font-size: $xl;
+    font-weight: 400;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+
   .chem-group__container {
     position: relative;
     @include flex(column, center, center);
@@ -13,6 +20,7 @@
   }
 
   // #PIE
+
   .pie__container {
     position: relative;
     width: 100%;

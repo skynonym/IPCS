@@ -26,67 +26,31 @@ const optsOne = new Dropdown({
     let herb;
     switch (newVal) {
       case "ภาพรวม":
-        oc = 195.39;
-        herb = 3634.42;
-        para = 2022.94;
-        glyp = 1611.48;
-        chlo = 195.39;
+        oc = 195.39; herb = 3634.42; para = 2022.94;  glyp = 1611.48;  chlo = 195.39;
         break;
       case "เชียงใหม่":
-        oc = 140.06;
-        herb = 1147.83;
-        para = 534.68;
-        glyp = 613.15;
-        chlo = 140.06;
+        oc = 140.06; herb = 1147.83; para = 534.68;  glyp = 613.15; chlo = 140.06;
         break;
       case "เชียงราย":
-        oc = 23.28;
-        herb = 1166.15;
-        para = 800.58;
-        glyp = 365.57;
-        chlo = 23.28;
+        oc = 23.28; herb = 1166.15; para = 800.58;  glyp = 365.57; chlo = 23.28;
         break;
       case "ลำพูน":
-        oc = 12.78;
-        herb = 194.17;
-        para = 63.42;
-        glyp = 130.75;
-        chlo = 12.78;
+        oc = 12.78; herb = 194.17; para = 63.42;  glyp = 130.75; chlo = 12.78;
         break;
       case "ลำปาง":
-        oc = 1.99;
-        herb = 264.06;
-        para = 119.23;
-        glyp = 144.83;
-        chlo = 1.99;
+        oc = 1.99; herb = 264.06; para = 119.23;  glyp = 144.83; chlo = 1.99;
         break;
       case "น่าน":
-        oc = 3.5;
-        herb = 152.79;
-        para = 57.81;
-        glyp = 94.98;
-        chlo = 3.5;
+        oc = 3.5; herb = 152.79; para = 57.81;  glyp = 94.98; chlo = 3.5;
         break;
       case "แพร่":
-        oc = 1.99;
-        herb = 123.68;
-        para = 73.46;
-        glyp = 50.22;
-        chlo = 1.99;
+        oc = 1.99; herb = 123.68; para = 73.46;  glyp = 50.22; chlo = 1.99;
         break;
       case "พะเยา":
-        oc = 11.02;
-        herb = 511.04;
-        para = 336.86;
-        glyp = 174.18;
-        chlo = 11.02;
+        oc = 11.02; herb = 511.04; para = 336.86;  glyp = 174.18; chlo = 11.02;
         break;
       case "แม่ฮ่องสอน":
-        oc = 0.77;
-        herb = 74.7;
-        para = 36.9;
-        glyp = 37.8;
-        chlo = 0.77;
+        oc = 0.77; herb = 74.7; para = 36.9;  glyp = 37.8; chlo = 0.77;
         break;
     }
     drawChart(oc, herb);
