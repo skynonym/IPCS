@@ -87,3 +87,7 @@ $h3-800: calc(0.7rem + 1vw);
 _ html {
   font-size: 62.5%;
 }
+
+.table__container {
+  overflow-x: auto;
+}

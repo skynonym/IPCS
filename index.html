@@ -53,7 +53,6 @@
     <script src="./JS/tonnam-map.js" defer></script>
     <script src="./JS/chem.js" defer></script>
     <script src="./JS/user.js" defer></script>
-    <!-- <script src="./JS/select.js" defer></script> -->
     <script src="./JS/gap.js" defer></script>
     <script src="./JS/residue.js" defer></script>
     <script src="./JS/impacts.js" defer></script>
@@ -63,8 +62,8 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
     />
-    <link rel="stylesheet" href="./CSS/map.css" /></head
-  >>
+    <link rel="stylesheet" href="./CSS/map.css" />
+  </head>
   <body>
     <!-- #NAV -->
     <nav>
@@ -224,7 +223,7 @@
         <h1 class="title">แผนที่เขตสุขภาพประเทศไทย</h1>
         <div class="map__contianer">
           <div class="container">
-            <div id="mapid"></div>
+            <div class="custom-tooltip" id="mapid"></div>
           </div>
         </div>
       </section>
@@ -234,9 +233,16 @@
         <!-- @CHEM SECTION -->
         <section id="chem">
           <h1 class="tonnam__title">ต้นน้ำ</h1>
-          <div class="tonnam__map">
-            <div class="container">
-              <div id="tonnam-map"></div>
+          <div class="tonnam-map__container">
+            <div class="tonnam__map">
+              <div class="container">
+                <div id="tonnam-map"></div>
+              </div>
+            </div>
+
+            <!-- *info -->
+            <div class="tonnam-map__info">
+              <p>คลิกแผนที่เพื่อดูรายละเอียดของแต่ละจังหวัด</p>
             </div>
           </div>
 
@@ -322,78 +328,80 @@
               <h2 class="title">
                 ตารางเปรียบเทียบจำนวนผู้ใช้สารเคมีแต่ละจังหวัด
               </h2>
-              <table>
-                <tr class="top">
-                  <th></th>
-                  <th>จำนวนประชากร</th>
-                  <th>จำนวนเกษตรกร</th>
-                  <th>เกษตรกรที่ผ่านการอบรม (คน)</th>
-                  <th>เกษตรกรที่ผ่านการอบรม* (%)</th>
-                </tr>
-                <tr>
-                  <th>เชียงใหม่</th>
-                  <td>1,764,000</td>
-                  <td>180,459</td>
-                  <td>13,721</td>
-                  <td>7.60</td>
-                </tr>
-                <tr>
-                  <th>เชียงราย</th>
-                  <td>1,292,000</td>
-                  <td>167,903</td>
-                  <td>7,499</td>
-                  <td>4.47</td>
-                </tr>
-                <tr>
-                  <th>พะเยา</th>
-                  <td>475,215</td>
-                  <td>80,997</td>
-                  <td>4,684</td>
-                  <td>5.78</td>
-                </tr>
-                <tr>
-                  <th>แพร่</th>
-                  <td>445,090</td>
-                  <td>73,292</td>
-                  <td>6,740</td>
-                  <td>9.20</td>
-                </tr>
-                <tr>
-                  <th>ลำพูน</th>
-                  <td>405,955</td>
-                  <td>64,209</td>
-                  <td>8,390</td>
-                  <td>13.07</td>
-                </tr>
-                <tr>
-                  <th>ลำปาง</th>
-                  <td>742,883</td>
-                  <td>126,289</td>
-                  <td>7,655</td>
-                  <td>6.06</td>
-                </tr>
-                <tr>
-                  <th>น่าน</th>
-                  <td>478,989</td>
-                  <td>88,280</td>
-                  <td>12,355</td>
-                  <td>14.00</td>
-                </tr>
-                <tr>
-                  <th>แม่ฮ่องสอน</th>
-                  <td>284,138</td>
-                  <td>45,688</td>
-                  <td>1,747</td>
-                  <td>3.82</td>
-                </tr>
-                <tr class="total">
-                  <th>รวม</th>
-                  <td>5,888,270</td>
-                  <td>827,117</td>
-                  <td>62,791</td>
-                  <td>7.59</td>
-                </tr>
-              </table>
+              <div class="table__container">
+                <table>
+                  <tr class="top">
+                    <th></th>
+                    <th>จำนวนประชากร</th>
+                    <th>จำนวนเกษตรกร</th>
+                    <th>เกษตรกรที่ผ่านการอบรม (คน)</th>
+                    <th>เกษตรกรที่ผ่านการอบรม* (%)</th>
+                  </tr>
+                  <tr>
+                    <th>เชียงใหม่</th>
+                    <td>1,764,000</td>
+                    <td>180,459</td>
+                    <td>13,721</td>
+                    <td>7.60</td>
+                  </tr>
+                  <tr>
+                    <th>เชียงราย</th>
+                    <td>1,292,000</td>
+                    <td>167,903</td>
+                    <td>7,499</td>
+                    <td>4.47</td>
+                  </tr>
+                  <tr>
+                    <th>พะเยา</th>
+                    <td>475,215</td>
+                    <td>80,997</td>
+                    <td>4,684</td>
+                    <td>5.78</td>
+                  </tr>
+                  <tr>
+                    <th>แพร่</th>
+                    <td>445,090</td>
+                    <td>73,292</td>
+                    <td>6,740</td>
+                    <td>9.20</td>
+                  </tr>
+                  <tr>
+                    <th>ลำพูน</th>
+                    <td>405,955</td>
+                    <td>64,209</td>
+                    <td>8,390</td>
+                    <td>13.07</td>
+                  </tr>
+                  <tr>
+                    <th>ลำปาง</th>
+                    <td>742,883</td>
+                    <td>126,289</td>
+                    <td>7,655</td>
+                    <td>6.06</td>
+                  </tr>
+                  <tr>
+                    <th>น่าน</th>
+                    <td>478,989</td>
+                    <td>88,280</td>
+                    <td>12,355</td>
+                    <td>14.00</td>
+                  </tr>
+                  <tr>
+                    <th>แม่ฮ่องสอน</th>
+                    <td>284,138</td>
+                    <td>45,688</td>
+                    <td>1,747</td>
+                    <td>3.82</td>
+                  </tr>
+                  <tr class="total">
+                    <th>รวม</th>
+                    <td>5,888,270</td>
+                    <td>827,117</td>
+                    <td>62,791</td>
+                    <td>7.59</td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
           <p class="note">
@@ -415,40 +423,42 @@
                 <mark>1,821</mark> ร้าน
               </h2>
               <div class="line"></div>
-              <table>
-                <tr>
-                  <td>
-                    จำนวนผู้ใช้ต่อร้านค้า (คน : ร้าน)
-                  </td>
-                  <td>
-                    15 : 1
-                  </td>
-                </tr>
-                <tr>
-                  <td>จำนวนร้านค้าต่อประชากร (ร้าน : คน)</td>
-                  <td>1 : 1452</td>
-                </tr>
-                <tr>
-                  <td>จำนวนร้านค้าต่อพื้นที่เพาะปลูก (ไร่ : ร้าน)</td>
-                  <td>2,603 : 1</td>
-                </tr>
-                <tr>
-                  <td>
-                    จำนวนผู้ใช้ต่อพื้นที่เพาะปลูก (ไร่ : คน)
-                  </td>
-                  <td>
-                    168 : 1
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    ร้านค้าต่อเกษตรกรที่ผ่านการอบรม (ร้าน : คน)
-                  </td>
-                  <td>
-                    1 : 1,452
-                  </td>
-                </tr>
-              </table>
+              <div class="table__container">
+                <table>
+                  <tr>
+                    <td>
+                      จำนวนผู้ใช้ต่อร้านค้า (คน : ร้าน)
+                    </td>
+                    <td>
+                      15 : 1
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>จำนวนร้านค้าต่อประชากร (ร้าน : คน)</td>
+                    <td>1 : 1452</td>
+                  </tr>
+                  <tr>
+                    <td>จำนวนร้านค้าต่อพื้นที่เพาะปลูก (ไร่ : ร้าน)</td>
+                    <td>2,603 : 1</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      จำนวนผู้ใช้ต่อพื้นที่เพาะปลูก (ไร่ : คน)
+                    </td>
+                    <td>
+                      168 : 1
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      ร้านค้าต่อเกษตรกรที่ผ่านการอบรม (ร้าน : คน)
+                    </td>
+                    <td>
+                      1 : 1,452
+                    </td>
+                  </tr>
+                </table>
+              </div>
               <div class="source">
                 <p>ข้อมูล ณ วันที่ 23 เมษายน พ.ศ. 2563</p>
                 <p>ที่มา: สำนักวิจัยและพัฒนาการเกษตรเขตที่ 1</p>
@@ -637,89 +647,91 @@
             </p>
             <div class="full-results">
               <div id="select-year--residue"></div>
-              <table class="residue-table">
-                <tr>
-                  <th rowspan="2">ประเภท</th>
-                  <th rowspan="2" class="t-no">จำนวนตัวอย่าง</th>
-                  <th colspan="2">การพบสารตกค้าง*</th>
-                  <th colspan="2">ตัวอย่างที่พบสารตกค้าง</th>
-                </tr>
-                <tr>
-                  <th>จำนวน</th>
-                  <th>ร้อยละ</th>
-                  <th class="t-ex">ชนิด</th>
-                  <th>ร้อยละ</th>
-                </tr>
-                <tr>
-                  <td rowspan="7">ผัก</td>
-                  <td rowspan="7">1,466</td>
-                  <td rowspan="7">17</td>
-                  <td rowspan="7">1.16</td>
-                  <td>ต้นหอม</td>
-                  <td>3.75</td>
-                </tr>
-                <tr>
-                  <td>ผักกาดขาว</td>
-                  <td>2</td>
-                </tr>
-                <tr>
-                  <td>ผักชี</td>
-                  <td>2.44</td>
-                </tr>
-                <tr>
-                  <td>แตงกวา</td>
-                  <td>1.52</td>
-                </tr>
-                <tr>
-                  <td>ถั่วฝักยาว</td>
-                  <td>1.47</td>
-                </tr>
-                <tr>
-                  <td>ขึ้นฉ่าย</td>
-                  <td>1.23</td>
-                </tr>
-                <tr>
-                  <td>พริกสด</td>
-                  <td>1.22</td>
-                </tr>
-                <tr>
-                  <td rowspan="2">ผลไม้</td>
-                  <td rowspan="2">56</td>
-                  <td rowspan="2">6</td>
-                  <td rowspan="2">10.71</td>
-                  <td>ส้ม</td>
-                  <td>**</td>
-                </tr>
-                <tr>
-                  <td>พุทรา</td>
-                  <td>**</td>
-                </tr>
+              <div class="table__container">
+                <table class="residue-table">
+                  <tr>
+                    <th rowspan="2">ประเภท</th>
+                    <th rowspan="2" class="t-no">จำนวนตัวอย่าง</th>
+                    <th colspan="2">การพบสารตกค้าง*</th>
+                    <th colspan="2">ตัวอย่างที่พบสารตกค้าง</th>
+                  </tr>
+                  <tr>
+                    <th>จำนวน</th>
+                    <th>ร้อยละ</th>
+                    <th class="t-ex">ชนิด</th>
+                    <th>ร้อยละ</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="7">ผัก</td>
+                    <td rowspan="7">1,466</td>
+                    <td rowspan="7">17</td>
+                    <td rowspan="7">1.16</td>
+                    <td>ต้นหอม</td>
+                    <td>3.75</td>
+                  </tr>
+                  <tr>
+                    <td>ผักกาดขาว</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>ผักชี</td>
+                    <td>2.44</td>
+                  </tr>
+                  <tr>
+                    <td>แตงกวา</td>
+                    <td>1.52</td>
+                  </tr>
+                  <tr>
+                    <td>ถั่วฝักยาว</td>
+                    <td>1.47</td>
+                  </tr>
+                  <tr>
+                    <td>ขึ้นฉ่าย</td>
+                    <td>1.23</td>
+                  </tr>
+                  <tr>
+                    <td>พริกสด</td>
+                    <td>1.22</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">ผลไม้</td>
+                    <td rowspan="2">56</td>
+                    <td rowspan="2">6</td>
+                    <td rowspan="2">10.71</td>
+                    <td>ส้ม</td>
+                    <td>**</td>
+                  </tr>
+                  <tr>
+                    <td>พุทรา</td>
+                    <td>**</td>
+                  </tr>
 
-                <tr>
-                  <td colspan="6" class="note">
-                    ผลวิเคราะห์จากชุดทดสอบเบื้องต้น GT-Test Kit
-                    สามารถตรวจสอบความเป็นพิษตกค้างจากการใช้สารเคมีกำจัดศัตรูพืช
-                    (Pesticide) และ/หรือ สารพิษอื่นๆ
-                    ที่อาจปนเปื้อนหรือตกค้างในอาหาร
-                    โดยสามารถตรวจหาความเป็นพิษของสารเคมีกำจัดศัตรูพืช 2 กลุ่ม
-                    คือ กลุ่ม Organophosphate, Carbamate และสารพิษอื่นๆ
-                    ที่เป็นสาร Cholinesterase inhibitor โดยคลอร์ไพริฟอส
-                    (Chlorpyrifos) จัดอยู่ในกลุ่ม Organophosphate
-                    เป็นสารอินทรีย์ที่มีฟอสฟอรัสเป็นองค์ประกอบที่สำคัญ
-                    มีฤทธิ์ยับยั้งการทำงานของเอนไซม์โคลีนเอสเทอเรสแบบถาวร
-                    <br />
-                    * การพบสารตกค้าง หมายถึง การพบสารตกค้างในระดับอันตราย
-                    ซึ่งเป็นยาฆ่าแมลงในระดับที่ยับยั้งการทำงานของเอนไซม์โคลีนเอสเทอเรสมากกว่าร้อยละ
-                    50
-                    <br />
-                    ** จำนวนตัวอย่างไม่ถึง 30 ตัวอย่าง
-                    ไม่สามารถนำมาอ้างอิงทางสถิติได้
-                    <br />
-                    ผลวิเคราะห์ปี 2563 เป็นการนำข้อมูลถึงเดือนพฤษภาคม 2563
-                    (ข้อมูล ณ วันที่ 4 มิถุนายน 2563)
-                  </td>
-                </tr>
-              </table>
+                  <tr>
+                    <td colspan="6" class="note">
+                      ผลวิเคราะห์จากชุดทดสอบเบื้องต้น GT-Test Kit
+                      สามารถตรวจสอบความเป็นพิษตกค้างจากการใช้สารเคมีกำจัดศัตรูพืช
+                      (Pesticide) และ/หรือ สารพิษอื่นๆ
+                      ที่อาจปนเปื้อนหรือตกค้างในอาหาร
+                      โดยสามารถตรวจหาความเป็นพิษของสารเคมีกำจัดศัตรูพืช 2 กลุ่ม
+                      คือ กลุ่ม Organophosphate, Carbamate และสารพิษอื่นๆ
+                      ที่เป็นสาร Cholinesterase inhibitor โดยคลอร์ไพริฟอส
+                      (Chlorpyrifos) จัดอยู่ในกลุ่ม Organophosphate
+                      เป็นสารอินทรีย์ที่มีฟอสฟอรัสเป็นองค์ประกอบที่สำคัญ
+                      มีฤทธิ์ยับยั้งการทำงานของเอนไซม์โคลีนเอสเทอเรสแบบถาวร
+                      <br />
+                      * การพบสารตกค้าง หมายถึง การพบสารตกค้างในระดับอันตราย
+                      ซึ่งเป็นยาฆ่าแมลงในระดับที่ยับยั้งการทำงานของเอนไซม์โคลีนเอสเทอเรสมากกว่าร้อยละ
+                      50
+                      <br />
+                      ** จำนวนตัวอย่างไม่ถึง 30 ตัวอย่าง
+                      ไม่สามารถนำมาอ้างอิงทางสถิติได้
+                      <br />
+                      ผลวิเคราะห์ปี 2563 เป็นการนำข้อมูลถึงเดือนพฤษภาคม 2563
+                      (ข้อมูล ณ วันที่ 4 มิถุนายน 2563)
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
           <!-- @residue frequency chart -->
@@ -731,6 +743,7 @@
             <div class="res-frequency__chart chart">
               <canvas id="res-frequency"></canvas>
             </div>
+            <p class="note">ที่มา : Thai-PAN</p>
           </div>
 
           <!-- @residue type pie chart -->
@@ -742,6 +755,7 @@
             <div class="res-type__chart chart">
               <canvas id="res-type"></canvas>
             </div>
+            <p class="note">ที่มา : Thai-PAN</p>
           </div>
 
           <!-- @residue analysis pie chart -->
@@ -752,6 +766,7 @@
             <div class="res-ana-pie__chart chart">
               <canvas id="res-ana-pie"></canvas>
             </div>
+            <p class="note">ที่มา : Thai-PAN</p>
           </div>
 
           <!-- @residue analysis bar chart -->
@@ -763,6 +778,7 @@
             <div class="res-ana-bar__chart chart">
               <canvas id="res-ana-bar"></canvas>
             </div>
+            <p class="note">ที่มา : Thai-PAN</p>
           </div>
 
           <!-- @residue import chart -->
@@ -774,6 +790,9 @@
             <div class="res-import__chart chart">
               <canvas id="res-import"></canvas>
             </div>
+            <p class="note">
+              ที่มา : กองด่านอาหารและยา สำนักงานคณะกรรมการอาหารและยา
+            </p>
           </div>
 
           <!-- @residue import table -->
@@ -782,115 +801,203 @@
               ชื่อสารเคมีป้องกันกำจัดศัตรูพืชที่พบในผักและผลไม้ที่นำเข้าจากต่างประเทศปี
               2562
             </h2>
-            <div class="res-import__table">
-              <table class="import-table">
-                <tr>
-                  <th>ไพรีทรอยด์</th>
-                  <th>ออร์กาโนฟอสเฟต</th>
-                  <th>คาร์บาเมต</th>
-                  <th>ออร์กาโนคลอรีน</th>
-                  <th>สารกำจัดแมลงกลุ่มอื่น</th>
-                  <th>สารกำจัดรา</th>
-                  <th>สารกำจัดไร</th>
-                  <th>สารกำจัดวัชพืช</th>
-                </tr>
-                <tr>
-                  <!-- ไพรีทรอยด์ -->
-                  <td valign="top">
-                    <ul style="list-style: none;">
-                      <li>Bifenthrin</li>
-                      <li>Cyfluthrin</li>
-                      <li>CypermethrinDeltamethrin</li>
-                      <li>Acrinathrin</li>
-                      <li>Deltamethrin</li>
-                      <li>FenpropathrinLambda-Cyhalothrin</li>
-                      <li>Permethrin</li>
-                    </ul>
-                  </td>
-                  <!-- ออร์กาโนฟอสเฟต -->
-                  <td valign="top">
-                    <ul style="list-style: none;">
-                      <li>Acephate</li>
-                      <li>Chlorpyrifos</li>
-                      <li>Dimethoate</li>
-                      <li>Ethion</li>
-                      <li>Malathion</li>
-                      <li>Methamidophos*</li>
-                      <li>Omethoate</li>
-                      <li>Profenofos</li>
-                      <li>Triazophos</li>
-                    </ul>
-                  </td>
-                  <!-- คาร์บาเมต -->
-                  <td valign="top">
-                    <ul style="list-style: none;">
-                      <li>Aldicarb</li>
-                      <li>Carbaryl</li>
-                      <li>Carbofuran</li>
-                      <li>Diethofencarb</li>
-                      <li>Fenobucarb</li>
-                      <li>Isoprocarb</li>
-                      <li>Isoprocarb</li>
-                      <li>Methiocarb</li>
-                      <li>Methomyl</li>
-                      <li>Propamocarb</li>
-                      <li>Carbaryl</li>
-                      <li>Fenobucarb</li>
-                    </ul>
-                  </td>
-                  <!-- ออร์กาโนคลอรีน -->
-                  <td valign="top">
-                    <ul style="list-style: none;">
-                      <li>Dicofol</li>
-                      <li>Endosulfan</li>
-                      <li>sulfate*</li>
-                    </ul>
-                  </td>
-                  <!-- สารกำจัดแมลงกลุ่มอื่น -->
-                  <td valign="top">
-                    <ul style="list-style: none;">
-                      <li>Chlorfenapyr</li>
-                      <li>Fipronil</li>
-                      <li>Trichlorfon</li>
-                      <li>Lufenuron</li>
-                      <li>Tolfenpyrad</li>
-                      <li>Fosthiazate</li>
-                      <li>Clothianidin</li>
-                    </ul>
-                  </td>
-                  <!-- สารกำจัดรา -->
-                  <td valign="top">
-                    <ul style="list-style: none;">
-                      <li>Abamectine</li>
-                      <li>Acibenzolar-S-methyl</li>
-                      <li>Azoxystrobin</li>
-                      <li>Biphenyl</li>
-                      <li>Carbendazim</li>
-                      <li>Chlorfluazuron</li>
-                      <li>Chlorothalonil</li>
-                      <li>Cyromazin</li>
-                      <li>Difenoconazole</li>
-                      <li>Dimethomorph</li>
-                      <li>Diniconazole</li>
-                      <li>Fludioxonil</li>
-                    </ul>
-                  </td>
-                  <!-- สารกำจัดไร -->
-                  <td valign="top">
-                    <ul style="list-style: none;">
-                      <li>Propargite</li>
-                      <li>Pyridaben</li>
-                    </ul>
-                  </td>
-                  <!-- สารกำจัดวัชพืช -->
-                  <td valign="top">
-                    <ul style="list-style: none;">
-                      <li>2-4 D</li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </div>
+            <!-- *table container -->
+              <div class="table__container horizontal-table">
+      <table class="import__table">
+      <tr>
+        <th>ไพรีทรอยด์</th>
+        <th>ออร์กาโนฟอสเฟต</th>
+        <th>คาร์บาเมต</th>
+        <th>ออร์กาโนคลอรีน</th>
+        <th>สารกำจัดแมลงกลุ่มอื่น</th>
+        <th>สารกำจัดรา</th>
+        <th>สารกำจัดไร</th>
+        <th>สารกำจัดวัชพืช</th>
+      </tr>
+      <tr>
+        <td>
+          Bifenthrin
+          </br>Cyfluthrin
+          </br>CypermethrinDeltamethrin
+          </br>Acrinathrin
+          </br>Deltamethrin
+          </br>FenpropathrinLambda-Cyhalothrin
+          </br>Permethrin
+          </br>Bifenthrin
+          </br>Cyfluthrin
+          </br>CypermethrinDeltamethrin
+          </br>Acrinathrin
+          </br>Deltamethrin
+          </br>FenpropathrinLambda-Cyhalothrin
+          </br>Permethrin
+        </td>
+        <td>
+          Acephate
+          <br>Chlorpyrifos
+          <br>Dimethoate
+          <br>Ethion
+          <br>Malathion
+          <br>Methamidophos*
+          <br>Omethoate
+          <br>Profenofos
+          <br>Triazophos
+        </td>
+        <td>
+          Aldicarb
+          <br>Carbaryl
+          <br>Carbofuran
+          <br>Diethofencarb
+          <br>Fenobucarb
+          <br>Isoprocarb
+          <br>Isoprocarb
+          <br>Methiocarb
+          <br>Methomyl
+          <br>Propamocarb
+          <br>Carbaryl
+          <br>Fenobucarb
+        </td>
+        <td>
+          Dicofol
+          <br>Endosulfan
+          <br>sulfate*
+        </td>
+        <td>
+          Chlorfenapyr
+          <br>Fipronil
+          <br>Trichlorfon
+          <br>Lufenuron
+          <br>Tolfenpyrad
+          <br>Fosthiazate
+          <br>Clothianidin
+        </td>
+        <td>
+          Abamectine
+          <br>Acibenzolar-S-methyl
+          <br>Azoxystrobin
+          <br>Biphenyl
+          <br>Carbendazim
+          <br>Chlorfluazuron
+          <br>Chlorothalonil
+          <br>Cyromazin
+          <br>Difenoconazole
+          <br>Dimethomorph
+          <br>Diniconazole
+          <br>Fludioxonil
+        </td>
+        <td>
+          Propargite
+          <br>Pyridaben
+        </td>
+        <td>2-4 D</td>
+      </tr>
+    </table>
+              </div>
+
+            <!-- *table container vertical -->
+              <div class="table__container vertical-table">
+    <table class="import__table">
+      <tr>
+        <th>ไพรีทรอยด์</th>
+        <td>
+          Bifenthrin
+          </br>Cyfluthrin
+          </br>CypermethrinDeltamethrin
+          </br>Acrinathrin
+          </br>Deltamethrin
+          </br>FenpropathrinLambda-Cyhalothrin
+          </br>Permethrin
+          </br>Bifenthrin
+          </br>Cyfluthrin
+          </br>CypermethrinDeltamethrin
+          </br>Acrinathrin
+          </br>Deltamethrin
+          </br>FenpropathrinLambda-Cyhalothrin
+          </br>Permethrin
+        </td>
+      </tr>
+      <tr>
+        <th>ออร์กาโนฟอสเฟต</th>
+        <td>
+          Acephate
+          <br>Chlorpyrifos
+          <br>Dimethoate
+          <br>Ethion
+          <br>Malathion
+          <br>Methamidophos*
+          <br>Omethoate
+          <br>Profenofos
+          <br>Triazophos
+        </td>
+      </tr>
+      <tr>
+        <th>คาร์บาเมต</th>
+        <td>
+          Aldicarb
+          <br>Carbaryl
+          <br>Carbofuran
+          <br>Diethofencarb
+          <br>Fenobucarb
+          <br>Isoprocarb
+          <br>Isoprocarb
+          <br>Methiocarb
+          <br>Methomyl
+          <br>Propamocarb
+          <br>Carbaryl
+          <br>Fenobucarb
+        </td>
+      </tr>
+      <tr>
+        <th>ออร์กาโนคลอรีน</th>
+        <td>
+          Dicofol
+          <br>Endosulfan
+          <br>sulfate*
+        </td>
+      </tr>
+      <tr>
+        <th>สารกำจัดแมลงกลุ่มอื่น</th>
+        <td>
+          Chlorfenapyr
+          <br>Fipronil
+          <br>Trichlorfon
+          <br>Lufenuron
+          <br>Tolfenpyrad
+          <br>Fosthiazate
+          <br>Clothianidin
+        </td>
+      </tr>
+      <tr>
+        <th>สารกำจัดรา</th>
+        <td>
+          Abamectine
+          <br>Acibenzolar-S-methyl
+          <br>Azoxystrobin
+          <br>Biphenyl
+          <br>Carbendazim
+          <br>Chlorfluazuron
+          <br>Chlorothalonil
+          <br>Cyromazin
+          <br>Difenoconazole
+          <br>Dimethomorph
+          <br>Diniconazole
+          <br>Fludioxonil
+        </td>
+      </tr>
+      <tr>
+        <th>สารกำจัดไร</th>
+        <td>
+          Propargite
+          <br>Pyridaben
+        </td>
+      </tr>
+      <tr>
+        <th>สารกำจัดวัชพืช</th>
+        <td>2-4 D</td>
+      </tr>
+    </table>              </div>
+            <p class="note">
+              ที่มา : กองด่านอาหารและยา สำนักงานคณะกรรมการอาหารและยา
+            </p>
           </div>
 
           <!-- @residue: chem sold -->
@@ -904,86 +1011,91 @@
             </div>
             <!-- *table -->
             <div class="res-sold__table">
-              <table id="res-sold">
-                <tr>
-                  <th>จังหวัด</th>
-                  <th>จำนวนตัวอย่างทั้งหมด</th>
-                  <th>ปลอดภัย</th>
-                  <th>พบผ่านเกณฑ์มาตรฐาน</th>
-                  <th>พบไม่ผ่านเกณฑ์มาตรฐาน</th>
-                </tr>
-                <tr>
-                  <td>เชียงใหม่</td>
-                  <td>7</td>
-                  <td>6</td>
-                  <td>1</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>เชียงราย</td>
-                  <td>9</td>
-                  <td>8</td>
-                  <td>1</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>ลำพูน</td>
-                  <td>6</td>
-                  <td>5</td>
-                  <td>0</td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>ลำปาง</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>น่าน</td>
-                  <td>7</td>
-                  <td>6</td>
-                  <td>1</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>แพร่</td>
-                  <td>7</td>
-                  <td>7</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>พะเยา</td>
-                  <td>7</td>
-                  <td>5</td>
-                  <td>0</td>
-                  <td>2</td>
-                </tr>
-                <tr>
-                  <td>แม่ฮ่องสอน</td>
-                  <td>7</td>
-                  <td>6</td>
-                  <td>0</td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>รวม</td>
-                  <td>50</td>
-                  <td>43</td>
-                  <td>3</td>
-                  <td>4</td>
-                </tr>
-                <tr>
-                  <td>ร้อยละ</td>
-                  <td>100</td>
-                  <td>86</td>
-                  <td>6</td>
-                  <td>8</td>
-                </tr>
-              </table>
+              <div class="table__container">
+                <table id="res-sold">
+                  <tr>
+                    <th>จังหวัด</th>
+                    <th>จำนวนตัวอย่างทั้งหมด</th>
+                    <th>ปลอดภัย</th>
+                    <th>พบผ่านเกณฑ์มาตรฐาน</th>
+                    <th>พบไม่ผ่านเกณฑ์มาตรฐาน</th>
+                  </tr>
+                  <tr>
+                    <td>เชียงใหม่</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>1</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>เชียงราย</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>1</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>ลำพูน</td>
+                    <td>6</td>
+                    <td>5</td>
+                    <td>0</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>ลำปาง</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>น่าน</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>1</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>แพร่</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>พะเยา</td>
+                    <td>7</td>
+                    <td>5</td>
+                    <td>0</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>แม่ฮ่องสอน</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>0</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>รวม</td>
+                    <td>50</td>
+                    <td>43</td>
+                    <td>3</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>ร้อยละ</td>
+                    <td>100</td>
+                    <td>86</td>
+                    <td>6</td>
+                    <td>8</td>
+                  </tr>
+                </table>
+              </div>
             </div>
+            <p class="note">
+              ที่มา : กองด่านอาหารและยา สำนักงานคณะกรรมการอาหารและยา
+            </p>
           </div>
 
           <!-- @residue monitor -->
@@ -1005,6 +1117,9 @@
               *ข้อมูลจากจังหวัดเชียงใหม่ เชียงราย แพร่ น่าน ลำพูน พะเยา
               และแม่ฮ่องสอน
             </div>
+            <p class="note">
+              ที่มา : กองด่านอาหารและยา สำนักงานคณะกรรมการอาหารและยา
+            </p>
           </div>
 
           <!-- @residue frequecy 2 years -->
@@ -1017,9 +1132,15 @@
               <div id="res-frequecy2__select"></div>
             </div>
             <!-- *chart -->
-            <div class="res-frequecy2__chart chart">
-              <canvas id="res-frequecy2"></canvas>
+            <div class="res-frequecy2__chart chart frequency2561">
+              <canvas id="res-frequecy2-1" class="res-frequecy2-item"></canvas>
             </div>
+            <div class="res-frequecy2__chart chart frequency2562 open">
+              <canvas id="res-frequecy2-2" class="res-frequecy2-item"></canvas>
+            </div>
+            <p class="note">
+              ที่มา : กองด่านอาหารและยา สำนักงานคณะกรรมการอาหารและยา
+            </p>
           </div>
         </section>
       </section>
@@ -1096,81 +1217,83 @@
                   <h3>ตารางแสดงจำนวนผู้ป่วยในแต่ละจังหวัด</h3>
                   <div id="select-year"></div>
                 </div>
-                <table id="patients">
-                  <tr>
-                    <th>จังหวัด</th>
-                    <th class="pop">ประชากร</th>
-                    <th>ผู้ป่วยจากสารเคมีทั้งหมด (คน)</th>
-                    <th>สารกำจัดแมลง (คน)</th>
-                    <th>สารกำจัดวัชพืช (คน)</th>
-                    <th>สารอื่น ๆ (คน)</th>
-                  </tr>
+                <div class="table__container">
+                  <table id="patients">
+                    <tr>
+                      <th>จังหวัด</th>
+                      <th class="pop">ประชากร</th>
+                      <th>ผู้ป่วยจากสารเคมีทั้งหมด (คน)</th>
+                      <th>สารกำจัดแมลง (คน)</th>
+                      <th>สารกำจัดวัชพืช (คน)</th>
+                      <th>สารอื่น ๆ (คน)</th>
+                    </tr>
 
-                  <tr>
-                    <td>เชียงใหม่</td>
-                    <td>1,282,113</td>
-                    <td>207</td>
-                    <td>94</td>
-                    <td>72</td>
-                    <td>41</td>
-                  </tr>
-                  <tr>
-                    <td>เชียงราย</td>
-                    <td>922,099</td>
-                    <td>151</td>
-                    <td>33</td>
-                    <td>59</td>
-                    <td>59</td>
-                  </tr>
-                  <tr>
-                    <td>ลำพูน</td>
-                    <td>369,878</td>
-                    <td>45</td>
-                    <td>18</td>
-                    <td>20</td>
-                    <td>7</td>
-                  </tr>
-                  <tr>
-                    <td>ลำปาง</td>
-                    <td>573,881</td>
-                    <td>62</td>
-                    <td>21</td>
-                    <td>22</td>
-                    <td>19</td>
-                  </tr>
-                  <tr>
-                    <td>น่าน</td>
-                    <td>368,741</td>
-                    <td>50</td>
-                    <td>21</td>
-                    <td>23</td>
-                    <td>6</td>
-                  </tr>
-                  <tr>
-                    <td>แพร่</td>
-                    <td>332,150</td>
-                    <td>49</td>
-                    <td>24</td>
-                    <td>20</td>
-                    <td>5</td>
-                  </tr>
-                  <tr>
-                    <td>พะเยา</td>
-                    <td>390,209</td>
-                    <td>33</td>
-                    <td>13</td>
-                    <td>8</td>
-                    <td>12</td>
-                  </tr>
-                  <tr>
-                    <td>แม่ฮ่องสอน</td>
-                    <td>188,583</td>
-                    <td>56</td>
-                    <td>16</td>
-                    <td>32</td>
-                    <td>8</td>
-                  </tr>
-                </table>
+                    <tr>
+                      <td>เชียงใหม่</td>
+                      <td>1,282,113</td>
+                      <td>207</td>
+                      <td>94</td>
+                      <td>72</td>
+                      <td>41</td>
+                    </tr>
+                    <tr>
+                      <td>เชียงราย</td>
+                      <td>922,099</td>
+                      <td>151</td>
+                      <td>33</td>
+                      <td>59</td>
+                      <td>59</td>
+                    </tr>
+                    <tr>
+                      <td>ลำพูน</td>
+                      <td>369,878</td>
+                      <td>45</td>
+                      <td>18</td>
+                      <td>20</td>
+                      <td>7</td>
+                    </tr>
+                    <tr>
+                      <td>ลำปาง</td>
+                      <td>573,881</td>
+                      <td>62</td>
+                      <td>21</td>
+                      <td>22</td>
+                      <td>19</td>
+                    </tr>
+                    <tr>
+                      <td>น่าน</td>
+                      <td>368,741</td>
+                      <td>50</td>
+                      <td>21</td>
+                      <td>23</td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>แพร่</td>
+                      <td>332,150</td>
+                      <td>49</td>
+                      <td>24</td>
+                      <td>20</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>พะเยา</td>
+                      <td>390,209</td>
+                      <td>33</td>
+                      <td>13</td>
+                      <td>8</td>
+                      <td>12</td>
+                    </tr>
+                    <tr>
+                      <td>แม่ฮ่องสอน</td>
+                      <td>188,583</td>
+                      <td>56</td>
+                      <td>16</td>
+                      <td>32</td>
+                      <td>8</td>
+                    </tr>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -1248,9 +1371,7 @@
         โทร : 02 590 7289 | อีเมล : ipcs_fda@fda.moph.go.th
       </div>
     </footer>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script src="./JS/topmap.js"></script>
   </body>
 </html>

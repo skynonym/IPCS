@@ -86,6 +86,12 @@
     left: 10px;
     width: 40%;
     font-family: $font-normal;
+    text-align: justify;
+    overflow-y: auto;
+
+    .content {
+      text-align: justify
+    }
 
 
     h1 {

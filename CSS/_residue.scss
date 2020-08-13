@@ -135,8 +135,12 @@
   // }
 
   table {
-    width: 80%;
+    max-width: 100%;
     margin: auto;
+  }
+
+  .table__container {
+    max-width: 90%;
   }
 
   th {
@@ -159,7 +163,7 @@
     width: 20%;
   }
 
-  .note {
+  td.note {
     background: #ffffff !important;
     color: $main-lightgray;
     text-align: justify;
@@ -190,6 +194,15 @@
 
   .chart-container {
     margin-top: 90px;
+    text-align: center;
+
+    p.note {
+      background: transparent;
+      width: 70%;
+      margin: auto;
+      margin-top: 20px;
+      color: $main-lightgray;
+    }
   }
 
   .chart {
@@ -199,6 +212,8 @@
 
   }
 
+  // #TROBLESOME TABLE
+
   .res-chart__title {
     text-align: center;
     font-size: $h3;
@@ -206,22 +221,28 @@
     margin-bottom: 40px;
   }
 
+  .horizontal-table {
+    margin: auto;
+    overflow-x: auto;
+    display: inline-block;
+  }
 
-  .res-import__table {
+  .table__container .import__table {
+    // max-width: 60% !important;
     margin-top: 20px;
   }
 
-  .import-table {
-    margin: auto;
 
+  .import-table {
     th {
       font-weight: 400;
       background: #ecac4b;
       padding: 10px 15px;
     }
 
-    li {
+    td {
       background: $main-lightyellow;
+      display: inline-block;
     }
 
     ul {
@@ -232,7 +253,18 @@
 
   }
 
+  .vertical-table {
+    overflow-y: scroll;
+    height: 500px;
+    display: none;
+
+    .import__table {
+      width: 100%;
+    }
+  }
+
   // @sold
+
   .res-sold__table {
     table {
       margin-top: 30px;
@@ -246,7 +278,8 @@
   }
 
   // @monitor
-  .res-monitor__chart {
+  .res-monitor__chart,
+  .res-frequecy2__chart {
     margin-top: 30px;
   }
 
@@ -256,5 +289,26 @@
     text-align: center;
     font-size: $small;
     font-weight: 300;
+  }
+
+  .res-frequecy2__chart {
+    display: none;
+  }
+
+  .res-frequecy2__chart.open {
+    display: block;
+  }
+}
+
+// #MEDIA QUERIES******************************
+@media (max-width: 1150px) {
+  #residue {
+    .horizontal-table {
+      display: none;
+    }
+
+    .vertical-table {
+      display: inline-block;
+    }
   }
 }

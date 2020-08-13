@@ -1,6 +1,6 @@
 // Load Map
-const mymap = L.map("mapid").setView([18.787007, 98.984952], 7.2);
-let ok = 1;
+const tonnamMap = L.map("tonnam__map").setView([18.787007, 98.984952], 7.2);
+let okie = 1;
 L.tileLayer(
   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
   {
@@ -13,13 +13,13 @@ L.tileLayer(
     accessToken:
       "pk.eyJ1Ijoid29yYXdhdHRyaSIsImEiOiJja2JnMHdqa3oxMHR0MzBubzd4MW54aW00In0.xpv91a9YP7GRa4BtJWts_A",
   }
-).addTo(mymap);
+).addTo(tonnamMap);
 
 // Load Polygon
 $.getJSON(
   "https://raw.githubusercontent.com/WorawatPP/todolist/master/map4",
   function (data) {
-    ok = L.geoJSON(data, {
+    okie = L.geoJSON(data, {
       onEachFeature: function (feature, layer) {
         layer.on("mouseover", function () {
           this.setStyle({
@@ -54,7 +54,7 @@ $.getJSON(
         });
         layer.on({ click: whenClick });
       },
-    }).addTo(mymap);
+    }).addTo(tonnamMap);
   }
 );
 
@@ -118,15 +118,15 @@ function province(id) {
     return e.param == id;
   });
   console.log(result[0]["param"]);
-  if (ok != 1) {
-    ok.clearLayers();
+  if (okie != 1) {
+    okie.clearLayers();
   }
   $.getJSON(
     "https://chemical-system.mididigital.co.th/api/marker/" +
       result[0]["param"],
     function (data) {
-      mymap.setView([result[0]["lat"], result[0]["long"]], 9);
-      ok = L.geoJSON(data, {
+      tonnamMap.setView([result[0]["lat"], result[0]["long"]], 9);
+      okie = L.geoJSON(data, {
         onEachFeature: function (feature, layer) {
           let string =
             "<h2>" +
@@ -146,7 +146,7 @@ function province(id) {
           layer.bindPopup(string);
           console.log(feature.properties.Data);
         },
-      }).addTo(mymap);
+      }).addTo(tonnamMap);
     }
   );
 }
@@ -162,16 +162,16 @@ function whenClick(f) {
   province(result[0]["param"]);
 }
 
-mymap.on("zoomend", function () {
-  console.log(mymap.getZoom());
-  if (mymap.getZoom() < 9) {
+tonnamMap.on("zoomend", function () {
+  console.log(tonnamMap.getZoom());
+  if (tonnamMap.getZoom() < 9) {
     if (ok != 1) {
-      ok.clearLayers();
+      okie.clearLayers();
     }
     $.getJSON(
       "https://raw.githubusercontent.com/WorawatPP/todolist/master/map4",
       function (data) {
-        ok = L.geoJSON(data, {
+        okie = L.geoJSON(data, {
           onEachFeature: function (feature, layer) {
             layer.on("mouseover", function () {
               this.setStyle({
@@ -206,7 +206,7 @@ mymap.on("zoomend", function () {
             });
             layer.on({ click: whenClick });
           },
-        }).addTo(mymap);
+        }).addTo(tonnamMap);
       }
     );
   }

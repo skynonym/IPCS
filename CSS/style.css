@@ -10,6 +10,9 @@
 _ html {
   font-size: 62.5%; }
 
+.table__container {
+  overflow-x: auto; }
+
 body {
   display: grid;
   grid-template-rows: 70px auto fit-content(70px);
@@ -340,8 +343,7 @@ main {
       font-size: 1rem;
       text-indent: 2rem; }
       #overall .title__container p:nth-child(4) {
-        font-weight: 300;
-        margin-bottom: 2rem; }
+        font-weight: 300; }
   #overall .logo__container ul {
     display: flex;
     flex-wrap: wrap;
@@ -613,9 +615,30 @@ main {
     margin-bottom: 2rem;
     text-align: center; }
 
+.map__contianer {
+  position: relative;
+  height: 80vh;
+  z-index: 1; }
+
+#mapid {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70%;
+  left: 50%;
+  right: -50%;
+  transform: translate(-50%); }
+
+.custom-tooltip .leaflet-tooltip,
+.custom-tooltip .leaflet-popup {
+  font-family: 'Mitr', sans-serif; }
+
 .tonnam__map {
   position: relative;
-  height: 70vh; }
+  height: 70vh;
+  width: 50%;
+  flex: 1 1 300px; }
 
 #tonnam-map {
   position: absolute;
@@ -623,6 +646,30 @@ main {
   bottom: 0;
   width: 100%;
   height: 90%; }
+
+.tonnam-map__container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 40px 0;
+  position: relative; }
+
+.tonnam-map__info {
+  flex: 1 1 300px;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #7b7b7b;
+  padding: 20px;
+  background: white;
+  min-height: 300px;
+  line-height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; }
 
 #chem {
   font-family: "Mitr", sans-serif;
@@ -697,7 +744,11 @@ main {
     height: 100%;
     left: 10px;
     width: 40%;
-    font-family: "Mitr", sans-serif; }
+    font-family: "Mitr", sans-serif;
+    text-align: justify;
+    overflow-y: auto; }
+    #chem .info__box .content {
+      text-align: justify; }
     #chem .info__box h1 {
       font-size: 1.3rem;
       text-align: center;
@@ -1122,8 +1173,10 @@ main {
     transition: opacity 0.3s;
     left: 50%; }
   #residue table {
-    width: 80%;
+    max-width: 100%;
     margin: auto; }
+  #residue .table__container {
+    max-width: 90%; }
   #residue th {
     font-weight: 400;
     background: #ecac4b;
@@ -1136,7 +1189,7 @@ main {
     width: 20%; }
   #residue .t-ex {
     width: 20%; }
-  #residue .note {
+  #residue td.note {
     background: #ffffff !important;
     color: #7b7b7b;
     text-align: justify;
@@ -1155,7 +1208,14 @@ main {
   #residue .res-chart-select__container {
     text-align: center; }
   #residue .chart-container {
-    margin-top: 90px; }
+    margin-top: 90px;
+    text-align: center; }
+    #residue .chart-container p.note {
+      background: transparent;
+      width: 70%;
+      margin: auto;
+      margin-top: 20px;
+      color: #7b7b7b; }
   #residue .chart {
     width: 70%;
     position: relative;
@@ -1167,27 +1227,37 @@ main {
     font-size: 1.3rem;
     font-weight: 400;
     margin-bottom: 40px; }
-  #residue .res-import__table {
+  #residue .horizontal-table {
+    margin: auto;
+    overflow-x: auto;
+    display: inline-block; }
+  #residue .table__container .import__table {
     margin-top: 20px; }
-  #residue .import-table {
-    margin: auto; }
-    #residue .import-table th {
-      font-weight: 400;
-      background: #ecac4b;
-      padding: 10px 15px; }
-    #residue .import-table li {
-      background: #fff3e2; }
-    #residue .import-table ul {
-      height: 350px;
-      background: #fff3e2;
-      padding: 15px; }
+  #residue .import-table th {
+    font-weight: 400;
+    background: #ecac4b;
+    padding: 10px 15px; }
+  #residue .import-table td {
+    background: #fff3e2;
+    display: inline-block; }
+  #residue .import-table ul {
+    height: 350px;
+    background: #fff3e2;
+    padding: 15px; }
+  #residue .vertical-table {
+    overflow-y: scroll;
+    height: 500px;
+    display: none; }
+    #residue .vertical-table .import__table {
+      width: 100%; }
   #residue .res-sold__table table {
     margin-top: 30px; }
   #residue .res-sold__table td,
   #residue .res-sold__table th {
     width: 40px;
     text-align: center; }
-  #residue .res-monitor__chart {
+  #residue .res-monitor__chart,
+  #residue .res-frequecy2__chart {
     margin-top: 30px; }
   #residue .monitor__note {
     margin-top: 30px;
@@ -1195,7 +1265,16 @@ main {
     text-align: center;
     font-size: 0.8rem;
     font-weight: 300; }
+  #residue .res-frequecy2__chart {
+    display: none; }
+  #residue .res-frequecy2__chart.open {
+    display: block; }
 
+@media (max-width: 1150px) {
+  #residue .horizontal-table {
+    display: none; }
+  #residue .vertical-table {
+    display: inline-block; } }
 #impacts {
   font-family: "Mitr", sans-serif;
   font-weight: 300;

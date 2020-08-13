@@ -799,13 +799,13 @@ const imgBox = document.querySelector(".info-img");
 
 provs.forEach((prov) => {
   prov.addEventListener("click", function (e) {
-    // const current = allProvs.querySelector(".active");
-    // if (current !== null) {
-    //   current.className = current.className.replace("active", "");
-    //   this.classList.add("active");
-    // } else {
-    //   e.target.classList.add("active");
-    // }
+    const current = allProvs.querySelector(".active");
+    if (current !== null) {
+      current.className = current.className.replace("active", "");
+      this.classList.add("active");
+    } else {
+      e.target.classList.add("active");
+    }
 
     const txt = prov.children[1].innerHTML;
     let provDetail;
@@ -826,6 +826,7 @@ provs.forEach((prov) => {
           sigleProv.render();
         });
         ConInfo.addImg("ping.png");
+
         break;
       case "เชียงราย":
         ConInfo.clear();
@@ -844,9 +845,22 @@ provs.forEach((prov) => {
           sigleProv.render();
         });
         ConInfo.addImg("kok.png");
+
         break;
       case "น่าน":
         ConInfo.clear();
+        //     infoText.innerHTML = `
+        //         <p> แหล่งน้ำ: <mark class="mark-river">แม่น้ำน่าน</mark> <img src="./images/water.svg" class="water-emoji"> </p>
+        // <p>บริเวณที่ตรวจสอบ: <mark class="mark-others">สะพานดอนศรีเสริม ต.ในเวียง อ.เมือง จ.น่าน</mark> </p>
+        // <p>ผลการตรวจสอบตัวอย่างน้ำ: </p>
+        // <p class="result">- Glyphosate (u/L): <mark class="mark-others"><1.00</mark></p>
+        // <p class="result">- Paraquat (u/L): <mark class="mark-others"><1.00</mark> </p>
+        // <p>ผลการตรวจสอบตะกอนดินท้องน้ำ: </p>
+        // <p class="result">- Glyphosate (u/L): <mark class="mark-others"><0.02</mark></p>
+        // <p class="result">- Paraquat (u/L): <mark class="mark-others">"0.49"</mark></p>
+        // <p>ปีที่ตรวจสอบ: 2561</p>
+
+        // `;
         provDetail = [
           new ConInfo(
             "น่าน",
@@ -877,6 +891,8 @@ provs.forEach((prov) => {
           sigleProv.render();
         });
         ConInfo.addImg("nan.png");
+        prov;
+        prov.classList.toggle("active");
 
         break;
       case "พะเยา":
@@ -931,7 +947,7 @@ class ConInfo {
 
     detail.className = "each-detail";
     detail.innerHTML = `
-    <p> แหล่งน้ำ: <mark class="mark-river">${this.river}</mark> <img src="./images/water.svg" class="water-emoji"> </p> 
+    <p> แหล่งน้ำ: <mark class="mark-river">${this.river}</mark> <img src="./images/wateryellow.svg" class="water-emoji"> </p> 
     <p>บริเวณที่ตรวจสอบ: <mark class="mark-others">${this.area}</mark> </p>
     <p>ผลการตรวจสอบตัวอย่างน้ำ: </p>
     <p class="result">- Glyphosate (u/L): <mark class="mark-others">${this.water[0]}</mark></p>
@@ -960,10 +976,10 @@ class ConInfo {
     } else if (infoBox.classList[1] === this.boxClass) {
       infoBox.classList.remove(infoBox.classList[1]);
       infoBox.classList.remove("open");
-      // if (!infoBox.classList.contains("open")) {
-      //   alert("here");
-      //   current.className = current.className.replace("active", "");
-      // }
+      if (!infoBox.classList.contains("open")) {
+        // alert("here");
+        current.className = current.className.replace("active", "");
+      }
     } else if (
       infoBox.classList[1] !== undefined &&
       infoBox.classList[1] !== this.boxClass

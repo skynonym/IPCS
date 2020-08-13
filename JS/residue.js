@@ -849,13 +849,83 @@ new Chart(document.getElementById("res-monitor2"), {
 });
 
 // #FREQUENCY 2#######################################
-const selectFrequecy2 = new Dropdown({
-  id: "res-frequecy2__select",
-  val: "2562",
-  data: ["2561", "2562"],
+new Chart(document.getElementById("res-frequecy2-1"), {
+  type: "bar",
+  data: {
+    labels: [
+      "Cypermethrin",
+      "Fipronil",
+      "Chlopynifos",
+      "Cypermethrin",
+      "Metalaxyl",
+      "Lambda-cyhalothrin",
+      "Propargite",
+      "Bifenthrin",
+      "Carbofuran",
+      "Acephate",
+      "Carbary",
+      "Ethion",
+      "Profenofos",
+      "Cyfluthrin",
+      "Dimethoate",
+      "Malathion",
+      "Methamidophos",
+      "Tetradifon",
+    ],
+    datasets: [
+      {
+        data: [10, 7, 5, 5, 5, 4, 4, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1],
+        backgroundColor: [
+          "#FFFF99",
+          "#FFCC99",
+          "#FFCC66",
+          "#FFCC33",
+          "#FFCC00",
+          "#FF9900",
+          "#FF9933",
+          "#FF9966",
+          "#FF9999",
+          "#FF9966",
+          "#FF9933",
+          "#FF9900",
+          "#FF6600",
+          "#FF6633",
+          "#FF6666",
+          "#ff619e",
+          "#d33ab2",
+          "#9f41ec",
+        ],
+      },
+    ],
+  },
+  options: {
+    animation: {
+      duration: 10,
+    },
+    // title: {
+    //   display: true,
+    //   text:
+    //     "ความถี่ของชนิดป้องกันและกำจัดศัตรูพืช ที่พบตกค้างในผักผลไม้ปี 2561",
+    // },
+    scales: {
+      xAxes: [
+        {
+          stacked: true,
+          gridLines: { display: false },
+        },
+      ],
+      yAxes: [
+        {
+          stacked: true,
+        },
+      ],
+    }, // scales
+    legend: { display: false },
+  }, // options
 });
 
-new Chart(document.getElementById("res-frequecy2"), {
+// @2562!!!!!!!!!!!!!!
+new Chart(document.getElementById("res-frequecy2-2"), {
   type: "bar",
   data: {
     labels: [
@@ -910,4 +980,33 @@ new Chart(document.getElementById("res-frequecy2"), {
     }, // scales
     legend: { display: false },
   }, // options
+});
+
+const frequency61 = document.querySelector(".frequency2561");
+const frequency62 = document.querySelector(".frequency2562");
+
+const selectFrequecy2 = new Dropdown({
+  id: "res-frequecy2__select",
+  val: "2562",
+  data: ["2561", "2562"],
+  cb: function (val) {
+    switch (val) {
+      case "2561":
+        if (frequency62.classList.contains("open")) {
+          frequency62.classList.remove("open");
+          frequency61.classList.add("open");
+        } else {
+          return;
+        }
+        break;
+      case "2562":
+        if (frequency61.classList.contains("open")) {
+          frequency61.classList.remove("open");
+          frequency62.classList.add("open");
+        } else {
+          return;
+        }
+        break;
+    }
+  },
 });
