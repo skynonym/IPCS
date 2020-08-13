@@ -470,21 +470,21 @@ function whenClick(f) {
       break;
 
     case "Lampang":
-      new tonnamMapinfoBox("361");
+      new tonnamMapinfoBox("ลำปาง", "361");
       break;
 
     case "Nan":
-      new tonnamMapinfoBox("389");
+      new tonnamMapinfoBox("น่าน", "389");
       break;
 
     case "Phrae":
-      new tonnamMapinfoBox("303");
+      new tonnamMapinfoBox("แพร่", "303");
       break;
     case "Phayao":
-      new tonnamMapinfoBox("320");
+      new tonnamMapinfoBox("พะเยา", "320");
       break;
     case "MaeHongSon":
-      new tonnamMapinfoBox("127");
+      new tonnamMapinfoBox("แม่ฮ่องสอน", "127");
       break;
   }
 }
@@ -502,7 +502,7 @@ class tonnamMapinfoBox {
     const infoBox = document.querySelector(".tonnam-map__info");
     infoBox.innerHTML = `
     <h1>${this.name}</h1>
-    <p>จำนวนร้านค้าในจังหวัด: ${this.store}</p>
+    <p>จำนวนร้านค้าในจังหวัด: ${this.store} ร้าน</p>
     <p>พื้นที่เพาะปลูก: ${this.area} </p>
     <p>อัตราพื้นที่การเพาะปลูกต่อ GAP: ${this.gap} </p>
     `;

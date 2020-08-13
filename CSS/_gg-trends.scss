@@ -21,3 +21,18 @@
     height: 500px;
   }
 }
+
+@media(max-width: 870px) {
+  #gg-trends {
+    min-height: 160vh;
+  }
+}
+
+
+@media(max-width: 800px) {
+  #gg-trends {
+    h1.title {
+      font-size: $h1-800;
+    }
+  }
+}

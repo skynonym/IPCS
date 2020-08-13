@@ -58,9 +58,9 @@
 
     img {
       position: absolute;
-      width: calc(150px + 5vw);
+      width: calc(120px + 6vw);
       top: 0;
-      left: 10px;
+      left: 5px;
     }
 
     mark {
@@ -140,7 +140,8 @@
   }
 
   .table__container {
-    max-width: 90%;
+    max-width: 95%;
+    margin: auto;
   }
 
   th {
@@ -309,6 +310,60 @@
 
     .vertical-table {
       display: inline-block;
+    }
+
+    .current-year__container {
+      width: 85%;
+    }
+
+    .veggies {
+      img {
+        left: -10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #residue {
+    .veggies {
+      padding: 1rem 3rem;
+
+      img {
+        display: none;
+      }
+
+      .text {
+        left: 0;
+      }
+    }
+
+    table {
+      font-size: calc(0.6rem + 0.8vw);
+    }
+
+    td.note {
+      font-size: calc(0.5rem + 0.7vw);
+    }
+
+    .chart {
+      width: 90%;
+    }
+
+    .res-chart__title {
+      font-size: calc(1rem + 0.7vw);
+    }
+
+    .chart-container p.note {
+      font-size: calc(0.5rem + 0.7vw);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  #residue {
+    .current-year__container {
+      width: 90%;
     }
   }
 }
