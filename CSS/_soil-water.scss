@@ -1,0 +1,32 @@
+#soil-water {
+  @include theme(green);
+  min-height: 50vh;
+  padding: 4%;
+
+  h1.title {
+    @include head-text(white);
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  h2.title {
+    font-weight: 400;
+    font-size: $h3;
+  }
+
+  .SW__container:nth-child(3) {
+    margin: 50px 0;
+  }
+
+  .SW-chart__wrapper {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 70%;
+    margin: 20px auto;
+  }
+
+  p.desc {
+    text-align: center;
+  }
+}

@@ -151,67 +151,366 @@ stackedChart.render();
 
 // #SECTION3-----------------
 // @graphs
-const sec3ChiangMai = document
-  .getElementById("sec3-chiangmai__chart")
-  .getContext("2d");
-let myChart = new Chart(sec3ChiangMai, {
-  type: "bar",
-  data: {
-    labels: ["2560", "2561", "2562"],
-    datasets: [
-      {
-        label: "สารกำจัดแมลง",
-        backgroundColor: "#bee26a",
-        data: [11.39, 6.34, 7.75],
-      },
-      {
-        label: "สารกำจัดวัชพืช",
-        backgroundColor: "#45c490",
-        data: [11.15, 5.3, 5.94],
-      },
-      {
-        label: "สารกำจัดศัตรูพืชอื่น ๆ",
-        backgroundColor: "#008d93",
-        data: [2.42, 3.29, 3.38],
-      },
-    ],
-  },
-  options: {
-    tooltips: {
-      displayColors: true,
-      callbacks: {
-        mode: "x",
-      },
+// *insects
+const sec3Insectoptions = {
+  series: [
+    {
+      name: "เชียงใหม่",
+      data: [2.42, 3.92, 3.38],
     },
-    scales: {
-      xAxes: [
-        {
-          stacked: true,
-          gridLines: {
-            display: false,
-          },
-        },
-      ],
-      yAxes: [
-        {
-          stacked: true,
-          ticks: {
-            beginAtZero: true,
-          },
-          type: "linear",
-        },
-      ],
+    {
+      name: "เชียงราย",
+      data: [28.52, 4.06, 6.54],
     },
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: { position: "bottom" },
+    {
+      name: "พะเยา",
+      data: [2.56, 3.09, 3.31],
+    },
+    {
+      name: "แพร่",
+      data: [69.85, 3.92, 1.54],
+    },
+    {
+      name: "ลำพูน",
+      data: [2.16, 5.83, 1.97],
+    },
+    {
+      name: "ลำปาง",
+      data: [2.27, 3.59, 3.56],
+    },
+    {
+      name: "น่าน",
+      data: [3.8, 3.32, 1.69],
+    },
+    {
+      name: "แม่ฮ่องสอน",
+      data: [4.77, 2.12, 4.38],
+    },
+  ],
+  title: {
+    text: "การป่วยจากสารกำจัดแมลง",
+    align: "left",
   },
-});
+  chart: {
+    height: 450,
+    type: "line",
+    dropShadow: {
+      enabled: true,
+      color: "#000",
+      top: 10,
+      left: 7,
+      blur: 5,
+      opacity: 0.1,
+    },
+    toolbar: {
+      show: false,
+    },
+    zoom: {
+      enabled: false,
+    },
+  },
+  colors: [
+    "#3D7BB4",
+    "#52cde2",
+    "#8c6ce4",
+    "#fd9ff8",
+    "#e96f6f",
+    "#f3972d",
+    "#ffdb0e",
+    "#abce2b",
+  ],
+  stroke: {
+    curve: "smooth",
+    width: 3,
+  },
+  grid: {
+    borderColor: "#c7c7c7",
+    row: {
+      colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+      opacity: 0.5,
+    },
+    padding: {
+      top: 30,
+    },
+  },
+  markers: {
+    size: 5,
+    hover: {
+      size: undefined,
+      sizeOffset: 3,
+    },
+  },
+
+  xaxis: {
+    categories: ["2560", "2561", "2562"],
+    title: {
+      text: "ปี",
+    },
+  },
+  yaxis: {
+    title: {
+      text: "อัตรส่วน 1:100,000 ประชากร",
+    },
+    tickAmount: 5,
+    max: 70,
+  },
+  legend: {
+    show: true,
+    position: "top",
+    horizontalAlign: "right",
+    floating: true,
+    offsetX: -5,
+  },
+};
+
+const sec3InsectChart = new ApexCharts(
+  document.querySelector("#sec3-insect__chart"),
+  sec3Insectoptions
+);
+sec3InsectChart.render();
+
+// *herbs
+const sec3Herboptions = {
+  series: [
+    {
+      name: "เชียงใหม่",
+      data: [11.15, 5.3, 5.94],
+    },
+    {
+      name: "เชียงราย",
+      data: [9.65, 4.06, 6.54],
+    },
+    {
+      name: "พะเยา",
+      data: [1.03, 0.77, 2.21],
+    },
+    {
+      name: "แพร่",
+      data: [7.23, 3.92, 6.61],
+    },
+    {
+      name: "ลำพูน",
+      data: [7.57, 2.78, 5.64],
+    },
+    {
+      name: "ลำปาง",
+      data: [5.4, 2.69, 4.12],
+    },
+    {
+      name: "น่าน",
+      data: [8.14, 10.25, 6.64],
+    },
+    {
+      name: "แม่ฮ่องสอน",
+      data: [16.44, 9.52, 17.53],
+    },
+  ],
+  chart: {
+    height: 450,
+    type: "line",
+    dropShadow: {
+      enabled: true,
+      color: "#000",
+      top: 10,
+      left: 7,
+      blur: 5,
+      opacity: 0.1,
+    },
+    toolbar: {
+      show: false,
+    },
+    zoom: {
+      enabled: false,
+    },
+  },
+  colors: [
+    "#3D7BB4",
+    "#52cde2",
+    "#8c6ce4",
+    "#fd9ff8",
+    "#e96f6f",
+    "#f3972d",
+    "#ffdb0e",
+    "#abce2b",
+  ],
+  stroke: {
+    curve: "smooth",
+    width: 3,
+  },
+  title: {
+    text: "การป่วยจากสารกำจัดวัชพืช",
+    align: "left",
+  },
+  grid: {
+    borderColor: "#c7c7c7",
+    row: {
+      colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+      opacity: 0.5,
+    },
+    padding: {
+      top: 30,
+    },
+  },
+  markers: {
+    size: 5,
+    hover: {
+      size: undefined,
+      sizeOffset: 3,
+    },
+  },
+
+  xaxis: {
+    categories: ["2560", "2561", "2562"],
+    title: {
+      text: "ปี",
+    },
+  },
+  yaxis: {
+    title: {
+      text: "อัตรส่วน 1:100,000 ประชากร",
+    },
+    tickAmount: 5,
+    max: 20,
+  },
+  legend: {
+    show: true,
+    position: "top",
+    horizontalAlign: "right",
+    floating: true,
+    offsetX: -5,
+  },
+};
+
+const sec3HerbChart = new ApexCharts(
+  document.querySelector("#sec3-herb__chart"),
+  sec3Herboptions
+);
+sec3HerbChart.render();
+
+// *other
+const sec3Otheroptions = {
+  series: [
+    {
+      name: "เชียงใหม่",
+      data: [11.39, 6.35, 7.75],
+    },
+    {
+      name: "เชียงราย",
+      data: [14.1, 5.05, 3.66],
+    },
+    {
+      name: "พะเยา",
+      data: [7.18, 4.38, 3.59],
+    },
+    {
+      name: "แพร่",
+      data: [102.35, 5.72, 7.39],
+    },
+    {
+      name: "ลำพูน",
+      data: [7.57, 10.27, 5.07],
+    },
+    {
+      name: "ลำปาง",
+      data: [5.58, 33.21, 3.93],
+    },
+    {
+      name: "น่าน",
+      data: [7.59, 6.37, 5.9],
+    },
+    {
+      name: "แม่ฮ่องสอน",
+      data: [11.67, 6.87, 8.77],
+    },
+  ],
+  chart: {
+    height: 450,
+    type: "line",
+    dropShadow: {
+      enabled: true,
+      color: "#000",
+      top: 10,
+      left: 7,
+      blur: 5,
+      opacity: 0.1,
+    },
+    toolbar: {
+      show: false,
+    },
+    zoom: {
+      enabled: false,
+    },
+  },
+  colors: [
+    "#3D7BB4",
+    "#52cde2",
+    "#8c6ce4",
+    "#fd9ff8",
+    "#e96f6f",
+    "#f3972d",
+    "#ffdb0e",
+    "#abce2b",
+  ],
+  stroke: {
+    curve: "smooth",
+    width: 3,
+  },
+  title: {
+    text: "การป่วยจากสารกำจัดศัตรูพืชอื่น ๆ",
+    align: "left",
+  },
+  grid: {
+    borderColor: "#c7c7c7",
+    row: {
+      colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+      opacity: 0.5,
+    },
+    padding: {
+      top: 30,
+    },
+  },
+  markers: {
+    size: 5,
+    hover: {
+      size: undefined,
+      sizeOffset: 3,
+    },
+  },
+
+  xaxis: {
+    categories: ["2560", "2561", "2562"],
+    title: {
+      text: "ปี",
+    },
+  },
+  yaxis: {
+    title: {
+      text: "อัตรส่วน 1:100,000 ประชากร",
+    },
+    tickAmount: 5,
+    max: 105,
+  },
+  legend: {
+    show: true,
+    position: "top",
+    horizontalAlign: "right",
+    floating: true,
+    offsetX: -5,
+  },
+};
+
+const sec3OtherChart = new ApexCharts(
+  document.querySelector("#sec3-other__chart"),
+  sec3Otheroptions
+);
+sec3OtherChart.render();
 
 // @active class
 const secThreeOpt = document.querySelectorAll(".sec3-opt");
 const sec3AllWrapper = document.querySelector(".sec3-wrapper--all");
+const secThreeOptContainer = document.querySelector(".option__container");
 
+const allChart = document.getElementById("sec3-all");
 const chiangMaiChart = document.getElementById("sec3-chiangmai");
 const chiangRaiChart = document.getElementById("sec3-chiangrai");
 const paYaoChart = document.getElementById("sec3-payao");
@@ -223,7 +522,7 @@ const maeHongSornChart = document.getElementById("sec3-maehongsorn");
 
 for (let i = 0; i < secThreeOpt.length; i++) {
   secThreeOpt[i].addEventListener("click", function (e) {
-    const current = document.querySelector(".active");
+    const current = secThreeOptContainer.querySelector(".active");
     current.className = current.className.replace("active", "");
     this.className = "active";
 
@@ -233,11 +532,75 @@ for (let i = 0; i < secThreeOpt.length; i++) {
 
     const text = e.target.innerHTML;
     switch (text) {
+      case "ภาพรวม":
+        if (allChart.classList[1] === "open") {
+          return;
+        } else {
+          allChart.classList.add("open");
+        }
+
+        break;
       case "เชียงใหม่":
         if (chiangMaiChart.classList[1] === "open") {
           return;
         } else {
           chiangMaiChart.classList.add("open");
+          const sec3ChiangMai = document
+            .getElementById("sec3-chiangmai__chart")
+            .getContext("2d");
+          let myChart = new Chart(sec3ChiangMai, {
+            type: "bar",
+            data: {
+              labels: ["2560", "2561", "2562"],
+              datasets: [
+                {
+                  label: "สารกำจัดแมลง",
+                  backgroundColor: "#bee26a",
+                  data: [11.39, 6.34, 7.75],
+                },
+                {
+                  label: "สารกำจัดวัชพืช",
+                  backgroundColor: "#45c490",
+                  data: [11.15, 5.3, 5.94],
+                },
+                {
+                  label: "สารกำจัดศัตรูพืชอื่น ๆ",
+                  backgroundColor: "#008d93",
+                  data: [2.42, 3.29, 3.38],
+                },
+              ],
+            },
+            options: {
+              tooltips: {
+                displayColors: true,
+                callbacks: {
+                  mode: "x",
+                },
+              },
+              scales: {
+                xAxes: [
+                  {
+                    stacked: true,
+                    gridLines: {
+                      display: false,
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    stacked: true,
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                    type: "linear",
+                  },
+                ],
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              legend: { position: "bottom" },
+            },
+          });
         }
 
         break;

@@ -131,11 +131,11 @@ const marker = [
 
 // Show Marker onclick()
 function province(id) {
-  console.log(id);
+  //console.log(id);
   const result = marker.filter((e) => {
     return e.param == id;
   });
-  console.log(result[0]["param"]);
+ // console.log(result[0]["param"]);
   if (x != 1) {
     x.clearLayers();
   }
@@ -403,45 +403,45 @@ const markerMap = [
   },
 ];
 
-// Show Marker onclick()
-// function province(id) {
-//   console.log(id);
-//   const result = markerMap.filter((e) => {
-//     return e.param == id;
-//   });
-//   console.log(result[0]["param"]);
-//   if (okay != 1) {
-//     okay.clearLayers();
-//   }
-//   $.getJSON(
-//     "https://chemical-system.mididigital.co.th/api/marker/" +
-//       result[0]["param"],
-//     function (data) {
-//       tonnamMap.setView([result[0]["lat"], result[0]["long"]], 9);
-//       okay = L.geoJSON(data, {
-//         onEachFeature: function (feature, layer) {
-//           let string =
-//             "<h2>" +
-//             feature.properties.Name +
-//             "</h2></n><h4>" +
-//             "สต็อกสารเคมี" +
-//             "</h4>";
+// ShowMarker.onclick();
+function province(id) {
+  //console.log(id);
+  const result = markerMap.filter((e) => {
+    return e.param == id;
+  });
+  //console.log(result[0]["param"]);
+  if (okay != 1) {
+    okay.clearLayers();
+  }
+  $.getJSON(
+    "https://chemical-system.mididigital.co.th/api/marker/" +
+      result[0]["param"],
+    function (data) {
+      tonnamMap.setView([result[0]["lat"], result[0]["long"]], 9);
+      okay = L.geoJSON(data, {
+        onEachFeature: function (feature, layer) {
+          let string =
+            "<h2>" +
+            feature.properties.Name +
+            "</h2></n><h4>" +
+            "สต็อกสารเคมี" +
+            "</h4>";
 
-//           for (var i = 0; i < feature.properties.Data.length; i++) {
-//             string +=
-//               feature.properties.Data[i]["type"] +
-//               " " +
-//               feature.properties.Data[i]["volume_charmical"] +
-//               " ลิตร" +
-//               "<br>";
-//           }
-//           layer.bindPopup(string);
-//           console.log(feature.properties.Data);
-//         },
-//       }).addTo(tonnamMap);
-//     }
-//   );
-// }
+          for (var i = 0; i < feature.properties.Data.length; i++) {
+            string +=
+              feature.properties.Data[i]["type"] +
+              " " +
+              feature.properties.Data[i]["volume_charmical"] +
+              " ลิตร" +
+              "<br>";
+          }
+          layer.bindPopup(string);
+          //console.log(feature.properties.Data);
+        },
+      }).addTo(tonnamMap);
+    }
+  );
+}
 
 function whenClick(f) {
   // console.log(f.target.feature.properties.name);
@@ -458,7 +458,7 @@ function whenClick(f) {
   switch (provinceName) {
     case "ChiangMai":
       const chm = new tonnamMapinfoBox("เชียงใหม่", "1,053", "555", "5555");
-      console.log(chm);
+     // console.log(chm);
       break;
 
     case "ChiangRai":
@@ -510,7 +510,7 @@ class tonnamMapinfoBox {
 }
 
 tonnamMap.on("zoomend", function () {
-  console.log(tonnamMap.getZoom());
+  //console.log(tonnamMap.getZoom());
   if (tonnamMap.getZoom() < 9) {
     if (okay != 1) {
       okay.clearLayers();

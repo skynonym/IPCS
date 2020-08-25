@@ -9,9 +9,9 @@ const colClickMe = document.querySelector(".click-bar");
 // @Select
 const optsOne = new Dropdown({
   id: "prov-options",
-  val: "ภาพรวม",
+  val: "ภาพรวมปี 2563",
   data: [
-    "ภาพรวม",
+    "ภาพรวมปี 2563",
     "เชียงใหม่",
     "เชียงราย",
     "ลำพูน",
@@ -25,7 +25,7 @@ const optsOne = new Dropdown({
     let oc;
     let herb;
     switch (newVal) {
-      case "ภาพรวม":
+      case "ภาพรวมปี 2563":
         oc = 195.39;
         herb = 3634.42;
         para = 2022.94;
@@ -89,7 +89,7 @@ const optsOne = new Dropdown({
         chlo = 0.77;
         break;
     }
-    drawChart(oc, herb);
+    drawChart(para, glyp, chlo);
     drawStuff(para, glyp, chlo);
   },
 });
@@ -97,15 +97,16 @@ const optsOne = new Dropdown({
 google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawChart);
 
-function drawChart(oc = 195.39, herb = 3634.42) {
+function drawChart(para = 2022.94, glyp = 1611.48, chlo = 195.39) {
   const data = google.visualization.arrayToDataTable([
     ["กลุ่มสารเคมี", "ตัน"],
-    ["Organophosphate & Carbamate", oc],
-    ["Herbicides", herb],
+    ["พาราควอต", para],
+    ["ไกลโฟเซต", glyp],
+    ["คลอร์ไพริพอส", chlo],
   ]);
 
   const options = {
-    colors: ["#ffc302", "#0f979b"],
+    colors: ["#ffc302", "#0f979b", "#7b7b7b"],
     legend: { position: "none" },
     width: "100%",
     height: "100%",

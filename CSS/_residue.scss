@@ -67,6 +67,11 @@
       color: white;
     }
 
+    .note {
+      font-size: $small;
+      color: $main-light;
+    }
+
   }
 
   p.head {
@@ -140,7 +145,7 @@
   }
 
   .table__container {
-    max-width: 95%;
+    max-width: 90%;
     margin: auto;
   }
 
@@ -273,8 +278,20 @@
 
     td,
     th {
-      width: 40px;
+      width: 150px;
       text-align: center;
+    }
+
+    td:nth-child(3) {
+      color: #00a308;
+    }
+
+    td:nth-child(4) {
+      color: #a06000;
+    }
+
+    td:nth-child(5) {
+      color: #b40000;
     }
   }
 

@@ -92,13 +92,13 @@ for (let i = 0; i < navItems.children.length; i++) {
 // #FUNCTIONS
 
 function mediaQuery() {
-  const logoTitle = document.querySelector(".logo h3");
+  // const logoTitle = document.querySelector(".logo h3");
 
-  if (innerWidth < 1360) {
-    logoTitle.innerHTML = `ศูนย์พัฒนานโยบาย<br>แห่งชาติด้านสารเคมี`;
-  } else {
-    logoTitle.innerHTML = `ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี`;
-  }
+  // if (innerWidth < 1360) {
+  //   logoTitle.innerHTML = `ศูนย์พัฒนานโยบาย<br>แห่งชาติด้านสารเคมี`;
+  // } else {
+  //   logoTitle.innerHTML = `ศูนย์พัฒนานโยบายแห่งชาติด้านสารเคมี`;
+  // }
 
   if (window.innerWidth > 1200 && mobileMenu.classList.contains("open")) {
     openNavHandler();

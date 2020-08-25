@@ -6,7 +6,7 @@ addEventListener("DOMContentLoaded", mediaQuery);
 addEventListener("resize", mediaQuery);
 
 function mediaQuery() {
-  if (innerWidth < 845) {
+  if (innerWidth < 1330) {
     rightContainer.appendChild(logos);
   } else {
     leftContainer.appendChild(logos);

@@ -64,6 +64,14 @@
     }
   }
 
+  .chlo {
+    position: relative;
+
+    p::before {
+      background: #7b7b7b;
+    }
+  }
+
   // @info
   .info__box {
     position: absolute;
@@ -165,6 +173,12 @@
     position: relative;
     left: 50%;
     transform: translate(-50%);
+  }
+
+  p.note {
+    font-size: $small;
+    color: $main-lightgray;
+    margin-top: 45px;
   }
 }
 

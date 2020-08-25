@@ -25,9 +25,9 @@
     }
   }
 
-  .users h2 {
-    font-size: 1.8rem;
-  }
+  // .users h2 {
+  //   font-size: 1.8rem;
+  // }
 
   .farmers {
     margin: 2rem;
@@ -46,6 +46,10 @@
       background: linear-gradient(130deg, transparent 20%, rgba(255, 255, 255, 0.2) 40%, transparent 60%, rgba(255, 255, 255, 0.2) 80%, transparent 90%);
       background-size: 500px;
       animation: numberBg 2s ease-in-out infinite alternate;
+    }
+
+    img {
+      width: 50%;
     }
   }
 
@@ -120,6 +124,28 @@
   p.note {
     font-size: $small;
     text-align: end;
+  }
+
+  .users--chiangmai:hover td,
+  .users--chiangmai:hover th,
+  .users--chiangrai:hover td,
+  .users--chiangrai:hover th,
+  .users--payao:hover td,
+  .users--payao:hover th,
+  .users--prae:hover td,
+  .users--prae:hover th,
+  .users--lampoon:hover td,
+  .users--lampoon:hover th,
+  .users--lampang:hover td,
+  .users--lampang:hover th,
+  .users--nan:hover td,
+  .users--nan:hover th,
+  .users--maehongsorn:hover th,
+  .users--maehongsorn:hover td,
+  .total:hover th,
+  .total:hover td {
+    background: #e2b86a;
+    color: $main-dark;
   }
 }
 

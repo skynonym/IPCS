@@ -8,20 +8,20 @@
   }
 
   .text__container {
-    @include flex(row, space-between, center);
+    @include flex(row, space-around, center);
 
     img {
-      flex: 1 1 20rem;
-      height: 300px;
+      flex: 1 1 10rem;
+      height: 150px;
       transition: width .5s;
     }
   }
 
   p.desc {
-    font-size: $h3;
+    font-size: 1.1rem;
     margin-top: 1rem;
     font-weight: 300;
-    flex: 5 1 20rem;
+    flex: 7 1 20rem;
     text-indent: 3rem;
     text-align: justify;
     transition: font-size 1s;
@@ -43,7 +43,76 @@
     margin-top: 3rem;
     margin-bottom: 2rem;
     transition: all .5s;
+    text-align: center;
   }
+
+  h2.title {
+    color: $sec-dark;
+    font-size: $h3;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .GAP-each-province__container {
+    margin-top: 20px;
+  }
+
+  .options {
+    ul {
+      @include flex(row, space-around, center);
+    }
+
+    li {
+      padding: 15px 30px;
+      border-radius: 10px;
+
+    }
+  }
+
+  .GAP-options {
+    margin: 1.5rem auto;
+    width: 80%;
+
+    ul {
+      @include flex(row, space-around, center);
+    }
+
+    li {
+      width: 120px;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      user-select: none;
+      margin: 5px;
+
+      &:hover {
+        background: #fcd98d;
+        cursor: pointer;
+      }
+    }
+
+    .active {
+      background: #fcd98d;
+    }
+  }
+
+  .GAP-agriarea-wrapper {
+    position: relative;
+  }
+
+  .wrapper {
+    display: none;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+
+  .wrapper.open {
+    display: block;
+  }
+
+  // #AGRIACUTURAL AREAS
 
 }
 
@@ -77,6 +146,10 @@
     .lineChart__container {
       width: 90%;
       padding: 1rem;
+    }
+
+    h2.title {
+      font-size: calc(0.8rem + 1vw);
     }
   }
 }

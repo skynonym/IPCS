@@ -639,9 +639,9 @@ class soldTable {
     soldTable.innerHTML = `<tr>
 									<th>จังหวัด</th>
                   <th>จำนวนตัวอย่างทั้งหมด</th>
-                  <th>ปลอดภัย</th>
-                  <th>พบผ่านเกณฑ์มาตรฐาน</th>
-                  <th>พบไม่ผ่านเกณฑ์มาตรฐาน</th>
+                  <th>ไม่พบ</th>
+                  <th>ต่ำกว่า MRL</th>
+                  <th>สูงกว่า MRL</th>
 								</tr>
                 <tr>
                   <td>เชียงใหม่</td>
