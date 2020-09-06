@@ -82,20 +82,3 @@ function Dropdown(opt) {
   this.init();
   return this;
 }
-
-// const optsOne = new Dropdown({
-//   id: "prov-options",
-//   val: "ภาพรวม",
-//   data: [
-//     "ภาพรวม",
-//     "เชียงใหม่",
-//     "เชียงราย",
-//     "ลำพูน",
-//     "ลำปาง",
-//     "น่าน",
-//     "แพร่",
-//     "พะเยา",
-//     "แม่ฮ่องสอน",
-//   ],
-//   cb: function (newVal) {},
-// });

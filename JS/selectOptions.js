@@ -50,14 +50,14 @@ function SelectOptions(opt) {
     }
   };
   this.active();
-
-  this.openClose = (no) => {
-    if (this.options.chartCon[no].classList[1] === "open") {
-      return;
-    } else if (this.options.chartCon[no].classList[1] !== "open") {
-      this.options.chartCon[no].classList.add("open");
-    } else {
-      console.log("error");
-    }
-  };
 }
+
+SelectOptions.prototype.openClose = function (no) {
+  if (this.options.chartCon[no].classList[1] === "open") {
+    return;
+  } else if (this.options.chartCon[no].classList[1] !== "open") {
+    this.options.chartCon[no].classList.add("open");
+  } else {
+    console.log("error");
+  }
+};

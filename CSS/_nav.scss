@@ -94,6 +94,15 @@ nav {
   }
 }
 
+.nav-active {
+  background: $main-green;
+  color: white !important;
+
+  li {
+    border: 0;
+  }
+}
+
 // #MOBILE
 .mobile-nav__container {
   transition: opacity .5s;

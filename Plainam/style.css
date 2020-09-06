@@ -1,0 +1,12 @@
+#mapid {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+}
+
+.custom-tooltip .leaflet-tooltip,
+.custom-tooltip .leaflet-popup {
+    font-family: 'Mitr', sans-serif;
+}

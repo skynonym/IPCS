@@ -151,7 +151,64 @@ stackedChart.render();
 
 // #SECTION3-----------------
 // @graphs
-// *insects
+// *clustered stacked all
+var sec3ClusteredStacked = document
+  .getElementById("sec3-clusetered-stacked")
+  .getContext("2d");
+new Chart(sec3ClusteredStacked, {
+  type: "bar",
+  data: {
+    labels: ["2560", "2561", "2562"],
+    datasets: [
+      {
+        label: "การป่วยจากสารกำจัดแมลง",
+        backgroundColor: "#ffa8c9",
+        data: [65.18, 78.21, 46.06],
+        stack: 1,
+      },
+      {
+        label: "การป่วยจากสารกำจัดวัชพืช",
+        backgroundColor: "#ff619e",
+        data: [66.61, 39.29, 54.6],
+        stack: 1,
+      },
+      {
+        label: "การป่วยจากสารกำจัดศัตรูพืชอื่น ๆ",
+        backgroundColor: "#a26cc2",
+        data: [116.35, 29.22, 26.37],
+        stack: 1,
+      },
+    ],
+  },
+
+  options: {
+    legend: { position: "bottom" },
+    scales: {
+      xAxes: [
+        {
+          stacked: true,
+          scaleLabel: {
+            display: true,
+            labelString: "ปี",
+          },
+        },
+      ],
+      yAxes: [
+        {
+          stacked: true,
+          ticks: {
+            beginAtZero: true,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
+          },
+        },
+      ],
+    },
+  },
+});
+// *insects-------------------------------------
 const sec3Insectoptions = {
   series: [
     {
@@ -249,7 +306,7 @@ const sec3Insectoptions = {
   },
   yaxis: {
     title: {
-      text: "อัตรส่วน 1:100,000 ประชากร",
+      text: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
     },
     tickAmount: 5,
     max: 70,
@@ -367,7 +424,7 @@ const sec3Herboptions = {
   },
   yaxis: {
     title: {
-      text: "อัตรส่วน 1:100,000 ประชากร",
+      text: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
     },
     tickAmount: 5,
     max: 20,
@@ -485,7 +542,7 @@ const sec3Otheroptions = {
   },
   yaxis: {
     title: {
-      text: "อัตรส่วน 1:100,000 ประชากร",
+      text: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
     },
     tickAmount: 5,
     max: 105,
@@ -584,6 +641,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                     gridLines: {
                       display: false,
                     },
+                    scaleLabel: {
+                      display: true,
+                      labelString: "ปี",
+                    },
                   },
                 ],
                 yAxes: [
@@ -593,6 +654,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                       beginAtZero: true,
                     },
                     type: "linear",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
+                    },
                   },
                 ],
               },
@@ -649,6 +714,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                     gridLines: {
                       display: false,
                     },
+                    scaleLabel: {
+                      display: true,
+                      labelString: "ปี",
+                    },
                   },
                 ],
                 yAxes: [
@@ -658,6 +727,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                       beginAtZero: true,
                     },
                     type: "linear",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
+                    },
                   },
                 ],
               },
@@ -712,6 +785,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                     gridLines: {
                       display: false,
                     },
+                    scaleLabel: {
+                      display: true,
+                      labelString: "ปี",
+                    },
                   },
                 ],
                 yAxes: [
@@ -721,6 +798,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                       beginAtZero: true,
                     },
                     type: "linear",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
+                    },
                   },
                 ],
               },
@@ -775,6 +856,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                     gridLines: {
                       display: false,
                     },
+                    scaleLabel: {
+                      display: true,
+                      labelString: "ปี",
+                    },
                   },
                 ],
                 yAxes: [
@@ -784,6 +869,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                       beginAtZero: true,
                     },
                     type: "linear",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
+                    },
                   },
                 ],
               },
@@ -838,6 +927,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                     gridLines: {
                       display: false,
                     },
+                    scaleLabel: {
+                      display: true,
+                      labelString: "ปี",
+                    },
                   },
                 ],
                 yAxes: [
@@ -847,6 +940,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                       beginAtZero: true,
                     },
                     type: "linear",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
+                    },
                   },
                 ],
               },
@@ -901,6 +998,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                     gridLines: {
                       display: false,
                     },
+                    scaleLabel: {
+                      display: true,
+                      labelString: "ปี",
+                    },
                   },
                 ],
                 yAxes: [
@@ -910,6 +1011,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                       beginAtZero: true,
                     },
                     type: "linear",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
+                    },
                   },
                 ],
               },
@@ -964,6 +1069,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                     gridLines: {
                       display: false,
                     },
+                    scaleLabel: {
+                      display: true,
+                      labelString: "ปี",
+                    },
                   },
                 ],
                 yAxes: [
@@ -973,6 +1082,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                       beginAtZero: true,
                     },
                     type: "linear",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
+                    },
                   },
                 ],
               },
@@ -1027,6 +1140,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                     gridLines: {
                       display: false,
                     },
+                    scaleLabel: {
+                      display: true,
+                      labelString: "ปี",
+                    },
                   },
                 ],
                 yAxes: [
@@ -1036,6 +1153,10 @@ for (let i = 0; i < secThreeOpt.length; i++) {
                       beginAtZero: true,
                     },
                     type: "linear",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "จำนวนผู้ป่วยต่อ 100,000 ประชากร",
+                    },
                   },
                 ],
               },
@@ -1153,203 +1274,483 @@ class ProvinceInfo {
   }
 }
 // #CONTAMINANT#######################################
-const provs = document.querySelectorAll(".prov");
-const allProvs = document.querySelector(".prov-seals");
-const infoBox = document.getElementById("con-info__box");
-const infoText = document.querySelector(".con-info__text");
-const imgBox = document.querySelector(".info-img");
-// const current = allProvs.querySelector(".active");
+// const provs = document.querySelectorAll(".prov");
+// const allProvs = document.querySelector(".prov-seals");
+// const infoBox = document.getElementById("con-info__box");
+// const infoText = document.querySelector(".con-info__text");
+// const imgBox = document.querySelector(".info-img__container");
+// // const current = allProvs.querySelector(".active");
 
-provs.forEach((prov) => {
-  prov.addEventListener("click", function (e) {
-    const current = allProvs.querySelector(".active");
-    if (current !== null) {
-      current.className = current.className.replace("active", "");
-      this.classList.add("active");
-    } else {
-      e.target.classList.add("active");
-    }
+// const pingRiverMap = document.getElementById("pingriver");
+// const kokRiverMap = document.getElementById("kokriver");
+// const nanRiverMap = document.getElementById("nanriver");
+// const kwanPhayaoRiverMap = document.getElementById("kwanphayaoriver");
+// const wangRiverMap = document.getElementById("wangriver");
 
-    const txt = prov.children[1].innerHTML;
-    let provDetail;
-    switch (txt) {
-      case "เชียงใหม่":
-        ConInfo.clear();
-        provDetail = [
-          new ConInfo(
-            "เชียงใหม่",
-            "แม่น้ำปิง",
-            "สะพานช่อแล บ.ช่อแล อ.แม่แตง จ.เชียงใหม่",
-            "<0.01",
-            "0.28",
-            "chm"
-          ),
-        ];
-        provDetail.forEach((sigleProv) => {
-          sigleProv.render();
-        });
-        ConInfo.addImg("ping.png");
+// provs.forEach((prov) => {
+//   prov.addEventListener("click", function (e) {
+//     const current = allProvs.querySelector(".active");
+//     if (current !== null) {
+//       current.className = current.className.replace("active", "");
+//       this.classList.add("active");
+//     } else {
+//       e.target.classList.add("active");
+//     }
 
-        break;
-      case "เชียงราย":
-        ConInfo.clear();
+//     if (e.target.innerHTML.indexOf("เชียงใหม่") !== -1) {
+//       pingRiverMap.style.display = "inline-block";
+//       kokRiverMap.style.display = "none";
+//       nanRiverMap.style.display = "none";
+//       kwanPhayaoRiverMap.style.display = "none";
+//       wangRiverMap.style.display = "none";
+//     } else if (e.target.innerHTML.indexOf("เชียงราย") !== -1) {
+//       pingRiverMap.style.display = "none";
+//       kokRiverMap.style.display = "inline-block";
+//       nanRiverMap.style.display = "none";
+//       kwanPhayaoRiverMap.style.display = "none";
+//       wangRiverMap.style.display = "none";
+//     } else if (e.target.innerHTML.indexOf("น่าน") !== -1) {
+//       pingRiverMap.style.display = "none";
+//       kokRiverMap.style.display = "none";
+//       nanRiverMap.style.display = "inline-block";
+//       kwanPhayaoRiverMap.style.display = "none";
+//       wangRiverMap.style.display = "none";
+//     } else if (e.target.innerHTML.indexOf("พะเยา") !== -1) {
+//       pingRiverMap.style.display = "none";
+//       kokRiverMap.style.display = "none";
+//       nanRiverMap.style.display = "none";
+//       kwanPhayaoRiverMap.style.display = "inline-block";
+//       wangRiverMap.style.display = "none";
+//     } else if (e.target.innerHTML.indexOf("ลำปาง") !== -1) {
+//       pingRiverMap.style.display = "none";
+//       kokRiverMap.style.display = "none";
+//       nanRiverMap.style.display = "none";
+//       kwanPhayaoRiverMap.style.display = "none";
+//       wangRiverMap.style.display = "inline-block";
+//     } else if (e.target.innerHTML.indexOf("ลำพูน") !== -1) {
+//       pingRiverMap.style.display = "none";
+//       kokRiverMap.style.display = "none";
+//       nanRiverMap.style.display = "none";
+//       kwanPhayaoRiverMap.style.display = "none";
+//       wangRiverMap.style.display = "none";
+//     } else {
+//       return;
+//     }
+//     const txt = prov.children[1].innerHTML;
+//     let provDetail;
+//     switch (txt) {
+//       case "เชียงใหม่":
+//         const contamChiangmai = new Dropdown({
+//           id: "select-contam",
+//           val: "ปี 2561",
+//           data: ["ปี 2561"],
+//         });
+//         ConInfo.clear();
+//         provDetail = [
+//           new ConInfo(
+//             "2561",
+//             "แม่น้ำปิง",
+//             "กรมควบคุมมลพิษ",
+//             `
+//             <p class="substance"><mark>สารพาราควอต</mark></p>
+//               <p class="samples">ตัวอย่างน้ำ: จำนวน 1 ตัวอย่าง ตรวจสอบสารพาราควอตที่ความเข้มข้น <mark>\< 1.00 µ/L</p>
+//               <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารพาราควอตที่ความเข้มข้น <mark>0.28 มก./กก.</mark></p>
+//             <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//               <p class="samples">ตัวอย่างน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารไกลโฟเซตที่ความเข้มข้น <mark> 1.00 µ/L</mark></p>
+//               <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารพาราควอตที่ความเข้มข้น <mark> 0.01 มก./กก.</mark></p>
+//             `
+//           ),
+//         ];
+//         provDetail.forEach((sigleProv) => {
+//           sigleProv.render();
+//         });
 
-        provDetail = [
-          new ConInfo(
-            "เชียงราย",
-            "แม่น้ำกก",
-            "สะพานแม่น้ำกก อ.เชียงแสน จ.เชียงราย",
-            "<0.02",
-            "0.17",
-            "chr"
-          ),
-        ];
-        provDetail.forEach((sigleProv) => {
-          sigleProv.render();
-        });
-        ConInfo.addImg("kok.png");
+//         break;
+//       case "เชียงราย":
+//         const contamChiangrai = new Dropdown({
+//           id: "select-contam",
+//           val: "ปี 2560",
+//           data: ["ปี 2560", "ปี 2561"],
+//           cb: function (newVal) {
+//             switch (newVal) {
+//               case "ปี 2560":
+//                 ConInfo.clear();
 
-        break;
-      case "น่าน":
-        ConInfo.clear();
-        //     infoText.innerHTML = `
-        //         <p> แหล่งน้ำ: <mark class="mark-river">แม่น้ำน่าน</mark> <img src="./images/water.svg" class="water-emoji"> </p>
-        // <p>บริเวณที่ตรวจสอบ: <mark class="mark-others">สะพานดอนศรีเสริม ต.ในเวียง อ.เมือง จ.น่าน</mark> </p>
-        // <p>ผลการตรวจสอบตัวอย่างน้ำ: </p>
-        // <p class="result">- Glyphosate (u/L): <mark class="mark-others"><1.00</mark></p>
-        // <p class="result">- Paraquat (u/L): <mark class="mark-others"><1.00</mark> </p>
-        // <p>ผลการตรวจสอบตะกอนดินท้องน้ำ: </p>
-        // <p class="result">- Glyphosate (u/L): <mark class="mark-others"><0.02</mark></p>
-        // <p class="result">- Paraquat (u/L): <mark class="mark-others">"0.49"</mark></p>
-        // <p>ปีที่ตรวจสอบ: 2561</p>
+//                 provDetail = [
+//                   new ConInfo(
+//                     "2560",
+//                     "แม่น้ำกก",
+//                     "กรมส่งเสริมคุณภาพสิ่งแวดล้อม",
+//                     `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: ร้อยละ 80 ของตัวอย่าง ตรวจพบสารพาราควอตที่ความเข้มข้น <mark>0.02 - 0.4 มก./กก</mark></p>
+//                     <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 12 ตัวอย่าง ตรวจพบสารพาราควอต 4 ตัวอย่าง ที่ความเข้มข้น <mark>0.02 - 0.13  มก./กก.</mark></p>
+//                     `,
+//                     "kok-river"
+//                   ),
+//                 ];
+//                 provDetail.forEach((sigleProv) => {
+//                   sigleProv.render();
+//                 });
 
-        // `;
-        provDetail = [
-          new ConInfo(
-            "น่าน",
-            "แม่น้ำน่าน",
-            "สะพานดอนศรีเสริม ต.ในเวียง อ.เมือง จ.น่าน",
-            "<0.02",
-            "0.49",
-            "nan"
-          ),
-          new ConInfo(
-            "น่าน",
-            "แม่น้ำน่าน",
-            "จุดสูบน้ำแรงดันต่ำการประปาน่าน ต.ฝายแก้ว อ.ภูเพียง จ.น่าน",
-            "<0.01",
-            "0.38",
-            "nan"
-          ),
-          new ConInfo(
-            "น่าน",
-            "แม่น้ำน่าน",
-            "จุดสูบน้ำการประปาท่าวังผา ต.ท่าวังผา อ.ท่าวังผา จ.น่าน",
-            "<0.07",
-            "0.9",
-            "nan"
-          ),
-        ];
-        provDetail.forEach((sigleProv) => {
-          sigleProv.render();
-        });
-        ConInfo.addImg("nan.png");
-        prov;
-        prov.classList.toggle("active");
+//                 break;
+//               case "ปี 2561":
+//                 ConInfo.clear();
 
-        break;
-      case "พะเยา":
-        ConInfo.clear();
-        provDetail = new ConInfo(
-          "พะเยา",
-          "กว๊านพะเยา",
-          "ปากแม่น้ำอิง บริเวณสะพานขุนเดช อ.เมือง จ.พะเยา",
-          "<0.01",
-          "0.09",
-          "pay"
-        );
-        provDetail.render();
-        ConInfo.addImg("payao.png");
-        break;
-      case "ลำปาง":
-        ConInfo.clear();
-        provDetail = new ConInfo(
-          "ลำปาง",
-          "แม่น้ำวัง",
-          "จุดสูบน้ำดิบ การประปาสบปราบ บ.หล้าหลวง อ.สบปราบ จ.ลำปาง",
-          "<0.01",
-          "0.11",
-          "lam"
-        );
-        provDetail.render();
-        ConInfo.addImg("wang.png");
-        break;
-      default:
-        console.log("none");
-    }
-  });
-});
+//                 provDetail = [
+//                   new ConInfo(
+//                     "2561",
+//                     "แม่น้ำกก",
+//                     "กรมควบคุมมลพิษ",
+//                     `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารพาราควอตที่ความเข้มข้น <mark>\< 1.00 µ/L</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบพาราควอตที่ความเข้มข้น <mark>0.17 มก./กก.</mark></p>
+//                     <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//                       <p class="samples">ตัวอย่างน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารไกลโฟเซต ที่ความเข้มข้น <mark>\< 1.00 µ/L</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารไกลโฟเซตที่ความเข้มข้น <mark>\< 0.02 มก./กก.</mark></p>
+//                     `,
+//                     "kok-river"
+//                   ),
+//                 ];
+//                 provDetail.forEach((sigleProv) => {
+//                   sigleProv.render();
+//                 });
+//                 break;
+//             }
+//           },
+//         });
+//         ConInfo.clear();
 
-class ConInfo {
-  constructor(province, river, area, soilG, soilP, boxClass) {
-    (this.province = province),
-      (this.river = river),
-      (this.area = area),
-      (this.water = ["<1.00", "<1.00"]),
-      (this.soil = [soilG, soilP]),
-      (this.year = "2561"),
-      (this.boxClass = boxClass);
-  }
+//         provDetail = [
+//           new ConInfo(
+//             "2560",
+//             "แม่น้ำกก",
+//             "กรมส่งเสริมคุณภาพสิ่งแวดล้อม",
+//             `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: ร้อยละ 80 ของตัวอย่าง ตรวจพบสารพาราควอตที่ความเข้มข้น <mark>0.02 - 0.4 มก./กก</mark></p>
+//                     <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 12 ตัวอย่าง ตรวจพบสารพาราควอต 4 ตัวอย่าง ที่ความเข้มข้น <mark>0.02 - 0.13  มก./กก.</mark></p>
+//                     `,
+//             "kok-river"
+//           ),
+//         ];
+//         provDetail.forEach((sigleProv) => {
+//           sigleProv.render();
+//         });
 
-  static clear() {
-    infoText.innerHTML = ``;
-  }
+//         break;
+//       case "น่าน":
+//         const contamNan = new Dropdown({
+//           id: "select-contam",
+//           val: "ปี 2558",
+//           data: ["ปี 2558", "ปี 2561", "ปี 2562"],
+//           cb: function (newVal) {
+//             switch (newVal) {
+//               case "ปี 2558":
+//                 ConInfo.clear();
+//                 provDetail = [
+//                   new ConInfo(
+//                     "2558",
+//                     "แม่น้ำน่าน",
+//                     "กรมส่งเสริมคุณภาพสิ่งแวดล้อม",
+//                     `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 4 ตัวอย่าง ทุกตัวอย่างตรวจพบสารพาราควอต ในระดับความเข้มข้น <mark>0.14 - 5.19 มก./กก.</mark></p>
+//                     <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 4 ตัวอย่าง ตรวจพบสารไกลโฟเซต 3 ตัวอย่าง ที่ความเข้มข้น <mark>0.03 - 0.05  มก./กก.</mark></p>
+//                     `
+//                   ),
+//                 ];
+//                 provDetail.forEach((sigleProv) => {
+//                   sigleProv.render();
+//                 });
+//                 break;
+//               case "ปี 2561":
+//                 ConInfo.clear();
+//                 provDetail = [
+//                   new ConInfo(
+//                     "2561",
+//                     "แม่น้ำน่าน",
+//                     "กรมควบคุมมลพิษ",
+//                     `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างน้ำ: จำนวน 3 ตัวอย่าง ตรวจพบสารพาราควอต ที่ความเข้มข้น <mark>\< 1.00 µ/L</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 3 ตัวอย่าง ตรวจพบสารพาราควอตที่ความเข้มข้นระหว่าง <mark>0.38 - 0.90 มก./กก.</mark></p>
+//                     <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//                       <p class="samples">ตัวอย่างน้ำ: จำนวน 3 ตัวอย่าง ตรวจพบสารไกลโฟเซตที่ความเข้มข้น <mark>\< 1.00 µ/L</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 3 ตัวอย่าง ตรวจพบสารไกลโฟเซตที่ความเข้มข้นระหว่าง 0.01 - 0.07 มก./กก.</mark></p>
+//                     `
+//                   ),
+//                 ];
+//                 provDetail.forEach((sigleProv) => {
+//                   sigleProv.render();
+//                 });
+//                 break;
+//               case "ปี 2562":
+//                 ConInfo.clear();
+//                 provDetail = [
+//                   new ConInfo(
+//                     "2562",
+//                     "แม่น้ำน่าน",
+//                     "กรมควบคุมมลพิษ",
+//                     `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างดิน: จำนวน 20 ตัวอย่าง ทุกตัวอย่างตรวจพบสารพาราควอตที่ความเข้มข้นระหว่าง <mark> 0.03 - 8.6 มก./กก.</mark></p>
+//                     <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//                       <p class="samples">ตัวอย่างดิน: จำนวน 20 ตัวอย่าง ตรวจพบสารไกลโฟเซตที่ความเข้มข้นระหว่าง <mark> 0.01 - 0.45 มก./กก.</mark></p>
+//                     <p class="substance"><mark>คลอร์ไพริฟอส</mark></p>
+//                       <p class="samples">ตัวอย่างดิน: จำนวน 20 ตัวอย่าง ตรวจพบสารคลอร์ไพริฟอสที่ความเข้มข้นระหว่าง <mark> 0.01 - 0.02 มก./กก.</mark></p>
+//                     `
+//                   ),
+//                 ];
+//                 provDetail.forEach((sigleProv) => {
+//                   sigleProv.render();
+//                 });
+//                 break;
+//             }
+//           },
+//         });
+//         ConInfo.clear();
+//         provDetail = [
+//           new ConInfo(
+//             "2558",
+//             "แม่น้ำน่าน",
+//             "กรมส่งเสริมคุณภาพสิ่งแวดล้อม",
+//             `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 4 ตัวอย่าง ทุกตัวอย่างตรวจพบสารพาราควอต ในระดับความเข้มข้น <mark>0.14 - 5.19 มก./กก.</mark></p>
+//                     <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 4 ตัวอย่าง ตรวจพบสารไกลโฟเซต 3 ตัวอย่าง ที่ความเข้มข้น <mark>0.03 - 0.05  มก./กก.</mark></p>
+//                     `
+//           ),
+//         ];
+//         provDetail.forEach((sigleProv) => {
+//           sigleProv.render();
+//         });
 
-  render() {
-    const detail = document.createElement("div");
+//         break;
+//       case "พะเยา":
+//         const contamPayao = new Dropdown({
+//           id: "select-contam",
+//           val: "ปี 2561",
+//           data: ["ปี 2561"],
+//         });
 
-    detail.className = "each-detail";
-    detail.innerHTML = `
-    <p> แหล่งน้ำ: <mark class="mark-river">${this.river}</mark> <img src="./images/wateryellow.svg" class="water-emoji"> </p> 
-    <p>บริเวณที่ตรวจสอบ: <mark class="mark-others">${this.area}</mark> </p>
-    <p>ผลการตรวจสอบตัวอย่างน้ำ: </p>
-    <p class="result">- Glyphosate (u/L): <mark class="mark-others">${this.water[0]}</mark></p>
-    <p class="result">- Paraquat (u/L): <mark class="mark-others">${this.water[1]}</mark> </p>
-    <p>ผลการตรวจสอบตะกอนดินท้องน้ำ: </p>
-    <p class="result">- Glyphosate (u/L): <mark class="mark-others">${this.soil[0]}</mark></p>
-    <p class="result">- Paraquat (u/L): <mark class="mark-others">${this.soil[1]}</mark></p>
-    <p>ปีที่ตรวจสอบ: ${this.year}</p>
-    `;
+//         ConInfo.clear();
+//         provDetail = new ConInfo(
+//           "2561",
+//           "กว๊านพะเยา",
+//           "กรมควบคุมมลพิษ",
+//           `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารพาราควอตที่ความเข้มข้น <mark>\< 1.00 µ/L</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารพาราควอตที่ความเข้มข้น <mark>0.09 มก./กก.</mark></p>
+//                     <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//                       <p class="samples">ตัวอย่างน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารไกลโฟเซตที่ความเข้มข้น <mark>\< 1.00 µ/L</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารไกลโฟเซตที่ความเข้มข้น <mark>\< 0.01 มก./กก.</mark></p>
+//                     `
+//         );
+//         provDetail.render();
+//         break;
+//       case "ลำปาง":
+//         const contamLampang = new Dropdown({
+//           id: "select-contam",
+//           val: "ปี 2559",
+//           data: ["ปี 2559", "ปี 2561"],
+//           cb: function (newVal) {
+//             switch (newVal) {
+//               case "ปี 2559":
+//                 ConInfo.clear();
+//                 provDetail = new ConInfo(
+//                   "2559",
+//                   "แม่น้ำวัง",
+//                   "กรมส่งเสริมคุณภาพสิ่งแวดล้อม",
+//                   `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 22 ตัวอย่าง มากกว่าร้อยละ 80 ตรวจพบสารพาราควอต ในระดับความเข้มข้น <mark>0.02 - 1.4 มก./กก.</mark></p>
+//                     <p class="substance"><mark>สารคลอร์ไพริฟอส</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: ตรวจพบสารคลอร์ไพริฟอสในระดับความเข้มข้น <mark>0.11 - 1.83 มก.</mark></p>
+//                     `
+//                 );
+//                 provDetail.render();
 
-    infoText.appendChild(detail);
+//                 break;
+//               case "ปี 2561":
+//                 ConInfo.clear();
+//                 provDetail = new ConInfo(
+//                   "2559",
+//                   "แม่น้ำวัง",
+//                   "กรมส่งเสริมคุณภาพสิ่งแวดล้อม",
+//                   `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารพาราควอตที่ความเข้มข้น <marl>\< 1.00 µ/L</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารพาราควอตที่ความเข้มข้น <mark>0.11 มก./กก.</mark></p>
+//                     <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//                       <p class="samples">ตัวอย่างน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารไกลโฟเซตที่ความเข้มข้น <mark>\< 1.00 µ/L</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 1 ตัวอย่าง ตรวจพบสารไกลโฟเซตที่ความเข้มข้น <mark>\< 0.01 มก./กก.</mark></p>
+//                     `
+//                 );
+//                 provDetail.render();
 
-    this.openClose();
-  }
+//                 break;
+//             }
+//           },
+//         });
 
-  static addImg(address) {
-    imgBox.src = `./images/${address}`;
-  }
+//         ConInfo.clear();
+//         provDetail = new ConInfo(
+//           "2559",
+//           "แม่น้ำวัง",
+//           "กรมส่งเสริมคุณภาพสิ่งแวดล้อม",
+//           `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 22 ตัวอย่าง มากกว่าร้อยละ 80 ตรวจพบสารพาราควอต ในระดับความเข้มข้น <mark>0.02 - 1.4 มก./กก.</mark></p>
+//                     <p class="substance"><mark>สารคลอร์ไพริฟอส</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: ตรวจพบสารคลอร์ไพริฟอสในระดับความเข้มข้น <mark>0.11 - 1.83 มก.</mark></p>
+//                     `
+//         );
+//         provDetail.render();
+//         break;
 
-  openClose() {
-    const current = allProvs.querySelector(".active");
+//       case "ลำพูน":
+//         const contamLampoon = new Dropdown({
+//           id: "select-contam",
+//           val: "ปี 2559",
+//           data: ["ปี 2559"],
+//         });
 
-    if (infoBox.classList[1] === undefined) {
-      infoBox.classList.add("open");
-      infoBox.classList.add(this.boxClass);
-    } else if (infoBox.classList[1] === this.boxClass) {
-      infoBox.classList.remove(infoBox.classList[1]);
-      infoBox.classList.remove("open");
-      if (!infoBox.classList.contains("open")) {
-        // alert("here");
-        current.className = current.className.replace("active", "");
-      }
-    } else if (
-      infoBox.classList[1] !== undefined &&
-      infoBox.classList[1] !== this.boxClass
-    ) {
-      infoBox.classList.add("open");
-      infoBox.classList.remove(infoBox.classList[1]);
-      infoBox.classList.add(this.boxClass);
-    }
-  }
-}
+//         ConInfo.clear();
+//         provDetail = new ConInfo(
+//           "2559",
+//           "แม่น้ำวัง",
+//           "กรมส่งเสริมคุณภาพสิ่งแวดล้อม",
+//           `
+//                     <p class="substance"><mark>สารพาราควอต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 11 ตัวอย่าง มากกว่าร้อยละ 80 ตรวจพบสารพาราควอตในระดับความเข้มข้น <mark> 0.02 - 2.5 มก./กก.</mark></p>
+//                     <p class="substance"><mark>สารไกลโฟเซต</mark></p>
+//                       <p class="samples">ตัวอย่างดินตะกอนท้องน้ำ: จำนวน 11 ตัวอย่าง โดยมี 1 ตัวอย่าง ตรวจพบสารไกลโฟเซตที่ความเข้มข้น <mark>0.04 มก./กก.</mark></p>
+//                     `
+//         );
+//         provDetail.render();
+//         break;
+//       default:
+//         console.log("none");
+//     }
+//   });
+// });
+
+// class ConInfo {
+//   constructor(year, river, source, detail, mapId) {
+//     this.year = year;
+//     this.river = river;
+//     this.detail = detail;
+//     this.source = source;
+//     this.mapId = mapId;
+//   }
+//   static clear() {
+//     infoText.innerHTML = ``;
+//     // imgBox.innerHTML = ``;
+//   }
+
+//   render() {
+//     const detail = document.createElement("div");
+//     detail.className = "contam-detail";
+//     detail.innerHTML = `
+//     <h3 class="contam-river"><b>แหล่งน้ำ</b>: ${this.river}</h3>
+//     <h3 class="contam-year"><b>ปีที่ตรวจสอบ</b>: ปี ${this.year}</h3>
+//     <h3 class="contam-result"><b>ผลการตรวจสอบ</b>: ${this.detail}</h3>
+//     <h3 class="source"><b>ที่มา</b>: ${this.source} <p>
+//     `;
+
+//     infoText.appendChild(detail);
+
+//     this.openClose();
+//   }
+
+//   openClose() {
+//     const current = allProvs.querySelector(".active");
+
+//     if (infoBox.classList[1] === undefined) {
+//       infoBox.classList.add("open");
+//       infoBox.classList.add(this.boxClass);
+//     } else if (infoBox.classList[1] === this.boxClass) {
+//       infoBox.classList.remove(infoBox.classList[1]);
+//       infoBox.classList.remove("open");
+//       if (!infoBox.classList.contains("open")) {
+//         current.className = current.className.replace("active", "");
+//       }
+//     } else if (
+//       infoBox.classList[1] !== undefined &&
+//       infoBox.classList[1] !== this.boxClass
+//     ) {
+//       infoBox.classList.add("open");
+//       infoBox.classList.remove(infoBox.classList[1]);
+//       infoBox.classList.add(this.boxClass);
+//     }
+//   }
+// }
+// class ConInfo {
+//   constructor(province, river, area, soilG, soilP, boxClass) {
+//     (this.province = province),
+//       (this.river = river),
+//       (this.area = area),
+//       (this.water = ["<1.00", "<1.00"]),
+//       (this.soil = [soilG, soilP]),
+//       (this.year = "2561"),
+//       (this.boxClass = boxClass);
+//   }
+
+//   static clear() {
+//     infoText.innerHTML = ``;
+//   }
+
+//   render() {
+//     const detail = document.createElement("div");
+
+//     detail.className = "each-detail";
+//     detail.innerHTML = `
+//     <p> แหล่งน้ำ: <mark class="mark-river">${this.river}</mark> <img src="./images/wateryellow.svg" class="water-emoji"> </p>
+//     <p>บริเวณที่ตรวจสอบ: <mark class="mark-others">${this.area}</mark> </p>
+//     <p>ผลการตรวจสอบตัวอย่างน้ำ: </p>
+//     <p class="result">- Glyphosate (u/L): <mark class="mark-others">${this.water[0]}</mark></p>
+//     <p class="result">- Paraquat (u/L): <mark class="mark-others">${this.water[1]}</mark> </p>
+//     <p>ผลการตรวจสอบตะกอนดินท้องน้ำ: </p>
+//     <p class="result">- Glyphosate (u/L): <mark class="mark-others">${this.soil[0]}</mark></p>
+//     <p class="result">- Paraquat (u/L): <mark class="mark-others">${this.soil[1]}</mark></p>
+//     <p>ปีที่ตรวจสอบ: ${this.year}</p>
+//     `;
+
+//     infoText.appendChild(detail);
+
+//     this.openClose();
+//   }
+
+//   static addImg(address) {
+//     imgBox.src = `./images/${address}`;
+//   }
+
+//   openClose() {
+//     const current = allProvs.querySelector(".active");
+
+//     if (infoBox.classList[1] === undefined) {
+//       infoBox.classList.add("open");
+//       infoBox.classList.add(this.boxClass);
+//     } else if (infoBox.classList[1] === this.boxClass) {
+//       infoBox.classList.remove(infoBox.classList[1]);
+//       infoBox.classList.remove("open");
+//       if (!infoBox.classList.contains("open")) {
+//         current.className = current.className.replace("active", "");
+//       }
+//     } else if (
+//       infoBox.classList[1] !== undefined &&
+//       infoBox.classList[1] !== this.boxClass
+//     ) {
+//       infoBox.classList.add("open");
+//       infoBox.classList.remove(infoBox.classList[1]);
+//       infoBox.classList.add(this.boxClass);
+//     }
+//   }
+// }

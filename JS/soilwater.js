@@ -4,12 +4,12 @@ new Chart(document.getElementById("SW3__chart"), {
   data: {
     labels: [
       "cypermethrin",
-      "chlopyrifos",
+      "chlopyrifos*",
       "imidacloprid",
       "ethion",
       "carbendazim",
       "azoxystrobin",
-      "carbofuran",
+      "carbofuran*",
       "acetamiprid",
       "difenoconazole",
       "profenofos",
@@ -40,10 +40,11 @@ new Chart(document.getElementById("SW3__chart"), {
       "ametryn",
       "atrazine",
       "diuron",
+      "methomyl*",
     ],
     datasets: [
       {
-        label: "ความถี่ของสารในแหล่งดิน : ",
+        label: "ความถี่ของสารในแหล่งดิน",
         data: [
           118,
           113,
@@ -81,6 +82,7 @@ new Chart(document.getElementById("SW3__chart"), {
           2,
           2,
           2,
+          1,
           1,
         ],
         backgroundColor: [
@@ -121,16 +123,34 @@ new Chart(document.getElementById("SW3__chart"), {
           "#289599",
           "#2da376",
           "#44bb5e",
+          "#62e47e",
         ],
       },
     ],
   },
   options: {
+    legend: {
+      labels: {
+        fontSize: 0,
+      },
+    },
     scales: {
       yAxes: [
         {
+          scaleLabel: {
+            display: true,
+            labelString: "จำนวนครั้งที่พบ",
+          },
           ticks: {
             beginAtZero: true,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            labelString: "สารที่พบ",
           },
         },
       ],
@@ -157,7 +177,7 @@ var myChart = new Chart(document.getElementById("SW2__chart"), {
     ],
     datasets: [
       {
-        label: "ความถี่ของสารในแหล่งดิน : ",
+        label: "ความถี่ของสารในแหล่งดิน",
         data: [146, 75, 19, 28, 17, 11, 5, 4, 4, 3, 1],
         backgroundColor: [
           "#664a3a",
@@ -176,11 +196,29 @@ var myChart = new Chart(document.getElementById("SW2__chart"), {
     ],
   },
   options: {
+    legend: {
+      labels: {
+        fontSize: 0,
+      },
+    },
     scales: {
       yAxes: [
         {
+          scaleLabel: {
+            display: true,
+            labelString: "จำนวนครั้งที่พบ",
+          },
+
           ticks: {
             beginAtZero: true,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            labelString: "สารที่พบ",
           },
         },
       ],
@@ -201,7 +239,7 @@ new Chart(document.getElementById("SW1__chart"), {
     ],
     datasets: [
       {
-        label: "ความถี่ของสารในแหล่งน้ำ : ",
+        label: "ความถี่ของสารในแหล่งน้ำ",
         data: [3, 1, 1, 1, 1],
         backgroundColor: [
           "#EDB500",
@@ -215,11 +253,28 @@ new Chart(document.getElementById("SW1__chart"), {
     ],
   },
   options: {
+    legend: {
+      labels: {
+        fontSize: 0,
+      },
+    },
     scales: {
       yAxes: [
         {
+          scaleLabel: {
+            display: true,
+            labelString: "จำนวนครั้งที่พบ",
+          },
           ticks: {
             beginAtZero: true,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            labelString: "สารที่พบ",
           },
         },
       ],

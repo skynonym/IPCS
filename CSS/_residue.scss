@@ -1,7 +1,7 @@
 #residue {
-  @include theme(gray);
+  @include theme(white);
   min-height: 100vh;
-  padding: 4%;
+  padding: 3% 5% 5% 5%;
 
   .residue__container {
     margin-top: 1rem;
@@ -11,6 +11,12 @@
   h1.title {
     @include head-text($main-dark);
     margin: 1rem 0;
+  }
+
+  h2.subtitle {
+    font-size: $h3;
+    font-weight: 400;
+    margin-top: 20px;
   }
 
 
@@ -91,38 +97,6 @@
     font-size: $h2;
   }
 
-  // .fruits {
-  //   text-align: right;
-  //   color: #535461;
-  //   margin-top: 3rem;
-  //   margin-bottom: 3rem;
-  //   position: relative;
-
-  //   p {
-  //     margin-right: 300px;
-  //   }
-
-  //   img {
-  //     width: calc(120px + 5vw);
-  //     top: -10px;
-  //     right: 50px;
-  //   }
-
-  //   mark {
-  //     color: #535461;
-  //   }
-  // }
-
-  // .see-full-results {
-  //   // cursor: pointer;
-  //   color: $main-dark;
-  //   margin-top: 2rem;
-  //   display: inline-block;
-
-  //   // &:hover {
-  //   //   text-decoration: underline;
-  //   // }
-  // }
 
   .full-results {
     // opacity: 0;
@@ -132,12 +106,6 @@
     left: 50%;
     // transform: translate(-50%);
   }
-
-  // .full-results.open {
-  //   opacity: 1;
-  //   visibility: visible;
-  //   position: relative;
-  // }
 
   table {
     max-width: 100%;
@@ -218,6 +186,10 @@
 
   }
 
+  .chart2 {
+    margin-top: 50px;
+  }
+
   // #TROBLESOME TABLE
 
   .res-chart__title {
@@ -225,6 +197,7 @@
     font-size: $h3;
     font-weight: 400;
     margin-bottom: 40px;
+
   }
 
   .horizontal-table {
@@ -301,6 +274,12 @@
     margin-top: 30px;
   }
 
+  .res-monitor__chart {
+    width: 80% !important;
+
+
+  }
+
   .monitor__note {
     margin-top: 30px;
     color: $main-lightgray;
@@ -310,11 +289,53 @@
   }
 
   .res-frequecy2__chart {
-    display: none;
+    display: block;
   }
 
-  .res-frequecy2__chart.open {
-    display: block;
+  .res-monitor__container {
+    .container {
+      @include flex(row, space-around, center);
+    }
+
+    .year {
+      font-weight: 400 !important;
+    }
+  }
+
+  .year2561,
+  .year2562 {
+    flex: 1 1 10rem;
+  }
+
+  .monitor-plants__container {
+    width: 70%;
+    margin: auto;
+    padding-top: 30px;
+
+    div.note {
+      padding: 20px 20px 20px 40px;
+      background: $main-light;
+      border-radius: 0 0 5px 5px;
+
+      ul {
+        text-align: justify;
+
+        li {
+          list-style-type: disc;
+        }
+      }
+    }
+  }
+
+  // @types of chems found in plants 
+
+  .year-container {
+    margin-top: 6rem;
+
+    .chart-container {
+      width: 40%;
+      margin: auto;
+    }
   }
 }
 
@@ -374,6 +395,12 @@
     .chart-container p.note {
       font-size: calc(0.5rem + 0.7vw);
     }
+
+    .monitor-plants__container {
+      width: 90%;
+
+    }
+
   }
 }
 

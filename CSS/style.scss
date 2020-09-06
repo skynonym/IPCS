@@ -1,12 +1,12 @@
 @import "global";
 
 body {
-  display: grid;
-  grid-template-rows: 70px auto fit-content(70px);
-  grid-template-areas:
-    "head"
-    "main"
-    "foot";
+        display: grid;
+        grid-template-rows: 70px auto fit-content(70px);
+        grid-template-areas:
+                "head"
+                "main"
+                "foot";
 }
 
 
@@ -15,12 +15,12 @@ body {
 
 // #MAIN
 main {
-  grid-area: main;
+        grid-area: main;
 }
 
 #top {
-  grid-area: head;
-  background: $main-dark;
+        grid-area: head;
+        background: $main-dark;
 }
 
 @import "select-box";
@@ -35,6 +35,7 @@ main {
 @import "residue";
 @import "impacts";
 @import "gg-trends";
+@import "plainam-map";
 
 
 // #FOOTER

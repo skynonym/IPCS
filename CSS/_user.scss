@@ -25,9 +25,14 @@
     }
   }
 
-  // .users h2 {
-  //   font-size: 1.8rem;
-  // }
+  .user__container {
+    p.note {
+      margin-top: 15px;
+      font-size: $small;
+      text-align: left;
+    }
+  }
+
 
   .farmers {
     margin: 2rem;

@@ -18,15 +18,39 @@
     margin: 50px 0;
   }
 
+  .SW-chart__outer-wrap {
+    flex: 4 1 20rem;
+    margin: 20px 0;
+  }
+
   .SW-chart__wrapper {
     background: white;
     border-radius: 10px;
     padding: 20px;
-    width: 70%;
+    width: 85%;
     margin: 20px auto;
+    display: inline-block;
+    margin: auto;
+
   }
 
   p.desc {
     text-align: center;
+    font-size: $small;
+  }
+
+  .img__wrapper {
+    flex: 1 1 50px;
+    display: inline-block;
+    margin: auto;
+
+    img {
+      width: 70%;
+
+    }
+  }
+
+  .SW-content__wrapper {
+    @include flex(row, space-around, center);
   }
 }

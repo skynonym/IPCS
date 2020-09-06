@@ -9,14 +9,16 @@
   @include flex(row, space-between, center);
 
   img.bg-img {
-    opacity: 60%;
+    opacity: 10%;
     user-select: none;
     position: absolute;
-    top: -50px;
-    left: -350px;
-    bottom: 0;
+    // top: -50px;
+    // left: -350px;
+    // bottom: 0;
     pointer-events: none;
     z-index: 1;
+    width: 40%;
+    transition: all 1s;
   }
 
   // #LEFT
@@ -182,20 +184,25 @@
 
 
 // #ANIMATION
-@keyframes btn-bg {
-  from {
-    background-position: left;
-  }
+// @keyframes btn-bg {
+//   from {
+//     background-position: left;
+//   }
 
-  to {
-    background-position: right;
-  }
-}
+//   to {
+//     background-position: right;
+//   }
+// }
 
 // #MEDIA QUERIES
 @media (max-width: 1330px) {
   #overall {
     display: block;
+
+    img.bg-img {
+      top: 10%;
+      width: 80%;
+    }
 
     .left__container {
       display: block;
@@ -236,6 +243,7 @@
 
 @media (max-width: 950px) {
   #overall {
+
 
     .all-boxes {
       width: 90%;
@@ -287,6 +295,10 @@
 
 @media (max-width: 706px) {
   #overall {
+    img.bg-img {
+      opacity: 0;
+    }
+
     .overall-box {
       img.plainam-img {
         width: 50%;

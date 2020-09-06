@@ -115,16 +115,6 @@ chart.render();
 // #EACH PROVINCE
 const GAPOpt = document.querySelectorAll(".GAP-opt");
 const GAPAllWrapper = document.querySelector(".GAP-wrapper--all");
-const GAPOptContainer = document.querySelector(".GAP-option__container");
-
-const GAPChiangMaiChart = document.getElementById("GAP-chiangmai");
-const GAPchiangRaiChart = document.getElementById("GAP-chiangrai");
-const GAPPaYaoChart = document.getElementById("GAP-payao");
-const GAPPraeChart = document.getElementById("GAP-prae");
-const GAPLamPoonChart = document.getElementById("GAP-lampoon");
-const GAPLamPangChart = document.getElementById("GAP-lampang");
-const GAPnanChart = document.getElementById("GAP-nan");
-const GAPMaeHongSornChart = document.getElementById("GAP-maehongsorn");
 
 // @CHARTS
 // *chiangmai

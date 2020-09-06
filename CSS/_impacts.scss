@@ -6,7 +6,7 @@
 
   @include theme(white);
   min-height: 100vh;
-  padding: 4%;
+  padding: 3% 5% 5% 5%;
 
   h1.title {
     @include head-text($main-green);
@@ -174,23 +174,89 @@
     display: block;
   }
 
+  .sec3-stacked__container {
+    margin-bottom: 40px;
+  }
+
+  // #environmental pollution
+
+  .env-poll__container {
+    margin: 4rem 0;
+  }
+
+  .content__container {
+    @include flex(row, space-around, flex-start);
+    text-align: center;
+
+    h3 {
+      font-size: $font-normal;
+      font-weight: 400;
+      padding: 10px 30px;
+      background: #ffdab0;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    img {
+      margin: 10px auto 30px auto;
+      display: block;
+    }
+
+    p {
+      text-align: left;
+      transition: font-size .5s;
+    }
+
+    ul {
+      text-align: left;
+    }
+
+    li {
+      list-style: disc !important;
+      padding-top: 5px;
+      transition: font-size .5s;
+    }
+
+    mark {
+      background: transparent;
+      color: #d47508;
+    }
+  }
+
+  .nan {
+    margin-top: 30px;
+    flex: 1 1 30rem;
+    padding: 0 20px;
+
+    img {
+      width: 30%;
+    }
+  }
+
+  .lampang {
+    margin-top: 30px;
+    flex: 1 1 30rem;
+
+    img {
+      width: 50%;
+    }
+  }
 
   // #Contaminants
+
+  #select-contam {
+    margin: 0 auto 25px auto;
+    display: block;
+    position: relative;
+    width: 150px;
+    right: 0;
+    color: $main-lightgray;
+  }
 
   .contaminant__container {
     margin-top: 4rem;
   }
 
-  p.guide {
-    color: $sec-lightgray;
-    margin-top: 1rem;
-    text-indent: 20px;
-  }
-
-  .prov-seals {
-    @include flex(row, flex-start, center);
-    margin-top: 1.5rem;
-  }
 
   .prov {
     flex-grow: 1;
@@ -205,31 +271,34 @@
     }
   }
 
-  .prov:hover {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .prov.active {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.1);
-  }
-
-  img.seal {
-    width: 150px;
-  }
 
   .water-emoji {
     width: 30px;
   }
 
   #con-info__box {
-    padding: 5%;
+    flex: 1 1 20rem;
     padding-bottom: 0;
-    display: none;
     width: 100%;
   }
 
-  #con-info__box.open {
-    @include flex(row, space-between, center);
+  .only-info__box {
+    // @include flex(row, space-between, center);
+    color: $main-lightgray;
+    padding: 0 4%;
+    background: white;
+    min-height: 300px;
+
+    h4 {
+      text-align: center;
+      font-size: $h3;
+      font-weight: 300;
+    }
+
+    p {
+      font-size: $normal;
+      font-weight: 300;
+    }
   }
 
   .each-detail {
@@ -237,18 +306,29 @@
     flex: 1 1 400px;
   }
 
-  .info-img__container {
-    flex: 1 1 200px;
-    text-align: center;
-  }
-
-  .info-img {
-    width: 70%;
-    min-width: 300px;
+  .contam-detail h3 {
+    font-weight: 300;
   }
 
   p.result {
     text-indent: 1.5rem;
+  }
+
+  p.substance {
+    text-indent: 25px;
+
+    mark {
+      background: #6bddd759;
+      color: #7b7b7b;
+    }
+  }
+
+  p.samples {
+    text-indent: 50px;
+
+    mark {
+      color: #1b918b;
+    }
   }
 
   mark {
@@ -271,7 +351,10 @@
     text-align: justify;
     font-size: $small;
   }
+
 }
+
+
 
 // #MEDIA QUERIES!!!!!!!!!!!!!!!!!
 @media (max-width: 1200px) {
@@ -321,6 +404,7 @@
       font-size: $normal-800;
     }
   }
+
 }
 
 @media (max-width: 1000px) {
@@ -347,7 +431,7 @@
     }
 
     .wrapper {
-      width: 85%;
+      width: 100%;
     }
   }
 }
@@ -425,6 +509,35 @@
     .mark-river {
       font-size: $h3-800;
     }
+
+    .contam-detail h3 {
+      font-size: $h3-800;
+    }
+  }
+
+  .content__container {
+    h3 {
+      font-size: $h3-800;
+    }
+
+    p {
+      font-size: $normal-800;
+    }
+
+    li {
+      font-size: $normal-800;
+    }
+
+    .only-info__box {
+      h4 {
+        font-size: $h3-800;
+      }
+
+      p {
+        font-size: $normal-800;
+      }
+    }
+
   }
 }
 
@@ -439,8 +552,7 @@
     }
 
     .wrapper {
-      width: 95%;
-      padding: 60px 20px;
+      padding: 60px 0px !important;
     }
   }
 

@@ -10,7 +10,7 @@ $sec-lightgray: #ababab;
 $main-light: #DBDBDB;
 $sec-green: #009240;
 $main-blue: #03539B;
-$test: #5d92b1;
+$test: #006eff;
 
 $font-logo: "Niramit",
 sans-serif;
@@ -92,15 +92,100 @@ _ html {
   overflow-x: auto;
 }
 
+.section-title__container {
+  width: 90%;
+  margin: 0 auto 2rem auto;
+  padding: 20px;
+  text-align: center;
+  background: $main-green;
+  color: white;
+  border-radius: 10px;
+  position: relative;
+
+  img {
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    z-index: 0;
+  }
+
+  .tonnam-section__img {
+    width: 150px;
+  }
+
+  .klangnam-section__img {
+    width: 140px;
+  }
+
+  .plainam-section__img {
+    width: 140px;
+  }
+
+  p {
+    font-size: $normal;
+    position: relative;
+    z-index: 1;
+  }
+}
+
 h1.section__title {
   font-size: $xl;
   font-weight: 400;
   text-align: center;
   padding-bottom: 15px;
+  font-family: $font-normal;
+  display: inline-block;
 }
+
+
+
+img.label {
+  position: fixed;
+  width: 150px;
+  bottom: 5%;
+  right: 2%;
+  z-index: 5;
+  pointer-events: none;
+  transition: all 0.5s;
+}
+
 
 @media(max-width: 1000px) {
   h1.section__title {
     font-size: calc(2.8rem + 1vw);
+  }
+}
+
+@media(max-width: 800px) {
+  .section-title__container {
+    position: static;
+
+    img {
+      position: static;
+      display: block;
+      margin: 10px auto;
+    }
+
+    .tonnam-section__img {
+      width: calc(140px + 1vw)
+    }
+
+    .klangnam-section__img {
+      width: calc(130px + 1vw)
+    }
+
+    .plainam-section__img {
+      width: calc(130px + 1vw)
+    }
+  }
+
+  img.label {
+    width: calc(120px + 1vw);
+  }
+}
+
+@media(max-width: 700px) {
+  img.label {
+    opacity: 0;
   }
 }
